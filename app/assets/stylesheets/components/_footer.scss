@@ -1,0 +1,39 @@
+.footer {
+  background: #dfdfdf;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+  color: rgba(0,0,0,0.3);
+
+}
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 2px;
+  line-height: 80%;
+}
+.footer-links a:hover {
+  opacity: 1;
+}
+.footer .fa-heart {
+  color: #D23333;
+}
+
+// .social-media a {
+//   padding: 4px;
+// }
+
+.footer-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 250px;
+  /* Height of the footer*/
+}
