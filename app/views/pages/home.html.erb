@@ -9,7 +9,7 @@
   <div class="container-home">
     <h3>Use Ikujitime, take a little of your time to get much closer to those kids that you like.</p>
     <p>It can be a niece, a nephew, a friend's kid, your own to keed tabs on them, become a better parent, a better friend, a closer familly member! </p>
-    <a class="btn-lg btn-primary" href="/user/signup">Sign up now</a>
+    <a class="btn-lg btn-primary <%= current_user.present? ? "d-none" : '' %>" href="/users/sign_up">Sign up now</a>
   </div>
   <div class="container instructions">
     <div class="position-of-down mt-5">
