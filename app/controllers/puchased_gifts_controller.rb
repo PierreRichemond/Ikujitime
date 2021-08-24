@@ -1,0 +1,2 @@
+class PuchasedGiftsController < ApplicationController
+end
