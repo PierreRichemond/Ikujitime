@@ -5,7 +5,9 @@
   justify-content: space-between;
   padding: 0px 10px;
   color: rgba(0,0,0,0.3);
-
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 .footer-links {
   display: flex;
@@ -31,9 +33,7 @@
 // }
 
 .footer-container {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
+
   height: 250px;
   /* Height of the footer*/
 }
