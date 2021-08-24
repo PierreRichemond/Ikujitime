@@ -1,2 +1,37 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: asset-url('gabby-orcutt-9mzGpUpqUpw-unsplash.jpg');">
+  <div class="container">
+    <h1>How many kids do you know?</h1>
+    <h2>Can't remember details about them?</h2>
+    <h2>Do you want to do more?</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="container-home">
+    <h3>Use Ikujitime, take a little of your time to get much closer to those kids that you like.</p>
+    <p>It can be a niece, a nephew, a friend's kid, your own to keed tabs on them, become a better parent, a better friend, a closer familly member! </p>
+    <a class="btn-lg btn-primary" href="/user/signup">Sign up now</a>
+  </div>
+  <div class="container instructions">
+    <div class="position-of-down mt-5">
+      <%= image_tag 'down-arrow.png', class: "down-arrow-icon" %>
+    </div>
+    <h2 style="text-align: center; margin-top: 2em;">IT IS EASY AS...</h2>
+    <div class="instruction-container">
+      <div class="instruction-container-text">
+        <%= image_tag "sign-up.png" %>
+        <p>Step 1.</p>
+        <p>Create an Account</p>
+      </div>
+      <div class="instruction-container-text">
+        <%= image_tag "form-image.png" %>
+        <p>Step 2.</p>
+        <p>Save the child's info</p>
+      </div>
+      <div class="instruction-container-text">
+        <%= image_tag "autumn-season-5580628_1920.png", style: "width: 200px;" %>
+        <p>Step 3.</p>
+        <p>Spend an awesome time with the kid!</p>
+      </div>
+    </div>
+  </div>
+</div>
