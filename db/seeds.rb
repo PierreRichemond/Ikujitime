@@ -1,9 +1,29 @@
 require "open-uri";
+require 'nokogiri'
 
 gender_array = ['boy', 'girl', 'other']
-occasion_array = ['graduation', 'random surprise', 'birthday', '']
-date_array = []
-time_array = ['9:00', '10:00', '11:00', '12:00', '13:00'  ]
+occasion_array = ['graduation', 'random surprise', 'birthday', 'mutual friend\'s birthday', '']
+startdatetime_array = ['2014-05-12 07:00', '2014-05-23 08:00', '2014-06-01 11:00', '2014-06-11 11:00', '2014-06-15 10:00']
+enddatetime_array = ['2014-06-16 20:00', '2014-06-23 20:00']
+
+
+item = ''
+url = "https://www.bbcgoodfood.com/search/recipes?q=#{ingredient}"
+
+html_file = URI.open(url).read
+html_doc = Nokogiri::HTML(html_file)
+
+html_doc.search('.standard-card-new__article-title').each do |element|
+  puts element.text.strip
+  puts element.attribute('href').value
+end
+
+50.times do
+  activity = Activity.create!(
+
+  )
+end
+
 
   15.times do
    file = URI.open('https://thispersondoesnotexist.com/image')
@@ -23,33 +43,35 @@ time_array = ['9:00', '10:00', '11:00', '12:00', '13:00'  ]
         parent: Faker::Name.name,
         gender: gender_array.sample,
         hobby: Faker::Hobby.activity,
-        birthday: Faker::Date.between(from: '2014-01-01', to: '2020-12-31')
+        birthday: Faker::Date.between(from: '2014-01-01', to: '2020-12-31'),
+        user: user
       )
 
       child.photo.attach(io: file, filename: 'child.png', content_type: 'image/png')
 
-      5.times do
-        file = URI.open('https://source.unsplash.com/random/?activity')
+      (1..5).times do
         booked_activity = BookedActivity.create!(
-          start_date: Faker::Date.between(from: '2017-07-01', to: '2017-12-31'),
-          end_date: Faker::Date.between(from: '201-01-01', to: '2021-7-31'),
-          child_id = (Child.last.id-15..Child.last.id),
+          start_date: startdatetime_array.sample,
+          end_date: enddatetime_array.sample,
+          child: child,
           activity_id = (Activity.last.id-5..Activity.last.id)
         )
-        3.times do
+        (1..3).times do
+          file = URI.open('https://source.unsplash.com/random/?activity')
           booked_activity.photo.attach(io: file, filename: 'booked_activity.png', content_type: 'image/png')
         end
       end
 
-      5.times do
-        file = URI.open('https://source.unsplash.com/random/?activity')
+      (1..5).times do
         purchased_gift = BookedActivity.create!(
           date: Faker::Date.between(from: '2015-01-01', to: '2021-7-31'),
           occasion = occasion_array.sample,
-          child_id = (Child.last.id-15..Child.last.id),
+          child: child,
           gift_id = (Gift.last.id-3..Gift.last.id)
         )
-        3.times do
+        (1..3).times do
+          # add random photo query
+          file = URI.open('https://source.unsplash.com/random/?')
           purchased_gift.photo.attach(io: file, filename: 'purchased_gift.png', content_type: 'image/png')
         end
       end
