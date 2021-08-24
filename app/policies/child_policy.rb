@@ -4,4 +4,6 @@ class ChildPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+
 end
