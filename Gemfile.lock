@@ -132,9 +132,7 @@ GEM
     msgpack (1.4.2)
     netrc (0.11.0)
     nio4r (2.5.8)
-    nokogiri (1.12.3-x86_64-linux)
-      racc (~> 1.4)
-    nokogiri (1.12.3-x86_64-linux)
+    nokogiri (1.12.3-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.12.3-x86_64-linux)
       racc (~> 1.4)
@@ -277,6 +275,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  nokogiri (~> 1.8)
   pg (~> 1.1)
   pry-byebug
   pry-rails
