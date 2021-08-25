@@ -2,6 +2,8 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 25px;
+  border-radius: 5px;
 }
 
 .card-trip > img {
@@ -23,7 +25,6 @@
 }
 
 .card-text {
-  display: block;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -33,6 +34,7 @@
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
 }
