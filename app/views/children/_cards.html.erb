@@ -1,0 +1,17 @@
+<div class="card-trip mb-4">
+  <%# <%= link_to activity_path(activity), class: "card-link" do %>
+    <% if activity.photo.attached? %>
+      <%= cl_image_tag activity.photo.key, class: "main-image"%>
+    <% else %>
+      <%= image_tag 'camera-photo.png', class: 'main-image' %>
+    <% end %>
+    <div class="card-trip-infos">
+      <div>
+        <h2 class="card-title"><%= activity.name.capitalize %></h2>
+        <p class="card-title"><%= activity.address.capitalize %></p>
+        <p class="card-text"><%= activity.description %></p>
+        <p class="card-trip-pricing"><%= activity.price %>¥</p>
+      </div>
+    </div>
+  <%# <% end %>
+</div>

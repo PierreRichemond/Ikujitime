@@ -6,6 +6,8 @@ class ChildrenController < ApplicationController
   end
 
   def show
+    @gifts = Gift.all
+    @activities = Activity.all
     authorize @child
   end
 
