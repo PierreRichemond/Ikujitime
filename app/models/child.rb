@@ -1,9 +1,10 @@
 class Child < ApplicationRecord
   require "date"
   belongs_to :user
-  has_many :events
+  has_many :events, dependent: :destroy
   has_many :gifts, through: :events
   has_many :activities, through: :events
+  has_one_attached :photo
   GENDERS = ["male", "female", "others"]
 
 
