@@ -1,4 +1,4 @@
 class Gift < ApplicationRecord
-  has_many :purchased_gifts
+  has_many :events
   has_one_attached :photo
 end

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :children do
-    resources :purchased_gifts, only: [:create]
-    resources :booked_activities, only: [:create]
+    resources :events, only: [:create]
   end
 end

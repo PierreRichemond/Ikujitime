@@ -1,15 +1,15 @@
 class Child < ApplicationRecord
   require "date"
   belongs_to :user
-  has_many :purchased_gifts
-  has_many :gifts, through: :purchased_gifts
-  has_many :booked_activities
-  has_many :activities, through: :booked_activities
+  has_many :events
+  has_many :gifts, through: :events
+  has_many :activities, through: :events
+  GENDERS = ["male", "female", "others"]
 
 
-  validates :age, presence: true
+  validates :birthday, presence: true
   validates :first_name, presence: true
-  validates :gender, presence: true
+  validates :gender, presence: true, inclusion: { in: GENDERS }
 
   def age
     Date.today.year - child.birthday.year

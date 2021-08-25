@@ -1,4 +1,4 @@
 class Activity < ApplicationRecord
-  has_many :booked_activities
+  has_many :events
   has_one_attached :photo
 end
