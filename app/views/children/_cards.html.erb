@@ -1,4 +1,4 @@
-<div class="card-trip mb-4">
+<div class="card-trip h-100">
   <%# <%= link_to activity_path(activity), class: "card-link" do %>
     <% if activity.photo.attached? %>
       <%= cl_image_tag activity.photo.key, class: "main-image"%>
@@ -7,11 +7,10 @@
     <% end %>
     <div class="card-trip-infos">
       <div>
-        <h2 class="card-title"><%= activity.name.capitalize %></h2>
-        <p class="card-title"><%= activity.address.capitalize %></p>
-        <p class="card-text"><%= activity.description %></p>
-        <p class="card-trip-pricing"><%= activity.price %>¥</p>
+        <h2><%= activity.name.capitalize %></h2>
+        <p>Address: <%= activity.address %></p>
       </div>
+        <p class="card-trip-pricing">Price: <%= activity.price %>¥</p>
     </div>
   <%# <% end %>
 </div>
