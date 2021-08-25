@@ -8,8 +8,7 @@ class ChildPolicy < ApplicationPolicy
   def show?
     true
   end
-
-
+  
   def destroy?
     true
   end
