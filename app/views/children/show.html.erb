@@ -1,18 +1,18 @@
 <div class="container-fluid" style="height=100%">
   <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-xl-2 bd-sidebar border">
+    <div class="col-12 col-md-3 col-lg-2 bd-sidebar border">
       <h3>Testing</h3>
     </div>
-    <div class="col-12 col-md-9 col-xl-12 py-md-3 pl-md-5 bd-content border" role="main">
+    <div class="col-12 col-md-9 col-lg-10 py-md-3 pl-md-5 bd-content border" role="main">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "History" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">History</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:tab] ==  "Activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
+          <a class="tab-underlined <%= "active" if params[:tab] ==  "Activities" %>" id="converstion-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="converstion" aria-selected="false">Activities</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:tab] ==  "Gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="profile" aria-selected="false">Gifts</a>
+          <a class="tab-underlined <%= "active" if params[:tab] ==  "Gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="converstion" aria-selected="false">Gifts</a>
         </li>
       </ul>
 
@@ -21,7 +21,7 @@
         <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "History" %>" id="history" role="tabpanel" aria-labelledby="home-tab">
           <%= render "children/history" %>
         </div>
-        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "Activities" %>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "Activities" %>" id="activities" role="tabpanel" aria-labelledby="converstion-tab">
           <%= render "children/activities" %>
         </div>
         <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "Gifts" %>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
