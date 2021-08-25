@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_24_032653) do
+ActiveRecord::Schema.define(version: 2021_08_24_032542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,17 +53,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_032653) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "booked_activities", force: :cascade do |t|
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.bigint "child_id", null: false
-    t.bigint "activity_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["activity_id"], name: "index_booked_activities_on_activity_id"
-    t.index ["child_id"], name: "index_booked_activities_on_child_id"
-  end
-
   create_table "children", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -78,6 +67,20 @@ ActiveRecord::Schema.define(version: 2021_08_24_032653) do
     t.index ["user_id"], name: "index_children_on_user_id"
   end
 
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "occasion"
+    t.bigint "gift_id"
+    t.bigint "activity_id"
+    t.bigint "child_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_events_on_activity_id"
+    t.index ["child_id"], name: "index_events_on_child_id"
+    t.index ["gift_id"], name: "index_events_on_gift_id"
+  end
+
   create_table "gifts", force: :cascade do |t|
     t.string "name"
     t.string "price"
@@ -88,17 +91,6 @@ ActiveRecord::Schema.define(version: 2021_08_24_032653) do
     t.integer "end_age"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "purchased_gifts", force: :cascade do |t|
-    t.date "date"
-    t.string "ocassion"
-    t.bigint "gift_id", null: false
-    t.bigint "child_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["child_id"], name: "index_purchased_gifts_on_child_id"
-    t.index ["gift_id"], name: "index_purchased_gifts_on_gift_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -115,9 +107,8 @@ ActiveRecord::Schema.define(version: 2021_08_24_032653) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "booked_activities", "activities"
-  add_foreign_key "booked_activities", "children"
   add_foreign_key "children", "users"
-  add_foreign_key "purchased_gifts", "children"
-  add_foreign_key "purchased_gifts", "gifts"
+  add_foreign_key "events", "activities"
+  add_foreign_key "events", "children"
+  add_foreign_key "events", "gifts"
 end
