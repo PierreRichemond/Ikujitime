@@ -6,7 +6,7 @@
 
 .card-trip > img {
   height: 200px;
-  width: 25%;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -23,10 +23,10 @@
 }
 
 .card-text {
+  display: block;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
 }
 
 
