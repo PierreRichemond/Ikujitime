@@ -26,10 +26,10 @@
           <%= render "children/history" %>
         </div>
         <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "Activities" %>" id="Activities" role="tabpanel" aria-labelledby="Activities">
-          <%= render "children/history" %>
+          <%= render "children/activities" %>
         </div>
         <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "Gifts" %>" id="Gifts" role="tabpanel" aria-labelledby="Gifts">
-          <%= render "children/history" %>
+          <%= render "children/gifts" %>
         </div>
       </div>
     </div>
