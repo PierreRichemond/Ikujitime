@@ -7,6 +7,8 @@ class ChildrenController < ApplicationController
   end
 
   def show
+    @child = Child.find(params[:id])
+    authorize @child
   end
 
   def new

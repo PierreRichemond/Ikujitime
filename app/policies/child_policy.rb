@@ -5,5 +5,8 @@ class ChildPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
 
 end
