@@ -1,2 +1,15 @@
 <div class="history-card">
+  <%= @events.each do |event| %>
+    <h2> <%= event.occasion %> </h2>
+    <div class="col-12 col-md-3 col-lg-2">
+      <h3>Testing</h3>
+    </div>
+    <div class="col-12 col-md-9 col-lg-10">
+      <div class="owl-carousel owl-theme">
+        <% event.each do |photo| %>
+          <%= render 'lists/card', list: list %>
+        <% end %>
+      </div>
+    </div>
+  <%= end %>
 </div>
