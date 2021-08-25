@@ -1,2 +1,0 @@
-class BookedActivitiesController < ApplicationController
-end
