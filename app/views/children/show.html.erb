@@ -9,11 +9,10 @@
           <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">History</a>
         </li>
         <li class="nav-item" role="presentation">
-
           <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:tab] ==  "gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="profile" aria-selected="false">Gifts</a>
+          <a class="tab-underlined <%= "active" if params[:tab] ==  "gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="converstion" aria-selected="false">Gifts</a>
         </li>
       </ul>
       <div class="tab-content" id="myTabContent">
