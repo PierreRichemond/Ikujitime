@@ -2,7 +2,6 @@ class ChildrenController < ApplicationController
   before_action :set_children, only: [:show, :edit, :update, :destroy]
 
   def index
-    @children = Child.all
     @children = policy_scope(Child)
   end
 
@@ -40,6 +39,7 @@ class ChildrenController < ApplicationController
 
   def destroy
     @child.destroy
+    authorize @child
     redirect_to children_path
   end
 
