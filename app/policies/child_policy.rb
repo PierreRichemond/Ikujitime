@@ -5,5 +5,12 @@ class ChildPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
 
+
+  def destroy?
+    true
+  end
 end

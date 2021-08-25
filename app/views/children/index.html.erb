@@ -2,26 +2,26 @@
   <h1>Create a list of children you want to keep tabs on</h1>
   <a class="btn-lg btn-primary my-3" href="/children/new">add a child to your list</a>
   <% @children.each do |child| %>
-    <div class="card-product my-5">
+    <div class="card-product my-3">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
       <div class="card-product-infos">
-        <h2><%= child.full_name %></h2>
+        <h2><%= child.full_name(child) %></h2>
         <div class="d-flex justify-content-between">
           <div>
-            <p>parents : <%= child.parent %> </p>
-            <p><%= child.hobby %></p>
+            <p>Parents: <%= child.parent %> </p>
+            <p class='mb-4'>Hobby: <%= child.hobby %></p>
+            <%= link_to "Check #{child.first_name}\'s details", child_path(child), class: "btn-small btn-primary p-1" %>
           </div>
           <div>
-            <p><%= child.birthday %></p>
-            <p><%= child.age %></p>
+            <p>Birthday: <%= child.birthday %></p>
+            <p><%= child.age(child) %> years old</p>
             <p><%= child.gender %></p>
+            <%= link_to '🖋', edit_child_path(child)%>
+            <%= link_to  '🗑',
+          child_path(child),
+          method: :delete, class: 'mx-3',
+           data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
           </div>
-        </div>
-        <div class="d-flex flex-row-reverse align-items-end">
-          <%= link_to class: "fas fa-trash", child_path(child),
-          method: :delete, class: 'btn btn-danger',
-           data: { confirm: "delete #{child.first_name} #{child.last_name}?"%>
-          <%= link_to class: "fas fa-edit", edit_child_path(child)%>
         </div>
       </div>
     </div>
