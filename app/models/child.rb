@@ -12,11 +12,11 @@ class Child < ApplicationRecord
   validates :first_name, presence: true
   validates :gender, presence: true, inclusion: { in: GENDERS }
 
-  def age
+  def age(child)
     Date.today.year - child.birthday.year
   end
 
-  def full_name
-    "#{child.first.capitalize} #{child.middle_name.capitalize} #{child.last_name.capitalize}"
+  def full_name(child)
+    "#{child.first_name.capitalize} #{child.middle_name.capitalize} #{child.last_name.capitalize}"
   end
 end
