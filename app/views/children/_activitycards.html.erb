@@ -10,7 +10,7 @@
         <h2><%= activity.name.capitalize %></h2>
         <p>Address: <%= activity.address %></p>
       </div>
-        <p class="card-trip-pricing">Price: <%= activity.price %>¥</p>
+        <p class="card-trip-pricing">Price:<%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
     </div>
   <%# <% end %>
 </div>
