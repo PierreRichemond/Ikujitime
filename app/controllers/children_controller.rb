@@ -9,6 +9,9 @@ class ChildrenController < ApplicationController
     @gifts = Gift.all
     @activities = Activity.all
     @events = Event.all
+    if params[:event_id].present?
+      @event = Event.find(params[:event_id])
+    end
     authorize @child
     map_geocode
   end
@@ -56,10 +59,11 @@ class ChildrenController < ApplicationController
   end
 
   def map_geocode
-    @markers = @activities.geocoded.map do |flat|
+    @markers = @activities.geocoded.map do |activity|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: activity.latitude,
+        lng: activity.longitude,
+        # info_window: render_to_string(partial: "info_window", locals: { activity: activity })
       }
     end
   end
