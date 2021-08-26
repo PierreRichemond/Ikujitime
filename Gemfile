@@ -37,6 +37,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.16.0'
 gem 'faker'
 gem 'nokogiri', '~> 1.8'
+gem "simple_calendar", "~> 2.4"
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

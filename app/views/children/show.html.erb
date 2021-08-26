@@ -1,7 +1,35 @@
 <div class="container-fluid" style="height=100%">
   <div class="row flex-xl-nowrap">
     <div class="col-12 col-md-3 col-lg-2 bd-sidebar border">
-      <h3>Testing</h3>
+      <div>
+        <% if @child.photo.attached? %>
+          <%= cl_image_tag @child.photo.key, class: "avatar-xlarge mr-2 mt-4 mb-3"%>
+        <% else %>
+          <span class="mr-2">
+          <%= image_tag 'clock-image.png'%>
+          </span>
+        <%end %>
+      </div>
+      <div style="padding-top: 30px;">
+        <p><%= @child.first_name %></p>
+        <p>Age: <%= @child.age(@child) %></p>
+        <p>Gender: <%= @child.gender %></p>
+      </div>
+      <div class="mb-4 mt-4" style="padding-top: 50px">
+
+        <p>CALENDAR</p>
+
+      </div>
+      <div class="mb-4" style="padding-top: 30px ">
+
+        <p><strong><u>Create an event</u><strong></p>
+        <%= simple_form_for [@child, @event] do |f| %>
+          <%= f.input :start_date, as: :datetime%>
+          <%= f.input :occasion, as: :string %>
+          <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
+        <% end %>
+
+      </div>
     </div>
     <div class="col-12 col-md-9 col-lg-10 py-md-3 pl-md-5 bd-content border" role="main">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
