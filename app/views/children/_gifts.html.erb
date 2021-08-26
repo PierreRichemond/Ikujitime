@@ -7,7 +7,7 @@
               <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter-gift<%= gift.id %>">
               <%= render './gift_components/giftcards', gift: gift %>
               </a>
-              <%= render './gift_components/gift_modal', gift: gift %>
+              <%= render './gift_components/gift_modal', gift: gift, event: event %>
             </div>
           <% end %>
         </div>

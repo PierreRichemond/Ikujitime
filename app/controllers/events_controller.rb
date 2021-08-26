@@ -6,7 +6,6 @@ class EventsController < ApplicationController
   end
 
   def update
-
     @event.update(event_params)
     if params[:gift_id]
       @gift = Gift.find(params[:gift_id])
@@ -17,7 +16,7 @@ class EventsController < ApplicationController
       @event.activity = @activity
     end
     policy_scope_event
-    if @event.save
+    if @event.update(event_params)
       redirect_to child_path(@event.child)
     end
   end
