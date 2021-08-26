@@ -1,11 +1,11 @@
 <div class="container-fluid" style="height=100%">
   <div class="row">
-    <div class="col-3 col-md-3 col-lg-2 sidenav  border" style="overflow:auto">
-      <div>
+    <div class="col-12 col-lg-3 sidenav" style="overflow:auto">
+      <div class="mt-5">
         <% if @child.photo.attached? %>
-          <%= cl_image_tag @child.photo.key, class: "avatar-xlarge mr-2 mt-4 mb-3"%>
+          <%= cl_image_tag @child.photo.key, class: "avatar-xlarge m-3"%>
         <% else %>
-          <span class="mr-2">
+          <span class="m-3">
           <%= image_tag 'clock-image.png'%>
           </span>
         <%end %>
@@ -16,7 +16,7 @@
         <p>Gender: <%= @child.gender %></p>
         <p>Hobby: <%= @child.hobby %></p>
       </div>
-      <div class="mb-4 mt-4" style="padding-top: 30px">
+      <div style="padding-top: 30px">
         <p style="padding-bottom: 10px;"><strong><u>Upcoming events</u></strong></p>
         <%= month_calendar do |date| %>
         <%= date.day %>
@@ -26,12 +26,12 @@
         <p style="padding-bottom: 20px;"><strong><u>CREATE AN EVENT</u></strong></p>
         <%= simple_form_for [@child, @event_new] do |f| %>
           <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}%>
-          <%= f.input :occasion, as: :string %>
+          <%= f.input :occasion, as: :text %>
           <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
         <% end %>
       </div>
     </div>
-    <div class="col-9 col-md-9 col-lg-10 border">
+    <div class="col-12 col-lg-9">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Events</a>

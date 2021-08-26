@@ -1,8 +1,6 @@
 .sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  position: sticky; /* Fixed Sidebar (stay in place on scroll) */
-  top: 0;
-  // z-index: 1;
-  // left: 0;
-
+  height: 100%;
+  position: sticky;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.6);
 }
