@@ -1,6 +1,6 @@
 <div class="container-fluid" style="height=100%">
-  <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-lg-2 bd-sidebar border">
+  <div class="row">
+    <div class="col-3 col-md-3 col-lg-2 sidenav  border">
       <div>
         <% if @child.photo.attached? %>
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge mr-2 mt-4 mb-3"%>
@@ -30,7 +30,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 col-md-9 col-lg-10 py-md-3 pl-md-5 bd-content border" role="main">
+    <div class="col-9 col-md-9 col-lg-10 border">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Events</a>
@@ -57,4 +57,5 @@
   </div>
 </div>
 
-"avatar-xlarge mr-2 mt-4 mb-3"
+
+<%# py-md-3 pl-md-5 %>
