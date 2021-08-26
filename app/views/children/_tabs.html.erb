@@ -7,16 +7,28 @@
         <%= render 'add_photos_form', event: event%>
       </div>
       <div class='d-flex mt-3'>
-        <div class= 'info p-2'>
+        <% if event.gift.present? && event.activity.present? %>
           <p>Get a gift for <%= @child.first_name %></p>
           <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
+        <% elsif event.activity.present? %>
+          <%= render '../activity_components/activitycards', activity: event.activity %>
+          <p>Get a gift for <%= @child.first_name %></p>
+          <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
+        <% elsif event.gift.present? %>
           <p>Plan an activity with <%= @child.first_name %></p>
           <%= link_to "check those out!", child_path(@child, event_id: event.id, tab: 'activities') %>
-        </div>
+        <% else %>
+          <div class= 'info p-2'>
+            <p>Get a gift for <%= @child.first_name %></p>
+            <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
+            <p>Plan an activity with <%= @child.first_name %></p>
+            <%= link_to "check those out!", child_path(@child, event_id: event.id, tab: 'activities') %>
+          </div>
+        <% end %>
         <div class='w-100 overflow-hidden'>
           <div class="owl-carousel owl-theme align-self-center">
             <% event.photos.each do |photo| %>
-              <%= cl_image_tag photo.key, width: '180' %>
+              <%= cl_image_tag photo.key, width: '250', height: '250', object_fit: "cover"%>
             <% end %>
           </div>
         </div>
