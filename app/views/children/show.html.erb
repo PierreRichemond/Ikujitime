@@ -1,12 +1,39 @@
 <div class="container-fluid" style="height=100%">
-  <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-lg-2 bd-sidebar border">
-      <h3>Testing</h3>
+  <div class="row">
+    <div class="col-3 col-md-3 col-lg-2 sidenav  border">
+      <div>
+        <% if @child.photo.attached? %>
+          <%= cl_image_tag @child.photo.key, class: "avatar-xlarge mr-2 mt-4 mb-3"%>
+        <% else %>
+          <span class="mr-2">
+          <%= image_tag 'clock-image.png'%>
+          </span>
+        <%end %>
+      </div>
+      <div style="padding-top: 30px;">
+        <h5 style="padding-bottom: 20px;"><strong><%= @child.first_name %></strong></h5>
+        <p>Age: <%= @child.age(@child) %></p>
+        <p>Gender: <%= @child.gender %></p>
+        <p>Hobby: <%= @child.hobby %></p>
+      </div>
+      <div class="mb-4 mt-4" style="padding-top: 50px">
+
+        <p>CALENDAR</p>
+
+      </div>
+      <div class="mb-4" style="padding-top: 30px">
+        <p style="padding-bottom: 20px;"><strong><u>CREATE AN EVENT</u><strong></p>
+        <%= simple_form_for [@child, @event] do |f| %>
+          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}%>
+          <%= f.input :occasion, as: :string %>
+          <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
+        <% end %>
+      </div>
     </div>
-    <div class="col-12 col-md-9 col-lg-10 py-md-3 pl-md-5 bd-content border" role="main">
+    <div class="col-9 col-md-9 col-lg-10 border">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">History</a>
+          <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Events</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
@@ -31,3 +58,6 @@
     </div>
   </div>
 </div>
+
+
+<%# py-md-3 pl-md-5 %>

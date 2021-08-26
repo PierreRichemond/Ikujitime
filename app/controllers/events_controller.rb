@@ -2,7 +2,17 @@ class EventsController < ApplicationController
     before_action :set_event, only: [:edit, :update, :destroy]
 
   def create
-    policy_scope_event
+    # policy_scope_event
+
+    @event = Event.new(event_params)
+    @child = Child.find(params[:child_id])
+    @event.child = @child
+    authorize @event
+    if @event.save
+      redirect_to child_path(@event.child)
+
+    end
+
   end
 
   def update

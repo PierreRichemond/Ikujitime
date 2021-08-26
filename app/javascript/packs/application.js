@@ -9,7 +9,9 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
+import { initFlatpickr } from "../plugins/flatpickr";
 
+initFlatpickr();
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
