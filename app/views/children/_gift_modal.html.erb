@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter-gift<%= gift.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+        <% if gift.photo.attached? %>
+          <%= cl_image_tag gift.photo.key, style: "width: 100%;"%>
+        <% else %>
+          <%= image_tag 'camera-photo.png', "width: 100%;"%>
+        <% end %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h2><%= gift.name.capitalize %></h2>
+          <p>Suggested Age Range: <%= gift.start_age %>-<%= gift.end_age %></p>
+          <p>Price:<%= number_with_delimiter(gift.price, delimiter: ',') %></p>
+          <p><%= gift.description %></p>
+          <a href="<%= gift.website_link %>">Click to buy</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Connect to event</button>
+      </div>
+    </div>
+  </div>
+</div>

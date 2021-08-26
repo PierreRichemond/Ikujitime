@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter-<%= activity.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+        <% if activity.photo.attached? %>
+          <%= cl_image_tag activity.photo.key, style: "width: 100%;"%>
+        <% else %>
+          <%= image_tag 'camera-photo.png', "width: 100%;"%>
+        <% end %>
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <h2><%= activity.name.capitalize %></h2>
+          <p>Address: <%= activity.address %></p>
+          <p><%= activity.description %></p>
+          <p>Price:<%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
+          <a href="<%= activity.website_link %>">Go to homepage</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Schedule it</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,4 @@
 <div class="card-trip h-100">
-  <%# <%= link_to gift_path(gift), class: "card-link" do %>
     <% if gift.photo.attached? %>
       <%= cl_image_tag gift.photo.key, class: "main-image"%>
     <% else %>
@@ -9,5 +8,4 @@
         <h2><%= gift.name.capitalize %></h2>
         <p class="card-trip-pricing">Price: <%= number_with_delimiter(gift.price, delimiter: ',') %></p>
     </div>
-  <%# <% end %>
 </div>

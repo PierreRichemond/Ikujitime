@@ -4,7 +4,10 @@
         <div class="row">
           <% @gifts.each do |gift| %>
             <div class="col-12 col-md-6 col-lg-4 py-2">
+              <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter-gift<%= gift.id %>">
               <%= render 'giftcards', gift: gift %>
+              </a>
+              <%= render 'gift_modal', gift: gift %>
             </div>
           <% end %>
         </div>
