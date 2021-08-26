@@ -1,4 +1,5 @@
-<%= simple_form_for [@child, event] do |f| %>
-  <%= f.input :photos, input_html: { class: 'd-none', onChange: 'this.form.submit()' }, label_html: { class: 'upload-photo'},
-  label: '📷 Upload a photo'  %>
+<%= simple_form_for event do |f| %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none',
+  onChange: 'this.form.submit()' },
+  label_html: { class: 'upload-photo'}, label: '📷 Upload a photo'  %>
 <% end %>

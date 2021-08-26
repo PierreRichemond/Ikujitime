@@ -1,26 +1,28 @@
 <div class="history-card">
   <% @events.each do |event| %>
-    <div class='event'>
-      <div class="d-flex justify-content-between">
-        <p>Date: <%= event.start_date.strftime("%d of %B, %Y") %></p>
-        <h2> <%= event.occasion %> </h2>
-        <%= render 'add_photos_form', event: event%>
-      </div>
-      <div class='d-flex'>
-        <div class= 'p-2'>
-          <p>Get a gift for <%= @child.first_name %></p>
-          <%= link_to 'Gifts', child_path(@child, event_id: event.id, tab: 'gifts') %>
-          <p>Plan an activity with <%= @child.first_name %></p>
-          <%= link_to "Activities", child_path(@child, event_id: event.id, tab: 'activites') %>
-        </div class= 'p-2'>
-        <div class='grow'>
-          <div class="owl-carousel owl-theme">
-            <% event.photos.each do |photo| %>
-              <%= render 'carousel', photo: photo %>
-            <% end %>
+    <% if event.start_date.year == 2017 %>
+      <div class='event w-100'>
+        <div class="d-flex justify-content-between border-bottom mb-1">
+          <p>Date: <%= event.start_date.strftime("%d of %B, %Y") %></p>
+          <h2> <%= event.occasion %> </h2>
+          <%= render 'add_photos_form', event: event%>
+        </div>
+        <div class='d-flex mt-3 align-self-center'>
+          <div class= 'info'>
+            <p>Get a gift for <%= @child.first_name %></p>
+            <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
+            <p>Plan an activity with <%= @child.first_name %></p>
+            <%= link_to "check those out!", child_path(@child, event_id: event.id, tab: 'activites') %>
+          </div class= 'p-2'>
+          <div class='flex-grow-3'>
+            <div class="owl-carousel owl-theme align-self-center">
+              <% event.photos.each do |photo| %><%= photo.key %>
+                <%= cl_image_tag photo.key, width: '180' %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
