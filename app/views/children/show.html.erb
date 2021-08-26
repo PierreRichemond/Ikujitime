@@ -1,6 +1,6 @@
 <div class="container-fluid" style="height=100%">
   <div class="row">
-    <div class="col-3 col-md-3 col-lg-2 sidenav  border">
+    <div class="col-3 col-md-3 col-lg-2 sidenav  border" style="overflow:auto">
       <div>
         <% if @child.photo.attached? %>
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge mr-2 mt-4 mb-3"%>
@@ -16,10 +16,11 @@
         <p>Gender: <%= @child.gender %></p>
         <p>Hobby: <%= @child.hobby %></p>
       </div>
-      <div class="mb-4 mt-4" style="padding-top: 50px">
-
-        <p>CALENDAR</p>
-
+      <div class="mb-4 mt-4" style="padding-top: 30px">
+        <p style="padding-bottom: 10px;"><strong><u>Upcoming events</u></strong></p>
+        <%= month_calendar do |date| %>
+        <%= date.day %>
+        <% end %>
       </div>
       <div class="mb-4" style="padding-top: 30px">
         <p style="padding-bottom: 20px;"><strong><u>CREATE AN EVENT</u></strong></p>
@@ -58,6 +59,3 @@
     </div>
   </div>
 </div>
-
-
-<%# py-md-3 pl-md-5 %>
