@@ -10,7 +10,9 @@
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Check the children", "/children", class: "btn btn-success" %>
-          <p class="nav-link">Logged in with <%= current_user.email %></p>
+        </li>
+        <li class="nav-item">
+          Logged in with <%= current_user.email %>
         </li>
         <li class="nav-item dropdown">
           <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></p>

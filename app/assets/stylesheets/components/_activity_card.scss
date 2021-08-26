@@ -1,11 +1,11 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(56, 56, 56, 0.2);
   border-radius: 5px;
   &:hover {
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(133, 133, 133, 0.6);
   }
 }
 

@@ -1,0 +1,12 @@
+.table th, .table td {
+  padding: 0.4rem;
+}
+
+.calendar-heading {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.5rem;
+  a {
+    color: black;
+  }
+}
