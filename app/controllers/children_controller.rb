@@ -10,6 +10,7 @@ class ChildrenController < ApplicationController
     @activities = Activity.all
     @events = Event.all
     authorize @child
+    map_geocode
   end
 
   def new
@@ -52,5 +53,14 @@ class ChildrenController < ApplicationController
 
   def child_params
     params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent)
+  end
+
+  def map_geocode
+    @markers = @activities.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 end
