@@ -1,12 +1,4 @@
 class EventsController < ApplicationController
-<<<<<<< HEAD
-
-  def create
-  end
-
-  def update
-    authorize
-=======
     before_action :find_event, only: [:edit, :update, :destroy]
 
   def create
@@ -40,6 +32,5 @@ class EventsController < ApplicationController
 
   def policy_scope_event
     authorize @event
->>>>>>> master
   end
 end
