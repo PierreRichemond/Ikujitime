@@ -1,34 +1,14 @@
 <ul class="nav tabs-underlined" id="myTab" role="tablist">
-  <li class="nav-item border-right" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "2021" %>" id="home-tab" data-toggle="tab" href="#2021" role="tab" aria-controls="home" aria-selected="true">2021</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab] ==  "2020" %>" id="profile-tab" data-toggle="tab" href="#2020" role="tab" aria-controls="profile" aria-selected="false">2020</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab] ==  "2019" %>" id="converstion-tab" data-toggle="tab" href="#2019" role="tab" aria-controls="converstion" aria-selected="false">2019</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab] ==  "2018" %>" id="converstion-tab" data-toggle="tab" href="#2018" role="tab" aria-controls="converstion" aria-selected="false">2018</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab] ==  "2017" %>" id="converstion-tab" data-toggle="tab" href="#2017" role="tab" aria-controls="converstion" aria-selected="false">2017</a>
-  </li>
+  <% @years.each_with_index do |year, index|  %>
+    <li class="nav-item border-right" role="presentation">
+      <a class="tab-underlined <%= "active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="tab-<%= year %>" data-toggle="tab" href="#content-<%= year %>" role="tab" aria-controls="home" aria-selected="true"><%= year %></a>
+    </li>
+  <% end %>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "2021" %>" id="2021" role="tabpanel" aria-labelledby="home-tab">
-    <%= render "children/tabs_2021" %>
-  </div>
-  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "2020" %>" id="2020" role="tabpanel" aria-labelledby="profile-tab">
-    <%= render "children/tabs_2020" %>
-  </div>
-  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "2019" %>" id="2019" role="tabpanel" aria-labelledby="converstion-tab">
-    <%= render "children/tabs_2019" %>
-  </div>
-  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "2018" %>" id="2018" role="tabpanel" aria-labelledby="converstion-tab">
-    <%= render "children/tabs_2018" %>
-  </div>
-  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "2017" %>" id="2017" role="tabpanel" aria-labelledby="converstion-tab">
-    <%= render "children/tabs_2017" %>
-  </div>
+  <% @years.each_with_index do |year, index|  %>
+    <div class="tab-pane fade py-3 <%= "show active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="content-<%= year %>" role="tabpanel" aria-labelledby="tab-<%= year %>">
+      <%= render "children/tabs", year: year %>
+    </div>
+  <% end %>
 </div>

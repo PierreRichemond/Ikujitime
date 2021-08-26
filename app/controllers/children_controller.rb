@@ -13,6 +13,7 @@ class ChildrenController < ApplicationController
     if params[:event_id].present?
       @event = Event.find(params[:event_id])
     end
+    @years = @child.events.map { |event| event.start_date.year }.uniq.sort.reverse
     authorize @child
     map_geocode
   end
@@ -64,7 +65,7 @@ class ChildrenController < ApplicationController
       {
         lat: activity.latitude,
         lng: activity.longitude,
-        # info_window: render_to_string(partial: "info_window", locals: { activity: activity })
+        info_window: render_to_string(partial: "map_components/info_window", locals: { activity: activity })
       }
     end
   end

@@ -1,0 +1,12 @@
+.mapboxgl-popup {
+  max-width: 100px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  color: gray;
+  border-radius: 10px;
+  h2{
+    font-size: 16px;
+  }
+}
