@@ -9,6 +9,7 @@ class ChildrenController < ApplicationController
     @gifts = Gift.all
     @activities = Activity.all
     @event = Event.new
+    @events = Event.all
     authorize @child
   end
 
