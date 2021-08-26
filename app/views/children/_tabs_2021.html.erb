@@ -1,19 +1,24 @@
 <div class="history-card">
   <% @events.each do |event| %>
-    <div class="d-flex justify-content-between">
-      <p>Date: <%= DateTime.strptime %></p>
-      <h2> <%= event.occasion %> </h2>
-      <% render 'add_photos_form', event: event%>
-    </div>
-    <div>
-      <div class="col-12 col-md-3 col-lg-2">
-        <h3>Testing</h3>
+    <div class='event'>
+      <div class="d-flex justify-content-between">
+        <p>Date: <%= event.start_date.strftime("%d of %B, %Y") %></p>
+        <h2> <%= event.occasion %> </h2>
+        <%= render 'add_photos_form', event: event%>
       </div>
-      <div class="col-12 col-md-9 col-lg-10">
-        <div class="owl-carousel owl-theme">
-          <% event.photos.each do |photo| %>
-            <%= render 'carousel', photo: photo %>
-          <% end %>
+      <div class='d-flex'>
+        <div class= 'p-2'>
+          <p>Get a gift for <%= @child.first_name %></p>
+          <%= link_to 'Gifts', child_path(@child, event_id: event.id, tab: 'gifts') %>
+          <p>Plan an activity with <%= @child.first_name %></p>
+          <%= link_to "Activities", child_path(@child, event_id: event.id, tab: 'activites') %>
+        </div class= 'p-2'>
+        <div class='grow'>
+          <div class="owl-carousel owl-theme">
+            <% event.photos.each do |photo| %>
+              <%= render 'carousel', photo: photo %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

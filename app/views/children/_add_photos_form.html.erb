@@ -1,4 +1,4 @@
 <%= simple_form_for [@child, event] do |f| %>
-  <%= f.input :image, as: :file, label: "Add a photo" %>
-  <%= f.submit 'Book now', class: 'btn btn-warning my-3 px-5', style: "border-radius: 20px;" %>
+  <%= f.input :photos, input_html: { class: 'd-none', onChange: 'this.form.submit()' }, label_html: { class: 'upload-photo'},
+  label: '📷 Upload a photo'  %>
 <% end %>
