@@ -1,0 +1,26 @@
+<div class="history-card">
+  <% @events.where('extract(year from start_date) = ?', year).each do |event| %>
+    <div class='event w-100'>
+      <div class="d-flex justify-content-between border-bottom mb-1">
+        <p>Date: <%= event.start_date.strftime("%d of %B, %Y") %></p>
+        <h2> <%= event.occasion %> </h2>
+        <%= render 'add_photos_form', event: event%>
+      </div>
+      <div class='d-flex mt-3'>
+        <div class= 'info p-2'>
+          <p>Get a gift for <%= @child.first_name %></p>
+          <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
+          <p>Plan an activity with <%= @child.first_name %></p>
+          <%= link_to "check those out!", child_path(@child, event_id: event.id, tab: 'activities') %>
+        </div>
+        <div class='w-100 overflow-hidden'>
+          <div class="owl-carousel owl-theme align-self-center">
+            <% event.photos.each do |photo| %>
+              <%= cl_image_tag photo.key, width: '180' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
