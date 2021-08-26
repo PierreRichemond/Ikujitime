@@ -1,4 +1,4 @@
-class ChildPolicy < ApplicationPolicy
+class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -6,6 +6,10 @@ class ChildPolicy < ApplicationPolicy
   end
 
   def show?
+    true
+  end
+
+  def update?
     true
   end
 
