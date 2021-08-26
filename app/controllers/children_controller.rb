@@ -8,7 +8,7 @@ class ChildrenController < ApplicationController
   def show
     @gifts = Gift.all
     @activities = Activity.all
-    @events = Event.all
+    @events = Event.where(child: @child)
     authorize @child
   end
 
