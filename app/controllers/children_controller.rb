@@ -8,7 +8,7 @@ class ChildrenController < ApplicationController
   def show
     @gifts = Gift.all
     @activities = Activity.all
-    @events = Event.all
+    @events = Event.where(child: @child)
     if params[:event_id].present?
       @event = Event.find(params[:event_id])
     end
