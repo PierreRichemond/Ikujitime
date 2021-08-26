@@ -4,7 +4,10 @@
         <div class="row">
           <% @activities.each do |activity| %>
             <div class="col-12 col-md-6 col-lg-4 py-2">
-              <%= render 'activitycards', activity: activity %>
+              <a href="#" class="card-link" data-toggle="modal" data-target="#exampleModalCenter-<%= activity.id %>">
+              <%= render './activity_components/activitycards', activity: activity %>
+              </a>
+              <%= render "./activity_components/activity_modal", activity: activity %>
             </div>
           <% end %>
         </div>
