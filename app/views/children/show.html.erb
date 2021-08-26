@@ -24,7 +24,7 @@
 
         <p><strong><u>Create an event</u><strong></p>
         <%= simple_form_for [@child, @event] do |f| %>
-          <%= f.input :start_date, as: :datetime%>
+          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"}%>
           <%= f.input :occasion, as: :string %>
           <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
         <% end %>
@@ -34,7 +34,7 @@
     <div class="col-12 col-md-9 col-lg-10 py-md-3 pl-md-5 bd-content border" role="main">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">History</a>
+          <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Events</a>
         </li>
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false">Activities</a>
