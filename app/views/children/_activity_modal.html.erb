@@ -19,7 +19,7 @@
           <p>Address: <%= activity.address %></p>
           <p><%= activity.description %></p>
           <p>Price:<%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
-          <p><%= activity.website_link %></p>
+          <a href="<%= activity.website_link %>">Go to homepage</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModalCenter-<%= gift.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter-gift<%= gift.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -17,9 +17,9 @@
       <div class="modal-body">
           <h2><%= gift.name.capitalize %></h2>
           <p>Suggested Age Range: <%= gift.start_age %>-<%= gift.end_age %></p>
-          <p>Price:<%= number_with_delimiter(gift.price, delimiter: ',') %>¥</p>
-          <p><%= gift.website_link %></p>
-          <%# <p><%= gift.description</p> %> %>
+          <p>Price:<%= number_with_delimiter(gift.price, delimiter: ',') %></p>
+          <p><%= gift.description %></p>
+          <a href="<%= gift.website_link %>">Click to buy</a>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
