@@ -1,14 +1,5 @@
-<div class="card-trip h-100">
-    <% if activity.photo.attached? %>
-      <%= cl_image_tag activity.photo.key, class: "main-image"%>
-    <% else %>
-      <%= image_tag 'camera-photo.png', class: 'main-image' %>
-    <% end %>
-    <div class="card-trip-infos">
-      <div>
-        <h2><%= activity.name.capitalize %></h2>
-        <p>Address: <%= activity.address %></p>
-      </div>
-        <p class="card-trip-pricing">Price:<%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
-    </div>
+<div class="cards">
+  <div class="card-category" style="background-image: url(<%= cl_image_path activity.photo.key %>)">
+    <p><%= activity.name.capitalize %></p>
+  </div>
 </div>
