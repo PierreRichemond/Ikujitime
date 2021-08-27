@@ -10,25 +10,24 @@ class EventsController < ApplicationController
     authorize @event
     if @event.save
       redirect_to child_path(@event.child)
-
     end
 
   end
 
   def update
-    @event.update(event_params)
-    if params[:gift_id]
-      @gift = Gift.find(params[:gift_id])
-      @event.gift = @gift
-    end
-    if params[:activity_id]
-      @activity = Activity.find(params[:activity_id])
-      @event.activity = @activity
-    end
     policy_scope_event
     if @event.update(event_params)
-      redirect_to child_path(@event.child)
-    end
+      if params[:gift_id]
+        @gift = Gift.find(params[:gift_id])
+        @event.gift = @gift
+      end
+      if params[:activity_id]
+        @activity = Activity.find(params[:activity_id])
+        @event.activity = @activity
+        @event.update(event_params)
+      end
+    redirect_to child_path(@event.child)
+  end
   end
 
   def destroy
@@ -41,7 +40,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start_date, :end_date, :occasion, :gift_id, :child_id, photos: [])
+    params.require(:event).permit(:start_date, :end_date, :occasion, :gift_id, :activity_id, :child_id, photos: [])
   end
 
   def policy_scope_event

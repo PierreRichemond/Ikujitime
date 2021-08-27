@@ -17,10 +17,10 @@
             <p><%= child.age(child) %> years old</p>
             <p><%= child.gender %></p>
             <%= link_to '🖋', edit_child_path(child)%>
-            <%= link_to  '🗑',
-          child_path(child),
-          method: :delete, class: 'mx-3',
-           data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
+            <%= link_to  '❌',
+            child_path(child),
+            method: :delete, class: 'mx-3',
+            data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
           </div>
         </div>
       </div>

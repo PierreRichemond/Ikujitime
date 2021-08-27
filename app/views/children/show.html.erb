@@ -1,6 +1,6 @@
 <div class="container-fluid" style="height=100%">
   <div class="row">
-    <div class="col-12 col-lg-3 sidenav" style="overflow:auto">
+    <div class="col-12 col-md-3 col-lg-3 sidenav" style="overflow:auto">
       <div class="mt-5">
         <% if @child.photo.attached? %>
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge m-3"%>
@@ -40,7 +40,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 col-lg-9">
+    <div class="col-12 col-md-9 col-lg-9">
       <ul class="nav tabs-underlined" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
           <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "history" %>" id="home-tab" data-toggle="tab" href="#history" role="tab" aria-controls="home" aria-selected="true">Events</a>
