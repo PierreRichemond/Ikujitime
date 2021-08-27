@@ -1,11 +1,5 @@
-<div class="card-trip h-100">
-    <% if gift.photo.attached? %>
-      <%= cl_image_tag gift.photo.key, class: "main-image"%>
-    <% else %>
-      <%= image_tag 'camera-photo.png', class: 'main-image' %>
-    <% end %>
-    <div class="card-trip-infos">
-        <h2><%= gift.name.capitalize %></h2>
-        <p class="card-trip-pricing">Price: <%= number_with_delimiter(gift.price, delimiter: ',') %></p>
-    </div>
+<div class="cards">
+  <div class="card-category" style="background-image: url(<%= cl_image_path gift.photo.key %>)">
+    <p>Gift</p>
+  </div>
 </div>
