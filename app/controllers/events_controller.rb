@@ -27,7 +27,7 @@ class EventsController < ApplicationController
         @event.update(event_params)
       end
     redirect_to child_path(@event.child)
-  end
+    end
   end
 
   def destroy
