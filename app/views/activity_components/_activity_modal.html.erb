@@ -4,33 +4,32 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">
-        <% if activity.photo.attached? %>
-          <%= cl_image_tag activity.photo.key, style: "width: 100%;"%>
-        <% else %>
-          <%= image_tag 'camera-photo.png', "width: 100%;"%>
-        <% end %>
+          <% if activity.photo.attached? %>
+            <%= cl_image_tag activity.photo.key, style: "width: 100%;"%>
+          <% else %>
+            <%= image_tag 'camera-photo.png', "width: 100%;"%>
+          <% end %>
         </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <h2><%= activity.name.capitalize %></h2>
-          <p>Address: <%= activity.address %></p>
-          <p><%= activity.description %></p>
-          <p>Price:<%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
-          <a href="<%= activity.website_link %>">View Link</a>
-          <div id="map"
+        <h2 class='modal-h2'><%= activity.name.capitalize %></h2>
+        <p class='modal-price'><%= number_with_delimiter(activity.price, delimiter: ',') %>¥ / person</p>
+        <p class='modal-p'>Address: <%= activity.address %></p>
+        <p class='modal-p'><%= activity.description %></p>
+        <div id="map"
             style="width: 100%; height: 600px;"
             data-markers="<%= @markers.to_json %>"
             data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal-footer d-flex justify-content-between py-0 my-0">
+        <a href="<%= activity.website_link %>" class="btn btn-primary">View Link</a>
         <%= simple_form_for event do |f| %>
           <%= f.input :activity_id, as: :hidden, input_html: { value: activity.id }  %>
-          <%= f.submit "add to event", class: "btn btn-primary" %>
+          <%= f.submit "add to event", class: "btn btn-primary centered" %>
         <% end %>
       </div>
     </div>
