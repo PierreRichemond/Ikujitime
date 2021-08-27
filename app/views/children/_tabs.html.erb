@@ -2,7 +2,7 @@
   <% @events.where('extract(year from start_date) = ?', year).each do |event| %>
     <div class='event w-100'>
       <div class="d-flex justify-content-between border-bottom mb-1">
-        <p>Date: <%= event.start_date.strftime("%d of %B, %Y") %></p>
+        <p><%= event.start_date.strftime("%d of %B, %Y") %></p>
         <h2> <%= event.occasion %> </h2>
         <%= render 'add_photos_form', event: event%>
       </div>
