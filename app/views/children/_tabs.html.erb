@@ -9,16 +9,16 @@
       <div class='d-flex mt-3'>
         <div>
           <% if event.gift.present? && event.activity.present? %>
-            <%= render '../activity_components/activitycards', activity: event.activity %>
-            <%# <%= render 'app/views/gift_components/giftcards', gift: event.gift %> %>
+            <%= render './activity_components/activitycards', activity: event.activity %>
+            <%= render './gift_components/giftcards', gift: event.gift %>
           <% elsif event.activity.present? %>
             <p>Get a gift for <%= @child.first_name %></p>
             <%= link_to 'Select one here!', child_path(@child, event_id: event.id, tab: 'gifts') %>
-            <%= render '../activity_components/activitycards', activity: event.activity %>
+            <%= render './activity_components/activitycards', activity: event.activity %>
           <% elsif event.gift.present? %>
             <p>Plan an activity with <%= @child.first_name %></p>
             <%= link_to "check those out!", child_path(@child, event_id: event.id, tab: 'activities') %>
-            <%# <%= render 'app/views/gift_components/giftcards', gift: event.gift %> %>
+            <%= render './gift_components/giftcards', gift: event.gift %>
           <% else %>
             <div class= 'info p-2'>
               <p>Get a gift for <%= @child.first_name %></p>

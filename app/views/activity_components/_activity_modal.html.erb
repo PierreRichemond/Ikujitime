@@ -29,7 +29,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <%= simple_form_for event do |f| %>
-          <%= f.input :activity_id, as: :hidden %>
+          <%= f.input :activity_id, as: :hidden, input_html: { value: activity.id }  %>
           <%= f.submit "add to event", class: "btn btn-primary" %>
         <% end %>
       </div>
