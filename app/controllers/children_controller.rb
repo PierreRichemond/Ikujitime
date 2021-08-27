@@ -2,7 +2,7 @@ class ChildrenController < ApplicationController
   before_action :set_children, only: [:show, :edit, :update, :destroy]
 
   def index
-    @children = policy_scope(Child).where(user: current_user)
+    @children = policy_scope(Child)
   end
 
   def show
