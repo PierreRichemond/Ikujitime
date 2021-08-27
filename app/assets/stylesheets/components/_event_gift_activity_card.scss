@@ -1,0 +1,28 @@
+.link-card a{
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding-top: 80px;
+  &:hover {
+    color: rgba(0, 0, 0, 1)
+  }
+}
+
+.cards {
+  margin-right: 16px;
+  width: 120px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.card-category {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  p {
+    font-size: 24px;
+    font-style: bold;
+    padding-top: 88px;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+  }
+}
