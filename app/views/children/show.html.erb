@@ -13,14 +13,24 @@
       <div style="padding-top: 30px;">
         <h5 style="padding-bottom: 20px;"><strong><%= @child.first_name %></strong></h5>
         <p>Age: <%= @child.age(@child) %></p>
+        <p>Birthday: <%= @child.birthday.strftime("%d %b %Y") %></p>
         <p>Gender: <%= @child.gender %></p>
         <p>Hobby: <%= @child.hobby %></p>
       </div>
       <div style="padding-top: 30px">
         <p style="padding-bottom: 10px;"><strong><u>Upcoming events</u></strong></p>
-        <%= month_calendar do |date| %>
-        <%= date.day %>
+
+
+        <%= month_calendar(events: @events) do |date, events| %>
+          <%= date.day %>
+          <% events.each do |event| %>
+            <div class="border-5 border-top border-danger">
+              <%# <%= date.day ==  event.start_date.day%>
+            </div>
+          <% end %>
         <% end %>
+
+
       </div>
       <div class="mb-4" style="padding-top: 30px">
         <p style="padding-bottom: 20px;"><strong><u>CREATE AN EVENT</u></strong></p>

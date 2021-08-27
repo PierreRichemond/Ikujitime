@@ -4,4 +4,8 @@ class Event < ApplicationRecord
   belongs_to :gift, optional: true
   has_many_attached :photos
 
+
+  def start_time
+    self.start_date
+  end
 end
