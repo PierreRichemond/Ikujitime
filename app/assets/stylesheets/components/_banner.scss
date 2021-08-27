@@ -1,9 +1,10 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 150px 150px;
   background-image: asset-url('gabby-orcutt-9mzGpUpqUpw-unsplash.jpg');
-  text-align: right;
+  text-align: left;
+  height: 100vh;
 }
 
 .banner h1 {
