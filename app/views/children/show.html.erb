@@ -6,19 +6,19 @@
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge m-3"%>
         <% else %>
           <span class="m-3">
-          <%= image_tag 'clock-image.png'%>
+            <%= image_tag 'clock-image.png'%>
           </span>
         <%end %>
       </div>
-      <div style="padding-top: 30px">
+      <div style="padding-top: 30px;">
         <h3 style="padding-bottom: 20px;"><strong><%= @child.first_name %></strong></h3>
-        <p style="font-size: 20px;">Age: <%= @child.age(@child) %></p>
-        <p style="font-size: 20px;">Birthday: <%= @child.birthday.strftime("%d %b %Y") %></p>
-        <p style="font-size: 20px;">Gender: <%= @child.gender %></p>
-        <p style="font-size: 20px;">Hobby: <%= @child.hobby %></p>
+        <p>Age: <%= @child.age(@child) %></p>
+        <p>Birthday: <%= @child.birthday.strftime("%d of %B, %Y") %></p>
+        <p>Gender: <%= @child.gender %></p>
+        <p>Hobby: <%= @child.hobby %></p>
       </div>
-      <div style="padding-top: 80px">
-         <%= month_calendar(events: @events) do |date, events| %>
+      <div style="padding-top: 30px">
+        <%= month_calendar(events: @events) do |date, events| %>
           <%= date.day %>
           <% events.each do |event| %>
             <%# <% if event.start_date.strftime("%Y-%m-%d") >= Date.today.strftime("%Y-%m-%d") %>
@@ -54,12 +54,12 @@
           <%= render "children/history" %>
         </div>
         <% if @event.present? %>
-        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
-          <%= render "children/activities", event: @event %>
-        </div>
-        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
-          <%= render "children/gifts", event: @event %>
-        </div>
+          <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
+            <%= render "children/activities", event: @event %>
+          </div>
+          <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
+            <%= render "children/gifts", event: @event %>
+          </div>
         <% end %>
       </div>
     </div>
