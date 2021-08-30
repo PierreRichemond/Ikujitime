@@ -1,0 +1,20 @@
+.brand-name {
+  color: #C9ACA9;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  font-size: 54px;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cta-btn {
+  font-size: 20px;
+  border-radius: 10px;
+  width: 80%;
+}
