@@ -38,7 +38,9 @@
     <h2 class="mt-5 mb-4">Upcoming events</h2>
     <% @children.each do |child| %>
       <% child.events.each do |event| %>
-        <% @all_events << event %>
+        <% if event.start_date >  Time.now %>
+          <% @all_events << event %>
+        <% end %>
       <% end %>
     <% end %>
     <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
@@ -47,7 +49,7 @@
     <div class="mt-5 mb-5" style="text-align:left">
       <h5 class="mb-4" style="text-align:center"><strong>Scheduled events</strong></h5>
 
-      <% @all_events.each do |event|%>
+      <% @all_events.sort_by(&:start_date).each do |event|%>
         <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name %>'s <%= event.occasion %></p>
       <% end %>
     </div>
