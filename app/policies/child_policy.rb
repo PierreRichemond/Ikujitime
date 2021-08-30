@@ -13,6 +13,10 @@ class ChildPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    true
+  end
+
   def destroy?
     true
   end
