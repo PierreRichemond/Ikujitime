@@ -16,6 +16,10 @@ class ChildrenController < ApplicationController
     @years = @child.events.map { |event| event.start_date.year }.uniq.sort.reverse
     authorize @child
     map_geocode
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def new
