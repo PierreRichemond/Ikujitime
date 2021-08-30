@@ -1,16 +1,19 @@
 .banner {
   background-size: cover;
-  background-position: center;
-  background-image: asset-url('gabby-orcutt-9mzGpUpqUpw-unsplash.jpg');
-  // background-image: url('https://images.unsplash.com/photo-1606092195808-3107b7ed4c98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+  // background-image: asset-url('gabby-orcutt-9mzGpUpqUpw-unsplash.jpg');
+  background-image: url('https://images.unsplash.com/photo-1557147209-50497a62b4e6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
   height: 100vh;
+  background-position: right 100%;
 }
 
 .banner h1 {
   color: rgb(255, 255, 255);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+  font-size: 40px;
   font-weight: bold;
+}
+.landingpage-subheader {
+  font-size: 32px;
 }
 .banner h2 {
   color: white;
