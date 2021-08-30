@@ -19,12 +19,14 @@ class ChildrenController < ApplicationController
   end
 
   def new
-    @child.new
+    @child = Child.new
+    authorize @child
   end
 
   def create
-    @child.new(child_params)
-
+    @child = Child.new(child_params)
+    @child.user = current_user
+    authorize @child
     if @child.save
       redirect_to child_path(@child)
     else
@@ -57,7 +59,7 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent)
+    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent, :photo, :gender)
   end
 
   def map_geocode
