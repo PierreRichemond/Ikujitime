@@ -1,11 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-landingpage">
+<div class="navbar navbar-expand-sm navbar-light mt-3">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Children", "/children"%>
+          <%= link_to "Children", "/children", class:"text-white"%>
         </li>
-        <li class="nav-item">
+        <li class="nav-item text-white">
           Hi, <%= current_user.name %>
         </li>
         <li class="nav-item dropdown">
@@ -18,10 +18,10 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Signup", new_user_session_path, class: "nav-link btn btn-outline-success login" %>
+          <%= link_to "Signup", new_user_session_path, class: "nav-link btn btn-outline-success login text-white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-success login" %>
+          <%= link_to "Login", new_user_session_path, class: "nav-link btn btn-outline-success login text-white" %>
         </li>
       <% end %>
     </ul>
