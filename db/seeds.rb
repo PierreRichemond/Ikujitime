@@ -5,7 +5,7 @@ User.destroy_all
 puts 'cleaning the DB...'
 
 1.times do
-    file0 = File.open('app/assets/images/IMG_8728.JPG')
+  file0 = File.open('app/assets/images/IMG_8728.JPG')
     user = User.create!(
           email: "dankr59@gmail.com",
           password: '123123',

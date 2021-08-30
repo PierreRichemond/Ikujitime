@@ -6,6 +6,5 @@ class User < ApplicationRecord
 
   has_many :children, dependent: :destroy
 
-  validates :name, presence: true
   has_one_attached :photo
 end
