@@ -1,5 +1,5 @@
 <div class="history-card">
-  <% @events.where('extract(year from start_date) = ?', year).order(:start_date).each do |event| %>
+  <% @events.where('extract(year from start_date) = ?', year).order(:start_date).reverse.each do |event| %>
     <div class='event w-100'>
       <div class="d-flex justify-content-between border-bottom mb-1">
         <p><%= event.start_date.strftime("%B %d, %Y") %></p>

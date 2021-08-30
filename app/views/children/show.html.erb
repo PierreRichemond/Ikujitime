@@ -53,14 +53,12 @@
         <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="event" role="tabpanel" aria-labelledby="home-tab">
           <%= render "children/events" %>
         </div>
-        <% if @event.present? %>
-          <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
-            <%= render "children/activities", event: @event %>
-          </div>
-          <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
-            <%= render "children/gifts", event: @event %>
-          </div>
-        <% end %>
+        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
+          <%= render "children/activities" %>
+        </div>
+        <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
+          <%= render "children/gifts" %>
+        </div>
       </div>
     </div>
   </div>
