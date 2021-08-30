@@ -1,0 +1,51 @@
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(56, 56, 56, 0.2);
+  border-radius: 5px;
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(133, 133, 133, 0.6);
+  }
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-text {
+  margin: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
