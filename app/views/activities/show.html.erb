@@ -1,0 +1,25 @@
+<div class="container my-5">
+  <div class="d-flex my-5">
+    <div>
+      <% if @activity.photo.attached? %>
+        <%= cl_image_tag @activity.photo.key, style: "width: 100%;"%>
+      <% else %>
+        <%= image_tag 'camera-photo.png', "width: 100%;"%>
+      <% end %>
+    </div>
+    <div class="modal-body">
+      <h1 class='modal-h2'><%= @activity.name.capitalize %></h1>
+      <p class='modal-price'><%= number_with_delimiter(@activity.price, delimiter: ',') %>¥ / person</p>
+      <p class='modal-p'>Address: <%= @activity.address %></p>
+      <p class='modal-p'><%= @activity.description %></p>
+    </div>
+  </div>
+  <div class="border-top pt-5 d-flex justify-content-between ">
+    <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary" %>
+    <% @events.each do|event| %>
+      <% unless event.activity %>
+        <%= render 'event_dropdown', event: event %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
