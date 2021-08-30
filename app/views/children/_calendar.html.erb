@@ -1,0 +1,13 @@
+<%= month_calendar(events: @events) do |date, events| %>
+  <% if events.length > 0 %>
+    <% events.each do |event| %>
+      <%# <% if event.start_date.strftime("%Y-%m-%d") >= Date.today.strftime("%Y-%m-%d") %>
+      <div class="border-5 border border-danger">
+        <%= date.day %>
+        <% break %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= date.day %>
+  <% end %>
+<% end %>
