@@ -3,7 +3,11 @@
   <a class="btn-lg btn-primary my-3" href="/children/new">add a child to your list</a>
   <% @children.each do |child| %>
     <div class="card-product my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+      <% if child.photo.attached? %>
+        <%= cl_image_tag child.photo.key%>
+      <% else %>
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+      <% end %>
       <div class="card-product-infos">
         <h2><%= child.full_name(child) %></h2>
         <div class="d-flex justify-content-between">
