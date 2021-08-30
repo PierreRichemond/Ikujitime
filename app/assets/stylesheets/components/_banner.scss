@@ -1,20 +1,18 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
   background-image: asset-url('gabby-orcutt-9mzGpUpqUpw-unsplash.jpg');
-  text-align: right;
+  // background-image: url('https://images.unsplash.com/photo-1606092195808-3107b7ed4c98?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80');
+  height: 100vh;
 }
 
 .banner h1 {
-  margin: 0;
   color: rgb(255, 255, 255);
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
 }
 .banner h2 {
-  margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;

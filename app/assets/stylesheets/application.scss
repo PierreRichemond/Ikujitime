@@ -30,4 +30,16 @@ body::before {
     bottom: 0px;
     left: 0px;
     background-color: rgba(190, 255, 190, 0.1);
+    z-index: -1;
+}
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-container {
+  margin-top: auto;
 }
