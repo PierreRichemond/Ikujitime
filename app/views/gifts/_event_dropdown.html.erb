@@ -1,0 +1,7 @@
+<div>
+  <%= event.occasion.capitalize %>
+  <%= simple_form_for event do |f| %>
+    <%= f.input :gift_id, as: :hidden, input_html: { value: @gift.id }  %>
+    <%= f.submit "Add to event", class: "btn-lg btn-primary" %>
+  <% end %>
+</div>
