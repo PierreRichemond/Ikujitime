@@ -19,17 +19,12 @@
         <p class='modal-price'><%= number_with_delimiter(activity.price, delimiter: ',') %>¥ / person</p>
         <p class='modal-p'>Address: <%= activity.address %></p>
         <p class='modal-p'><%= activity.description %></p>
-        <div id="map"
-            style="width: 100%; height: 600px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
       </div>
       <div class="modal-footer d-flex justify-content-between py-0 my-0">
-        <a href="<%= activity.website_link %>" class="btn btn-primary">View Link</a>
+        <a href="<%= activity.website_link %>" target="_blank" rel="noopener noreferrer" class="btn btn-success">View Link</a>
         <%= simple_form_for event do |f| %>
           <%= f.input :activity_id, as: :hidden, input_html: { value: activity.id }  %>
-          <%= f.submit "add to event", class: "btn btn-primary centered" %>
+          <%= f.submit "add to event", class: "btn btn-success centered" %>
         <% end %>
       </div>
     </div>

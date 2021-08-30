@@ -1,11 +1,9 @@
 require "test_helper"
 
 class EventsControllerTest < ActionDispatch::IntegrationTest
-<<<<<<< HEAD
   # test "the truth" do
   #   assert true
   # end
-=======
   test "should get show" do
     get events_show_url
     assert_response :success
@@ -25,5 +23,4 @@ class EventsControllerTest < ActionDispatch::IntegrationTest
     get events_delete_url
     assert_response :success
   end
->>>>>>> master
 end

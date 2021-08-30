@@ -20,7 +20,7 @@
         <p class='modal-p'><%= gift.description %></p>
       </div>
       <div class="modal-footer d-flex justify-content-between py-0 my-0">
-        <a href="<%= gift.website_link %>" class="btn btn-primary">View Store</a>
+        <a href="<%= gift.website_link %>" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Store</a>
         <%= simple_form_for event do |f| %>
           <%= f.input :gift_id, as: :hidden, input_html: { value: gift.id }  %>
           <%= f.submit "add to event", class: "btn btn-primary centered" %>
