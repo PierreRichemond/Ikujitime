@@ -4,11 +4,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 
 export default class extends Controller {
 
-  static targets = ["tab","map"]
-
   buildMap() {
     setTimeout(() => {
-
       if(this.mapbuilt !== true){
         const mapElement = document.getElementById('map');
         const fitMapToMarkers = (map, markers) => {
@@ -25,7 +22,14 @@ export default class extends Controller {
           const markers = JSON.parse(mapElement.dataset.markers);
           markers.forEach((marker) => {
             const popup = new mapboxgl.Popup().setHTML(marker.info_window);
-            new mapboxgl.Marker()
+            const element = document.createElement('div');
+            element.dataset.markerId = marker.id
+            element.className = 'marker';
+            element.style.backgroundColor = 'red';
+            element.style.backgroundSize = 'contain';
+            element.style.width = '25px';
+            element.style.height = '25px';
+            new mapboxgl.Marker(element)
               .setLngLat([marker.lng, marker.lat])
               .setPopup(popup)
               .addTo(map);
