@@ -32,6 +32,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initFlatpickr();
   $('.owl-carousel').owlCarousel({
     loop: true,
     margin: 10,
@@ -49,7 +50,6 @@ document.addEventListener('turbolinks:load', () => {
     nav: true,
     navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
   })
-
   initMapbox();
 });
 
