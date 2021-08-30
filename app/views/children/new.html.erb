@@ -1,0 +1,14 @@
+<div class="container my-5">
+  <%= simple_form_for [@user, @child] do |f| %>
+    <%= f.input :first_name, class: 'mt-5' %>
+    <%= f.input :middle_name %>
+    <%= f.input :last_name %>
+    <%= f.input :parent %>
+    <%= f.input :gender, as: :radio_buttons, collection: Child::GENDERS %>
+    <%= f.input :birthday %>
+    <%= f.input :hobby, as: :text %>
+    <%= f.input :photo, as: :file, input_html: { class: 'd-none' },
+  label_html: { class: 'upload-photo'}, label: '📷 Upload a profile photo for this child'  %>
+    <%= f.submit 'Register this child', class: 'btn btn-warning my-3 px-5', style: "border-radius: 20px;" %>
+  <% end %>
+</div>
