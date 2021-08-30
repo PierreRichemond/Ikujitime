@@ -17,16 +17,8 @@
         <p>Gender: <%= @child.gender %></p>
         <p>Hobby: <%= @child.hobby %></p>
       </div>
-      <div style="padding-top: 30px">
-        <%= month_calendar(events: @events) do |date, events| %>
-          <%= date.day %>
-          <% events.each do |event| %>
-            <%# <% if event.start_date.strftime("%Y-%m-%d") >= Date.today.strftime("%Y-%m-%d") %>
-            <%# <% end %>
-            <div class="border-5 border-top border-danger">
-            </div>
-          <% end %>
-        <% end %>
+      <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
+          <%= render partial: "calendar", locals: {events: @events} %>
       </div>
       <div class="mb-4" style="padding-top: 50px">
         <p style="padding-bottom: 20px;"><strong>Create An Event</strong></p>
