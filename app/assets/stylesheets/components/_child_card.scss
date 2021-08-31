@@ -1,0 +1,21 @@
+.childcard-container {
+  margin-right: 2em;
+  position: sticky;
+  top: 8px;
+  z-index: 1;
+}
+.childcard{
+  width: 160px;
+  display: flex;
+  margin-left: auto;
+  border: 0.7px solid rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 57px;
+  border-bottom-left-radius: 57px;
+  border-top-right-radius: 57px;
+  border-bottom-right-radius: 57px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  p {
+    padding-top: 1em;
+  }
+}

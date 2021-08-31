@@ -8,11 +8,21 @@
     box-shadow: 0 0 15px rgba(133, 133, 133, 0.6);
   }
 }
-
+.gift-container {
+  margin: 2em;
+  a {
+    color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+  }
+  }
+}
 .card-trip > img {
   height: 200px;
   width: 100%;
   object-fit: cover;
+  padding: 8px;
 }
 
 .card-trip h2 {
@@ -27,25 +37,10 @@
   margin: 0;
 }
 
-.card-text {
-  margin: 0;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-
 .card-trip .card-trip-infos {
   padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 15px;
-}
-
-.card-link {
-  text-decoration: none;
-  color: black;
-  &:hover {
-    color: rgba(0, 0, 0, 0.6);
-  }
 }
