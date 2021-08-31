@@ -1,19 +1,19 @@
 <div class="container my-5">
-  <div class="d-flex my-5">
-    <div>
+  <div class="d-flex align-self-center my-5" style='background-color:white;'>
+    <div class='align-self-center'>
       <% if @gift.photo.attached? %>
         <%= cl_image_tag @gift.photo.key, style: "width: 400px; height: 400px;"%>
       <% else %>
-        <%= image_tag 'camera-photo.png', style: "width: 400px;"%>
+        <%= image_tag 'camera-photo.png', style: "width: 400px; height: 400px;"%>
       <% end %>
     </div>
     <div class="modal-body">
       <h1 class='modal-h2'><%= @gift.name.capitalize %></h1>
       <p class='modal-price'>Suggested Age Range: <%= @gift.start_age %>-<%= @gift.end_age %></p>
-      <p class='modal-price'>Price:<%= number_with_delimiter(@gift.price, delimiter: ',') %></p>
+      <p class='modal-price'><%= number_with_delimiter(@gift.price, delimiter: ',') %></p>
       <p class='modal-p'><%= @gift.description %></p>
       <div class='d-flex justify-content-center'>
-        <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary, target: "_blank"" %>
+        <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary", target: "_blank" %>
       </div>
     </div>
   </div>
