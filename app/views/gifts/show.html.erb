@@ -12,15 +12,21 @@
       <p class='modal-price'>Suggested Age Range: <%= @gift.start_age %>-<%= @gift.end_age %></p>
       <p class='modal-price'>Price:<%= number_with_delimiter(@gift.price, delimiter: ',') %></p>
       <p class='modal-p'><%= @gift.description %></p>
-      <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary", target: "_blank" %>
+      <div class='d-flex justify-content-center'>
+        <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary, target: "_blank"" %>
+      </div>
     </div>
   </div>
-  <%= render './children/childcard', child: @child %>
-  <div class="border-top pt-5 d-flex justify-content-start my-3">
-    <% @events.each do|event| %>
-      <% unless event.gift %>
-        <%= render 'event_dropdown', event: event %>
+  <div class="border-top py-4">
+    <div class='d-flex justify-content-center'>
+      <%= render './children/childcard', child: @child, class:'centering' %>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <% @events.each do|event| %>
+        <% unless event.gift %>
+          <%= render 'event_dropdown', event: event %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
