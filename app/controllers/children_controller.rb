@@ -6,6 +6,15 @@ class ChildrenController < ApplicationController
     @events = Event.where(child: @child)
     @user = current_user
     @all_events = []
+
+    @children.each do |child|
+      child.events.each do |event|
+        if event.start_date >  Time.now
+          @all_events << event
+        end
+      end
+    end
+
     respond_to do |format|
       format.html
       format.js
