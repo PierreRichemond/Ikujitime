@@ -25,10 +25,11 @@ export default class extends Controller {
             const element = document.createElement('div');
             element.dataset.markerId = marker.id
             element.className = 'marker';
-            element.style.backgroundColor = 'red';
+            element.style.backgroundImage = `url('app/assets/images/mapbox-marker-icon-20px-green.png')`;
             element.style.backgroundSize = 'contain';
             element.style.width = '25px';
             element.style.height = '25px';
+            element.style.cursor = "pointer";
             new mapboxgl.Marker(element)
               .setLngLat([marker.lng, marker.lat])
               .setPopup(popup)
