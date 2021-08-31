@@ -1,0 +1,13 @@
+<div class="childcard-container">
+  <div class="childcard">
+    <% if child.photo.attached?%>
+      <%= cl_image_tag child.photo.key, class: "avatar-bordered"%>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+    <% end %>
+    <div>
+      <p><%= child.first_name %>
+      <br>Age: <%= child.age(child) %></p>
+    </div>
+  </div>
+</div>

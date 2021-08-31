@@ -1,11 +1,26 @@
 .activity-container {
-  position: relative;
   margin: 2em;
+  a {
+    color: rgba(0, 0, 0, 0.6);
+  &:hover {
+    color: rgba(0, 0, 0, 1);
+    text-decoration: none;
+  }
+  }
 }
 .activity-card {
   margin-bottom: 0.5em;
+  border-radius: 5px;
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+  }
 }
 
-#map {
-  position: sticky;
+.search-result-text {
+  margin-left: 2em;
+}
+
+.count-result {
+  font-size: 24px;
 }
