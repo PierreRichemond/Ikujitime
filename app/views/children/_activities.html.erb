@@ -2,9 +2,9 @@
 <% if @activities.count > 0 %>
   <div class="activity-container">
     <div class="row">
-      <div class="col-12 col-md-4 col-lg-4">
+      <div class="col-12 col-md-4 col-lg-4" data-controller="activity-marker">
         <% @activities.each do |activity| %>
-          <%= link_to  activity_path(activity, child_id: @child) do %>
+          <%= link_to  activity_path(activity, child_id: @child), data:{id: activity.id, action: 'mouseover->activity-marker#hover mouseout->activity-marker#hoverOut'} do %>
             <%= render './activity_components/activitycards', activity: activity %>
           <% end %>
         <% end %>

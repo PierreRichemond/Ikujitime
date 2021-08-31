@@ -12,10 +12,12 @@
   </head>
   <body>
     <div class="flex-wrapper">
-    <%= render 'shared/navbar' %>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= render 'shared/footer' %>
+      <% unless controller.controller_name == "pages" %>
+      <%= render 'shared/navbar' %>
+      <% end %>
+      <%= render 'shared/flashes' %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

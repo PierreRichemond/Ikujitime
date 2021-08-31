@@ -50,7 +50,7 @@ document.addEventListener('turbolinks:load', () => {
     nav: true,
     navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
   })
-  initMapbox();
+  // initMapbox();
 });
 
 import "controllers"
