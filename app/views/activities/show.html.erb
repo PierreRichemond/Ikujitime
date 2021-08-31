@@ -12,10 +12,11 @@
       <p class='modal-price'><%= number_with_delimiter(@activity.price, delimiter: ',') %>¥ / person</p>
       <p class='modal-p'>Address: <%= @activity.address %></p>
       <p class='modal-p'><%= @activity.description %></p>
+      <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary" %>
     </div>
   </div>
+  <%= render './children/childcard', child: @child %>
   <div class="border-top pt-5 d-flex justify-content-between ">
-    <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary" %>
     <% @events.each do|event| %>
       <% unless event.activity %>
         <%= render 'event_dropdown', event: event %>

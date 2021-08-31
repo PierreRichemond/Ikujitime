@@ -1,7 +1,7 @@
-<div>
+<div class ='show-card'>
   <%= event.occasion.capitalize %>
   <%= simple_form_for event do |f| %>
     <%= f.input :gift_id, as: :hidden, input_html: { value: @gift.id }  %>
-    <%= f.submit "Add to event", class: "btn-lg btn-primary" %>
+    <%= f.submit "Add to event", class: "btn btn-primary" %>
   <% end %>
 </div>
