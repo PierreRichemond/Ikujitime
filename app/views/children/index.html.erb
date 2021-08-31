@@ -1,33 +1,57 @@
-<div class="container">
-  <h1>Create a list of children you want to keep tabs on</h1>
-  <a class="btn-lg btn-primary my-3" href="/children/new">add a child to your list</a>
-  <% @children.each do |child| %>
-    <div class="card-product my-3">
-      <% if child.photo.attached? %>
-        <%= cl_image_tag child.photo.key%>
-      <% else %>
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-      <% end %>
-      <div class="card-product-infos">
-        <h2><%= child.full_name(child) %></h2>
-        <div class="d-flex justify-content-between">
-          <div>
-            <p>Parents: <%= child.parent %> </p>
-            <p class='mb-4'>Hobby: <%= child.hobby %></p>
-            <%= link_to "Check #{child.first_name}\'s details", child_path(child), class: "btn-small btn-primary p-1" %>
-          </div>
-          <div>
-            <p>Birthday: <%= child.birthday %></p>
-            <p><%= child.age(child) %> years old</p>
-            <p><%= child.gender %></p>
-            <%= link_to '🖋', edit_child_path(child)%>
-            <%= link_to  '❌',
-            child_path(child),
-            method: :delete, class: 'mx-3',
-            data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
+<div class="row">
+  <div class="col-12 col-md-9 col-lg-9">
+    <div class="container mt-3 mb-5">
+      <h1>Create a list of children you want to keep tabs on</h1>
+      <a class="btn-lg btn-primary my-3" href="/children/new">add a child to your list</a>
+      <% @children.each do |child| %>
+        <div class="card-product my-3 mt-5">
+          <% if child.photo.attached? %>
+            <%= cl_image_tag child.photo.key%>
+          <% else %>
+            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
+          <% end %>
+          <div class="card-product-infos">
+            <h2><%= child.full_name(child) %></h2>
+            <div class="d-flex justify-content-between">
+              <div>
+                <p>Parents: <%= child.parent %> </p>
+                <p class='mb-4'>Hobby: <%= child.hobby %></p>
+                <%= link_to "Check #{child.first_name}\'s details", child_path(child), class: "btn-small btn-primary p-1" %>
+              </div>
+              <div>
+                <p>Birthday: <%= child.birthday %></p>
+                <p><%= child.age(child) %> years old</p>
+                <p><%= child.gender %></p>
+                <%= link_to '🖋', edit_child_path(child)%>
+                <%= link_to  '❌',
+                child_path(child),
+                method: :delete, class: 'mx-3',
+                data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+  <div class="col-12 col-md-3 col-lg-3 sidenav mx-auto" style="overflow:auto">
+    <h2 class="mt-5 mb-4">Upcoming events</h2>
+    <div class="mb-5" id="events_calendar_index" style="padding-top: 30px" >
+        <% @children.each do |child| %>
+          <% child.events.each do |event| %>
+            <% if event.start_date >  Time.now %>
+              <% @all_events << event %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%= render partial: "calendar_index", locals: {events: @all_events} %>
+    </div>
+    <div class="mt-5 mb-5" style="text-align:left">
+      <h5 class="mb-4" style="text-align:center"><strong>Scheduled events</strong></h5>
+
+      <% @all_events.sort_by(&:start_date).each do |event|%>
+        <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name %>'s <%= event.occasion %></p>
+      <% end %>
+    </div>
+  </div>
 </div>

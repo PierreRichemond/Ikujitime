@@ -3,6 +3,13 @@ class ChildrenController < ApplicationController
 
   def index
     @children = policy_scope(Child).where(user: current_user)
+    @events = Event.where(child: @child)
+    @user = current_user
+    @all_events = []
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
