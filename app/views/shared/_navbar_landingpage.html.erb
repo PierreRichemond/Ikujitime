@@ -3,7 +3,7 @@
     <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Children", "/children", class:"text-white"%>
+          <%= link_to "My list", "/children", class:"text-white"%>
         </li>
         <li class="nav-item text-white">
           Hi, <%= current_user.name %>
