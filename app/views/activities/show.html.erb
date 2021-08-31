@@ -12,7 +12,7 @@
       <p class='modal-price'><%= number_with_delimiter(@activity.price, delimiter: ',') %>¥ / person</p>
       <p class='modal-p'>Address: <%= @activity.address %></p>
       <p class='modal-p'><%= @activity.description %></p>
-      <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary" %>
+      <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary", target:"_blank" %>
     </div>
   </div>
   <%= render './children/childcard', child: @child %>

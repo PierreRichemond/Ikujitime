@@ -12,7 +12,7 @@
       <p class='modal-price'>Suggested Age Range: <%= @gift.start_age %>-<%= @gift.end_age %></p>
       <p class='modal-price'>Price:<%= number_with_delimiter(@gift.price, delimiter: ',') %></p>
       <p class='modal-p'><%= @gift.description %></p>
-      <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary" %>
+      <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary", target: "_blank" %>
     </div>
   </div>
   <%= render './children/childcard', child: @child %>
