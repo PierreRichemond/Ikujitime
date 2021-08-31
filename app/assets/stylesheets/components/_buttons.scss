@@ -3,10 +3,14 @@
   padding: 16px 24px;
   cursor: pointer;
   font-weight: 500;
-  background: white;
+  background: rgba(202, 174, 171, 0.1);
   border-radius: 5px;
   &:hover {
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(196, 196, 196, 0.3);
   }
+}
+
+.pseudo-image {
+  width: 135px;
 }
