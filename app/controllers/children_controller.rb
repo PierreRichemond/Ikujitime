@@ -6,6 +6,10 @@ class ChildrenController < ApplicationController
     @events = Event.where(child: @child)
     @user = current_user
     @all_events = []
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
