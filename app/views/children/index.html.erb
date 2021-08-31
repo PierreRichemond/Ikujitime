@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-12 col-md-8 col-lg-8">
       <div class="container mt-3 mb-5">
-        <a class="btn-child-show btn-lg btn-primary my-3" href="/children/new"><span>Create a <i class="far fa-address-card"></i></span></a>
+        <h1>Your family members</h1>
+        <a class="btn-child-show btn-lg btn-primary my-3" href="/children/new"><span>Add a member to your family</span></a>
         <% @children.each do |child| %>
           <div class="card-product my-3 mt-5">
             <% if child.photo.attached? %>
@@ -16,12 +17,16 @@
                 <div>
                   <p>Parents: <%= child.parent %> </p>
                   <p class='mb-4'>Hobby: <%= child.hobby %></p>
-                  <%= link_to "Event details", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
+                  <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
                 </div>
                 <div>
-                  <p>Birthday: <%= child.birthday %></p>
+                  <p> 🎂 : <%= child.birthday %></p>
                   <p><%= child.age(child) %> years old</p>
-                  <p><%= child.gender %></p>
+                  <% if child.gender == 'male' %>
+                    <p>Boy 👦</p>
+                  <% else %>
+                    <p>Girl 👧</p>
+                  <% end %>
                   <%= link_to '🖋', edit_child_path(child)%>
                   <%= link_to  '❌',
                   child_path(child),
@@ -34,26 +39,26 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 col-md-4 col-lg-4 sidenav mx-auto" style="overflow:auto">
+    <div class="col-12 col-md-4 col-lg-4 sidenav mx-auto calendar-height" style="overflow:auto">
       <h4 class="mt-4 mb-3">Event Calendar</h4>
       <div class="mb-5" id="events_calendar_index" style="padding-top: 30px" >
-          <%# <% @children.each do |child| %>
-            <%# <% child.events.each do |event| %>
-              <%# <% if event.start_date >  Time.now %>
-                <%# <% @all_events << event %>
-              <%# <% end %>
+        <%# <% @children.each do |child| %>
+          <%# <% child.events.each do |event| %>
+            <%# <% if event.start_date >  Time.now %>
+            <%# <% @all_events << event %>
             <%# <% end %>
-          <%# <% end %>
-          <%= render partial: "calendar_index", locals: {events: @all_events} %>
-      </div>
-      <div class="mt-5 mb-5" style="text-align:left">
-        <div class="container calendar-events">
-          <p class="mb-4" style="text-align:center">Upcoming Events</p>
-          <% @all_events.sort_by(&:start_date).each do |event|%>
-            <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
-          <% end %>
+            <%# <% end %>
+            <%# <% end %>
+            <%= render partial: "calendar_index", locals: {events: @all_events} %>
+          </div>
+          <div class="mt-5 mb-5" style="text-align:left">
+            <div class="container calendar-events">
+              <p class="mb-4" style="text-align:center">Upcoming Events</p>
+              <% @all_events.sort_by(&:start_date).each do |event|%>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
