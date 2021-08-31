@@ -4,11 +4,7 @@
       <div class="d-flex justify-content-between border-bottom mb-1">
         <p><%= event.start_date.strftime("%B %d, %Y") %></p>
         <h2 class='mt-3'> <%= event.occasion.capitalize %> </h2>
-        <div class="pseudo-image">
-          <% if event.photos.attached?  %>
           <%= render 'add_photos_form', event: event%>
-          <% end %>
-        </div>
       </div>
       <div class='d-flex mt-3'>
         <div class="d-flex link-card">
@@ -36,12 +32,8 @@
               <% end %>
             </div>
           <% else %>
-            <div class="upload-location">
-              <%= simple_form_for event, namespace: "event-#{event.id}" do |f| %>
-                <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none',
-                onChange: 'this.form.submit()' },
-                label_html: { class: 'upload-photo'}, label: '📷 Upload'  %>
-              <% end %>
+            <div class="owl-carousel owl-theme align-self-center">
+              <%= image_tag 'upload-photo.jpg', width: '250', height: '250', object_fit: "cover"%>
             </div>
           <% end %>
         </div>
