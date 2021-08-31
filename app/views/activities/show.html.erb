@@ -1,6 +1,6 @@
 <div class="container my-5">
-  <div class="d-flex my-5">
-    <div>
+  <div class="d-flex align-self-center my-5" style='background-color:white;'>
+    <div class='align-self-center'>
       <% if @activity.photo.attached? %>
         <%= cl_image_tag @activity.photo.key, style: "width: 500px; height: 400px;"%>
       <% else %>
@@ -13,7 +13,7 @@
       <p class='modal-p'>Address: <%= @activity.address %></p>
       <p class='modal-p'><%= @activity.description %></p>
       <div class='d-flex justify-content-center'>
-        <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary, target:"_blank"" %>
+        <%= link_to 'View website', @activity.website_link, class: "btn-lg btn-primary", target:"_blank" %>
       </div>
     </div>
   </div>
