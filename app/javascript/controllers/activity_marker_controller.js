@@ -11,16 +11,12 @@ export default class extends Controller {
 
   hover(event){
     const marker = document.querySelector(`[data-marker-id='${event.currentTarget.dataset.id}']`)
-    marker.style.backgroundColor = 'blue';
-    marker.style.backgroundSize = 'contain';
     marker.style.width = '30px';
-    marker.style.height = '30px';
+    marker.style.height = '40px';
   }
   hoverOut(event) {
     const marker = document.querySelector(`[data-marker-id='${event.currentTarget.dataset.id}']`)
-    marker.style.backgroundColor = 'red';
-    marker.style.backgroundSize = 'contain';
-    marker.style.width = '25px';
-    marker.style.height = '25px';
+    marker.style.width = '20px';
+    marker.style.height = '30px';
   }
 }
