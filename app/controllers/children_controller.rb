@@ -78,7 +78,8 @@ class ChildrenController < ApplicationController
       {
         lat: activity.latitude,
         lng: activity.longitude,
-        info_window: render_to_string(partial: "map_components/info_window", locals: { activity: activity })
+        info_window: render_to_string(partial: "map_components/info_window", locals: { activity: activity }),
+        id: activity.id
       }
     end
   end
