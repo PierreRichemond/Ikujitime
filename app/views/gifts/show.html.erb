@@ -2,7 +2,7 @@
   <div class="d-flex my-5">
     <div>
       <% if @gift.photo.attached? %>
-        <%= cl_image_tag @gift.photo.key, style: "width: 400px;"%>
+        <%= cl_image_tag @gift.photo.key, style: "width: 400px; height: 400px;"%>
       <% else %>
         <%= image_tag 'camera-photo.png', style: "width: 400px;"%>
       <% end %>
@@ -12,10 +12,11 @@
       <p class='modal-price'>Suggested Age Range: <%= @gift.start_age %>-<%= @gift.end_age %></p>
       <p class='modal-price'>Price:<%= number_with_delimiter(@gift.price, delimiter: ',') %></p>
       <p class='modal-p'><%= @gift.description %></p>
+      <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary" %>
     </div>
   </div>
-  <div class="border-top pt-5 d-flex justify-content-between ">
-    <%= link_to 'View Store', @gift.website_link, class: "btn-lg btn-primary" %>
+  <%= render './children/childcard', child: @child %>
+  <div class="border-top pt-5 d-flex justify-content-start my-3">
     <% @events.each do|event| %>
       <% unless event.gift %>
         <%= render 'event_dropdown', event: event %>
