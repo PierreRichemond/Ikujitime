@@ -26,7 +26,8 @@ ActiveStorage.start()
 import "bootstrap";
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { initanime } from '../plugins/anime';
+import { init500 } from '../plugins/500';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -49,7 +50,9 @@ document.addEventListener('turbolinks:load', () => {
     nav: true,
     navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
   })
+  initanime();
+  init500();
   // initMapbox();
 });
 
-import "controllers"
+import "controllers";
