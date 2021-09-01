@@ -17,7 +17,9 @@
           </li>
         <% end %>
         <li class="nav-item dropdown">
-          <%= link_to 'Log out', destroy_user_session_path, method: :delete%>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <p><i class="fas fa-sign-out-alt"></i>Log Out</p>
+          <% end %>
           <%# <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-bars"></i></p> %>
           <%# <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"> %>
           <%# <%= link_to "Action", "#", class: "dropdown-item" %>

@@ -5,9 +5,6 @@ import { Controller } from "stimulus"
 export default class extends Controller {
 
   static targets = ["tab", "map"]
-  connect(){
-    console.log("connected")
-  }
 
   hover(event){
     const marker = document.querySelector(`[data-marker-id='${event.currentTarget.dataset.id}']`)

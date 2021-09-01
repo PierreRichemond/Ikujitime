@@ -1,12 +1,15 @@
 <%= render 'childcard', child: @child %>
-<%= form_tag child_path(@child),remote: true, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search a gift"
-  %>
-  <%# <%= check_box_tag :age,  %> %>
-  <%# if checked filter result %>
-  <%= submit_tag "Search", class: "btn btn-success"%>
-<% end %>
+  <div class="gift-search">
+    <%= form_tag child_path(@child),remote: true, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "search-bar",
+        placeholder: "  Search a gift"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary btn-child-show"%>
+      <div class="checkbox-style">
+        <%= check_box_tag :age, input_html: { class: "tag-selector"}, item_wrapper_class: 'tag-item'  %>
+      </div>
+    <% end %>
+  </div>
 <%= render 'search', gifts: @gifts, child: @child%>

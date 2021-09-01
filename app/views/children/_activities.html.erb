@@ -2,10 +2,10 @@
 <div data-controller="build-map" data-build='true' ></div>
 <% end %>
   <div class="activity-tag">
-    <div>
-      <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-success" %>
+    <div data-controller="active-btn">
+      <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-primary tag-btn active-btn", data:{target:"active-btn.content", action:"btnActive"}%>
       <% ActsAsTaggableOn::Tag.all.each do |tag| %>
-        <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-success" %>
+        <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-primary tag-btn", data:{target:"active-btn.content", action:"btnActive"} %>
       <% end %>
     </div>
     <%= render 'childcard', child: @child %>
