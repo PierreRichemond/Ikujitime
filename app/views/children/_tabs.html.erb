@@ -4,10 +4,12 @@
       <div class="d-flex justify-content-between border-bottom mb-1">
         <div>
           <p><%= event.start_date.strftime("%B %d, %Y") %></p>
-          <%= link_to 'Add to Google Calendar', "https://calendar.google.com/calendar/u/0/r/eventedit?+event&sprop=name:#{@child.first_name}+#{event.occasion}&sprop=website:https://www.ikujitime.me&details=#{event.occasion}&text=#{@child.first_name}+#{event.occasion}&dates=#{event.start_date.strftime("%Y")}#{event.start_date.strftime("%m")}#{event.start_date.strftime("%d")}T#{event.start_date.strftime("%H%M%S")}GMT/#{event.end_date.strftime("%Y")}#{event.end_date.strftime("%m")}#{event.end_date.strftime("%d")}T#{event.end_date.strftime("%H%M%S")}GMT&pli=1&sf=true", target: '_blank' %>
+          <% if event.start_date.strftime("%B %d, %Y") > Time.now %>
+            <%= link_to 'Add to Google Calendar', "https://calendar.google.com/calendar/u/0/r/eventedit?+event&sprop=name:#{@child.first_name}+#{event.occasion}&sprop=website:https://www.ikujitime.me&details=#{event.occasion}&text=#{@child.first_name}+#{event.occasion}&dates=#{event.start_date.strftime("%Y")}#{event.start_date.strftime("%m")}#{event.start_date.strftime("%d")}T#{event.start_date.strftime("%H%M%S")}GMT/#{event.end_date.strftime("%Y")}#{event.end_date.strftime("%m")}#{event.end_date.strftime("%d")}T#{event.end_date.strftime("%H%M%S")}GMT&pli=1&sf=true", target: '_blank' %>
+          <% end %>
         </div>
         <h2 class='mt-3'> <%= event.occasion.capitalize %> </h2>
-          <%= render 'add_photos_form', event: event%>
+        <%= render 'add_photos_form', event: event%>
       </div>
       <div class='d-flex mt-3'>
         <div class="d-flex link-card">
@@ -27,19 +29,28 @@
             <% end %>
           <% end %>
         </div>
-        <div class='w-100 overflow-hidden'>
-          <% if event.photos.attached? %>
+        <% if event.photos.any? %>
+          <div class='w-100 overflow-hidden'>
             <div class="owl-carousel owl-theme align-self-center">
               <% event.photos.each do |photo| %>
                 <%= cl_image_tag photo.key, width: '250', height: '250', object_fit: "cover"%>
               <% end %>
             </div>
+          </div>
+        <% else %>
+          <% if event.start_date < Time.now %>
+            <div class='w-100 overflow-hidden'>
+              <div class="owl-carousel owl-theme align-self-center">
+                <%= image_tag 'upload-photo.jpg', width: '250', height: '250', object_fit: "cover"%>
+              </div>
+            </div>
           <% else %>
-            <div class="owl-carousel owl-theme align-self-center">
-              <%= image_tag 'upload-photo.jpg', width: '250', height: '250', object_fit: "cover"%>
+            <div class="photo-box">
+              <h4>📷    📸    🤳</h4>
+              <h5>Don't forget to take pictures while meeting with <%= @child.first_name %>, and upload those afterwards.</h5>
             </div>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>

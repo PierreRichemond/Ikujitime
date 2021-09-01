@@ -48,7 +48,7 @@ class ChildrenController < ApplicationController
     @child.user = current_user
     authorize @child
     if @child.save
-      redirect_to child_path(@child)
+      redirect_to children_path
     else
       render :new
     end
