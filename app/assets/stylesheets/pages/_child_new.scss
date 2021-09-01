@@ -1,21 +1,26 @@
-.form-check {
-  color: white;
-  padding: 16px 24px;
-  border-radius: 20px;
-  width: 180px;
-  font-weight: bold;
-  background: linear-gradient(#91CE9C, #34985B);
-  transition: 0.3s ease;
-  border: 1px solid #34985B;
-  margin: 1em;
-
-  &:hover {
-  background: linear-gradient(#34985B, #91CE9C);
-  color: white;
-  }
+.tag-item {
+  display: inline-block;
 }
 
-.child_tag_list {
-  display: flex;
-  flex-wrap: wrap;
+.tag-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.tag-selector + label {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  border-radius: 50rem;
+  padding: 0.3rem 0.6rem;
+  background-color: #a8cfaf;
+  color: #17793c;
+  border: 1px solid #17793c;
+  margin-right: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.tag-selector:checked + label {
+  background-color: #34985B;
+  color: white;
 }

@@ -11,16 +11,12 @@ export default class extends Controller {
 
   hover(event){
     const marker = document.querySelector(`[data-marker-id='${event.currentTarget.dataset.id}']`)
-    if (marker) {
       marker.style.width = '30px';
       marker.style.height = '40px';
-    }
   }
   hoverOut(event) {
     const marker = document.querySelector(`[data-marker-id='${event.currentTarget.dataset.id}']`)
-    if (marker) {
       marker.style.width = '20px';
       marker.style.height = '30px';
-    }
   }
 }

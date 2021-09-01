@@ -111,12 +111,12 @@ require 'csv'
 # arrays.each do |array|
 # target_url = "https://www.target.com/c/toys-for-ages-#{array}"
 
-fischer_url = "https://www.fisher-price.com/en-us/shop/age/2-plus-years"
+# fischer_url = "https://www.fisher-price.com/en-us/shop/age/2-plus-years"
 
-html_file_fischer = URI.open(fischer_url).read
-html_doc_fischer = Nokogiri::HTML(html_file_fischer)
-  name = html_doc_fischer.search(".scroll-loaded")
-  puts name
+# html_file_fischer = URI.open(fischer_url).read
+# html_doc_fischer = Nokogiri::HTML(html_file_fischer)
+#   name = html_doc_fischer.search(".scroll-loaded")
+#   puts name
   #   price = target_card.search('.current-price').text.strip
   #   puts price
   # end
@@ -127,26 +127,28 @@ html_doc_fischer = Nokogiri::HTML(html_file_fischer)
 
 # User below for seeding activity
 # ============================================
-#   Event.destroy_all
-#   Activity.destroy_all
-#   puts "All activities and events deleted from db"
+  Event.destroy_all
+  Activity.destroy_all
+  Tags.destroy_all
+  puts "All activities and events deleted from db"
 
-# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-# filepath = 'db/activity.csv'
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath = 'db/activity.csv'
 
-# CSV.foreach(filepath, csv_options) do |row|
-#   activity_image = URI.open(row[5])
-#   activity = Activity.create!(
-#     name: row[0],
-#     description: row[1],
-#     price: row[2],
-#     address: row[3],
-#     website_link: row[4],
-#     )
-#     activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
-# end
+CSV.foreach(filepath, csv_options) do |row|
+  activity_image = URI.open(row[5])
+  activity = Activity.create!(
+    name: row[0],
+    description: row[1],
+    price: row[2],
+    address: row[3],
+    website_link: row[4],
+    )
+    activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
+    activity.tag_list = row[6]
+end
 
-# puts "Part 1. #{Activity.count} activities were created"
+puts "Part 1. #{Activity.count} activities were created"
 
 
   # For extra users, child, and events for your db uncomment the below code
