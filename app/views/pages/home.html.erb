@@ -3,18 +3,27 @@
   <div class="text-container">
     <div>
       <div class="brand-container"><%= image_tag 'Memo Me.png', class: "landingpage-logo" %><span class="brand-name">Memo-Me</span></div>
-      <h1>Plan events. Create memories.
+        <h1>Plan events. Create memories.
         <br>
         <span class="landingpage-subheader">Stay connected with those precious little ones.</span>
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="container-home">
-      <h3>Use Ikujitime, take a little of your time to get much closer to those kids that you like.</p>
-      <p>It can be a niece, a nephew, a friend's kid, your own to keed tabs on them, become a better parent, a better friend, a closer familly member! </p>
-      <a class="btn-lg btn-primary <%= current_user.present? ? "d-none" : '' %>" href="/users/sign_up">Sign up now</a>
+  <div class="row container-home">
+    <div class="col-12 col-sm-6 d-flex align-items-center">
+      <div class="homepage-description-text">
+        <h4 style="font-weight: 700; margin-bottom: 1em;">Memories with <span style= "color: #3fb46c; font-style: italic;">Memo-Me</span></h4>
+          <li><span class="fa-li"><i class="far fa-clock"></i></span>Spend Quality Time
+          <br><span style="font-size: 16px;">Take a little of your time and be much closer to those kids around you.</span></li>
+          <li><span class="fa-li"><i class="fas fa-home"></i></span>Build Relationship
+          <br><span style="font-size: 16px;">It can be a niece, a nephew, a friend's kid, or your own. Become a better parent, a better friend, a closer family member!</span></li>
+      </div>
     </div>
+    <div class="col-12 col-sm-6">
+      <%= image_tag 'home-image.jpg', id:"couch-image" %>
+    </div>
+  </div>
+  <div class="container">
     <div class="container instructions">
       <div class="position-of-down mt-5">
         <%= image_tag 'down-arrow.png', class: "down-arrow-icon" %>
