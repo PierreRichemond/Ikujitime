@@ -1,2 +1,9 @@
+<% if params[:tab] == 'activities' %>
+<div data-controller="build-map" data-build='true' ></div>
+<% end %>
 <%= render 'childcard', child: @child %>
-<%= render 'activity_search_result', activities: @activities, child: @child %>
+  <% ActsAsTaggableOn::Tag.all.each do |tag| %>
+        <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-success" %>
+  <% end %>
+        <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-success" %>
+    <%= render './activity_components/activity_search_result', activities: @activities, child: @child %>

@@ -5,6 +5,8 @@
     class: "form-control",
     placeholder: "Search a gift"
   %>
+  <%# <%= check_box_tag :age,  %> %>
+  <%# if checked filter result %>
   <%= submit_tag "Search", class: "btn btn-success"%>
 <% end %>
 <%= render 'search', gifts: @gifts, child: @child%>

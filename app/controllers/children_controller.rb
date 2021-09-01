@@ -1,5 +1,6 @@
 class ChildrenController < ApplicationController
   before_action :set_children, only: [:show, :edit, :update, :destroy]
+  before_action :activity_tagged, only: [:show]
 
   def index
     @children = policy_scope(Child).where(user: current_user)
@@ -23,12 +24,8 @@ class ChildrenController < ApplicationController
 
   def show
     authorize @child
-    if params[:query].present?
-      @gifts = Gift.search_gifts(params[:query])
-    else
-      @gifts = Gift.all
-    end
-    @activities = Activity.all
+    gift_query_search
+    # @related_activities = @activities.find_related_tags
     @event_new = Event.new
     @events = Event.where(child: @child)
     if params[:event_id].present?
@@ -87,7 +84,7 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent, :photo, :gender)
+    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent, :photo, :gender, tag_list: [])
   end
 
   def map_geocode
@@ -98,6 +95,22 @@ class ChildrenController < ApplicationController
         info_window: render_to_string(partial: "map_components/info_window", locals: { activity: activity }),
         id: activity.id
       }
+    end
+  end
+
+  def gift_query_search
+    if params[:query].present?
+      @gifts = Gift.search_gifts(params[:query])
+    else
+      @gifts = Gift.all
+    end
+  end
+
+  def activity_tagged
+    if params[:tag].present?
+      @activities = Activity.tagged_with(params[:tag])
+    else
+      @activities = Activity.all
     end
   end
 end

@@ -1,0 +1,21 @@
+.form-check {
+  color: white;
+  padding: 16px 24px;
+  border-radius: 20px;
+  width: 180px;
+  font-weight: bold;
+  background: linear-gradient(#91CE9C, #34985B);
+  transition: 0.3s ease;
+  border: 1px solid #34985B;
+  margin: 1em;
+
+  &:hover {
+  background: linear-gradient(#34985B, #91CE9C);
+  color: white;
+  }
+}
+
+.child_tag_list {
+  display: flex;
+  flex-wrap: wrap;
+}
