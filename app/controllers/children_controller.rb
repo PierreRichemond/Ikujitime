@@ -22,7 +22,12 @@ class ChildrenController < ApplicationController
   end
 
   def show
-    @gifts = Gift.all
+    authorize @child
+    if params[:query].present?
+      @gifts = Gift.search_gifts(params[:query])
+    else
+      @gifts = Gift.all
+    end
     @activities = Activity.all
     @event_new = Event.new
     @events = Event.where(child: @child)
@@ -30,11 +35,14 @@ class ChildrenController < ApplicationController
       @event = Event.find(params[:event_id])
     end
     @years = @child.events.map { |event| event.start_date.year }.uniq.sort.reverse
-    authorize @child
     map_geocode
     respond_to do |format|
-      format.html
-      format.js
+      if params[:query].present?
+        format.js { render partial: 'search_result.js.erb' }
+      else
+        format.html
+        format.js
+      end
     end
   end
 

@@ -1,24 +1,2 @@
 <%= render 'childcard', child: @child %>
-<p class="search-result-text">There are <span class="count-result"><%= @activities.count %></span> results</p>
-<% if @activities.count > 0 %>
-  <div class="activity-container">
-    <div class="row">
-      <div class="col-12 col-md-4 col-lg-4" data-controller="activity-marker">
-        <% @activities.each do |activity| %>
-          <%= link_to  activity_path(activity, child_id: @child), data:{id: activity.id, action: 'mouseover->activity-marker#hover mouseout->activity-marker#hoverOut'} do %>
-            <%= render './activity_components/activitycards', activity: activity %>
-          <% end %>
-        <% end %>
-      </div>
-      <div class="col-12 col-md-8 col-lg-8">
-        <div id="map"
-              style="width: 100%; height: 800px;"
-              data-markers="<%= @markers.to_json %>"
-              data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-      </div>
-    </div>
-  </div>
-<% else %>
-  <h3 class="centered m-5"><i class="fas fa-sad-tear"></i> Please try another key word....</h3>
-<% end %>
+<%= render 'activity_search_result', activities: @activities, child: @child %>
