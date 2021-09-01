@@ -12,39 +12,40 @@
       </div>
       <div style="padding-top: 30px;">
         <h3 style="padding-bottom: 20px;"><strong><%= @child.first_name %></strong></h3>
-        <p>Age: <%= @child.age(@child) %></p>
-        <p>Gender: <%= @child.gender %></p>
-        <p>Birthday: <%= @child.birthday.strftime("%B %d, %Y") %></p>
-        <p>Hobby: <%= @child.hobby %></p>
+        <p><%= pluralize( @child.age(@child), 'year' )%> old</p>
+        <p>Born on <%= @child.birthday.strftime("%B %d, %Y") %></p>
+        <% if @child.hobby.present? %>
+          <p>Hobby: <%= @child.hobby %></p>
+        <% end %>
       </div>
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
-          <%= render partial: "calendar", locals: {events: @events} %>
+        <%= render partial: "calendar", locals: {events: @events} %>
       </div>
       <div class="mb-4" style="padding-top: 50px">
         <p style="padding-bottom: 20px;"><strong>Create An Event</strong></p>
         <%= simple_form_for [@child, @event_new] do |f| %>
-          <%= f.input :start_date,:label => "Start date", as: :string, required: false, input_html: {class: "datepicker"}%>
-          <%= f.input :end_date,:label => "End date", as: :string, required: false, input_html: {class: "datepicker"}%>
+          <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
+          <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
           <%= f.input :occasion, as: :text %>
           <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
         <% end %>
       </div>
     </div>
     <div class="col-12 col-md-9 col-lg-9">
-    <ul class="nav tabs-underlined" id="myTab" role="tablist">
-      <% @years.each_with_index do |year, index|  %>
-        <li class="nav-item border-right" role="presentation">
-          <a class="tab-underlined <%= "active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="tab-<%= year %>" data-toggle="tab" href="#content-<%= year %>" role="tab" aria-controls="home" aria-selected="true"><%= year %></a>
-        </li>
-      <% end %>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-      <% @years.each_with_index do |year, index|  %>
-        <div class="tab-pane fade py-3 <%= "show active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="content-<%= year %>" role="tabpanel" aria-labelledby="tab-<%= year %>">
-          <%= render "children/tabs", year: year %>
-        </div>
-      <% end %>
-    </div>
+      <ul class="nav tabs-underlined" id="myTab" role="tablist">
+        <% @years.each_with_index do |year, index|  %>
+          <li class="nav-item border-right" role="presentation">
+            <a class="tab-underlined <%= "active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="tab-<%= year %>" data-toggle="tab" href="#content-<%= year %>" role="tab" aria-controls="home" aria-selected="true"><%= year %></a>
+          </li>
+        <% end %>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <% @years.each_with_index do |year, index|  %>
+          <div class="tab-pane fade py-3 <%= "show active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="content-<%= year %>" role="tabpanel" aria-labelledby="tab-<%= year %>">
+            <%= render "children/tabs", year: year %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

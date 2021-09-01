@@ -23,7 +23,7 @@
                 </div>
                 <div>
                   <p> 🎂 : <%= child.birthday %></p>
-                  <p><%= child.age(child) %> years old</p>
+                  <p><%= pluralize( child.age(child), 'year' )%> old</p>
                   <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
                   <%= link_to  '❌',
                   child_path(child),
