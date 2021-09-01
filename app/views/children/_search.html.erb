@@ -1,0 +1,18 @@
+<div id="search-result">
+  <p class="search-result-text">There are <span class="count-result"><%= gifts.count %></span> results</p>
+  <% if gifts.count.positive? %>
+    <div class="gift-container">
+      <div class="row">
+        <% gifts.each do |gift| %>
+          <div class="col-12 col-md-4 col-lg-3 py-2">
+            <%= link_to  gift_path(gift, child_id: child) do %>
+              <%= render './gift_components/giftcards', gift: gift %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% else %>
+    <h3 class="centered m-5"><i class="fas fa-sad-tear"></i> Please try another key word....</h3>
+  <% end %>
+</div>

@@ -39,7 +39,7 @@ gem 'faker'
 gem 'nokogiri', '~> 1.8'
 gem "simple_calendar", "~> 2.4"
 gem 'geocoder'
-
+gem 'pg_search', '~> 2.3.0'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

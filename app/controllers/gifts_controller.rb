@@ -1,5 +1,4 @@
 class GiftsController < ApplicationController
-
   def show
     @child = Child.find(params[:child_id])
     @gift = Gift.find(params[:id])

@@ -18,14 +18,14 @@
               <%= render './activity_components/activity_imgcard', activity: event.activity %>
               <%= render './gift_components/gift_imgcard', gift: event.gift %>
             <% elsif event.activity.present? %>
-              <%= link_to "Get a gift for #{@child.first_name}", child_path(@child, event_id: event.id, tab: 'gifts'), class: "cards" %>
+              <%= link_to "Get a gift for #{@child.first_name}", child_path(@child, tab: 'gifts'), class: "cards" %>
               <%= render './activity_components/activity_imgcard', activity: event.activity %>
             <% elsif event.gift.present? %>
-              <%= link_to "Plan an activity for #{@child.first_name}", child_path(@child, event_id: event.id, tab: 'activities'), class: "cards" %>
+              <%= link_to "Plan an activity for #{@child.first_name}", child_path(@child, tab: 'activities'), class: "cards" %>
               <%= render './gift_components/gift_imgcard', gift: event.gift %>
             <% else %>
-              <%= link_to "Get a gift for #{@child.first_name}", child_path(@child, event_id: event.id, tab: 'gifts'), class: "cards" %>
-              <%= link_to "Plan an activity for #{@child.first_name}", child_path(@child, event_id: event.id, tab: 'activities'), class: "cards" %>
+              <%= link_to "Get a gift for #{@child.first_name}", child_path(@child, tab: 'gifts'), class: "cards" %>
+              <%= link_to "Plan an activity for #{@child.first_name}", child_path(@child, tab: 'activities'), class: "cards" %>
             <% end %>
           <% end %>
         </div>
