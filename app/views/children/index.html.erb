@@ -1,20 +1,22 @@
 <div class="index-child-container">
   <div class="row">
     <div class="col-12 col-md-8 col-lg-8">
-      <div class="container mt-3 mb-5">
-        <h1>Your family members</h1>
-        <a class="btn-child-show btn-lg btn-primary my-3" href="/children/new"><span>Add a member to your family</span></a>
+      <div class="container mb-5">
+        <h1 class='text-center index-h1'>Your family members</h1>
+        <div class="d-flex justify-content-center">
+          <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add a member to your family</span></a>
+        </div>
         <% @children.each do |child| %>
-          <div class="card-product my-3 mt-5">
+          <div class="card-product my-3 mt-5 ">
             <% if child.photo.attached? %>
               <%= cl_image_tag child.photo.key%>
             <% else %>
               <%= image_tag "upload-photo.jpg" %>
             <% end %>
-            <div class="card-product-infos">
+            <div class="card-product-infos child-absolute">
               <h2><%= child.full_name(child) %></h2>
               <div class="d-flex justify-content-between">
-                <div>
+                <div class =''>
                   <p>Parents: <%= child.parent %> </p>
                   <p class='mb-4'>Hobby: <%= child.hobby %></p>
                   <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
@@ -22,15 +24,10 @@
                 <div>
                   <p> 🎂 : <%= child.birthday %></p>
                   <p><%= child.age(child) %> years old</p>
-                  <% if child.gender == 'male' %>
-                    <p>Boy 👦</p>
-                  <% else %>
-                    <p>Girl 👧</p>
-                  <% end %>
-                  <%= link_to '🖋', edit_child_path(child)%>
+                  <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
                   <%= link_to  '❌',
                   child_path(child),
-                  method: :delete, class: 'mx-3',
+                  method: :delete, class: 'delete-child',
                   data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
                 </div>
               </div>
