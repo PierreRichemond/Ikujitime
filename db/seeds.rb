@@ -7,13 +7,13 @@ require 'csv'
 # puts 'cleaning the DB...'
 
 # 1.times do
-#   file0 = File.open('app/assets/images/IMG_8728.JPG')
+#   # file0 = File.open('app/assets/images/IMG_8728.JPG')
 #     user = User.create!(
 #           email: "dankr59@gmail.com",
 #           password: '123123',
 #           name: 'Daniel Rabottini',
 #         )
-#         user.photo.attach(io: file0, filename: 'user.png', content_type: 'image/png')
+#         # user.photo.attach(io: file0, filename: 'user.png', content_type: 'image/png')
 
 #           file = URI.open('https://images.unsplash.com/photo-1471938537155-7de0bd123d0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
 #           child = Child.create!(
@@ -34,7 +34,7 @@ require 'csv'
 #             end_date: '2020-09-03 17:00',
 #             occasion: 'Birthday Party',
 #             child: child,
-#             gift_id: rand(Gift.last.id-79..Gift.last.id),
+#             # gift_id: rand(Gift.last.id-79..Gift.last.id),
 #           )
 #           file1 = URI.open('https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
 #           event0.photos.attach(io: file1, filename: 'event1.png', content_type: 'image/png')
@@ -44,28 +44,6 @@ require 'csv'
 #           event0.photos.attach(io: file3, filename: 'event3.png', content_type: 'image/png')
 #           file4 = URI.open('https://images.unsplash.com/photo-1544829832-c8047d6b9d89?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
 #           event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
-
-#           event1 = Event.create!(
-#             start_date: '2020-06-10 08:00',
-#             end_date: '2020-06-10 20:00',
-#             occasion: 'Disney Land',
-#             child: child,
-#           )
-#           file5 = URI.open('https://images.unsplash.com/photo-1547782149-1bf9689e7654?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           event1.photos.attach(io: file5, filename: 'event5.png', content_type: 'image/png')
-#           file6 = URI.open('https://images.unsplash.com/photo-1624601572822-93b8de9a72da?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           event1.photos.attach(io: file6, filename: 'event6.png', content_type: 'image/png')
-#           file7 = URI.open('https://images.unsplash.com/photo-1547782126-87bb2bead14e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           event1.photos.attach(io: file7, filename: 'event7.png', content_type: 'image/png')
-#           file8 = URI.open('https://images.unsplash.com/photo-1554171596-3bf5402e1026?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=581&q=80')
-#           event1.photos.attach(io: file8, filename: 'event8.png', content_type: 'image/png')
-
-#           event2 = Event.create!(
-#             start_date: '2021-05-03 10:00',
-#             end_date: '2021-05-03 17:00',
-#             occasion: 'Family gathering',
-#             child: child
-#           )
 # end
 
 # puts "#{User.last.name} added to db"
@@ -115,8 +93,15 @@ require 'csv'
 
 # html_file_fischer = URI.open(fischer_url).read
 # html_doc_fischer = Nokogiri::HTML(html_file_fischer)
-#   name = html_doc_fischer.search(".scroll-loaded")
-#   puts name
+# html_doc_fischer.search('.grid-title-wrapper').each do |tag|
+#   p tag
+# end
+
+  # html_doc_fischer.search(".scroll-loaded").each do |card|
+  #   p card
+  #   name = card.search(".grid-title").text.strip
+  #   puts name
+  # end
   #   price = target_card.search('.current-price').text.strip
   #   puts price
   # end
@@ -127,28 +112,27 @@ require 'csv'
 
 # User below for seeding activity
 # ============================================
-  Event.destroy_all
-  Activity.destroy_all
-  Tags.destroy_all
-  puts "All activities and events deleted from db"
+#   Event.destroy_all
+#   Activity.destroy_all
+#   puts "All activities and events deleted from db"
 
-csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-filepath = 'db/activity.csv'
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath = 'db/activity.csv'
 
-CSV.foreach(filepath, csv_options) do |row|
-  activity_image = URI.open(row[5])
-  activity = Activity.create!(
-    name: row[0],
-    description: row[1],
-    price: row[2],
-    address: row[3],
-    website_link: row[4],
-    )
-    activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
-    activity.tag_list = row[6]
-end
+# CSV.foreach(filepath, csv_options) do |row|
+#   activity_image = URI.open(row[5])
+#   activity = Activity.create!(
+#     name: row[0],
+#     description: row[1],
+#     price: row[2],
+#     address: row[3],
+#     website_link: row[4],
+#     tag_list: row[6].split(' ')
+#     )
+#     activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
+# end
 
-puts "Part 1. #{Activity.count} activities were created"
+# puts "Part 1. #{Activity.count} activities were created"
 
 
   # For extra users, child, and events for your db uncomment the below code

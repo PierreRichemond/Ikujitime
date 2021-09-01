@@ -1,19 +1,19 @@
 .childcard-container {
-  margin-right: 2em;
-  position: sticky;
-  top: 8px;
+  position: fixed;
+  top: 80px;
+  right: 20px;
   z-index: 1;
+  // margin-right: 2em;
 }
 .childcard{
   width: 180px;
   display: flex;
-  margin-left: auto;
+  align-items: center;
   border: 0.7px solid rgba(0, 0, 0, 0.2);
   border-top-left-radius: 57px;
   border-bottom-left-radius: 57px;
   border-top-right-radius: 57px;
   border-bottom-right-radius: 57px;
-  align-items: center;
   background: rgba(255, 255, 255, 0.5);
   p {
     padding-top: 1em;

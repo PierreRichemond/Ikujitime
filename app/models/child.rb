@@ -6,7 +6,7 @@ class Child < ApplicationRecord
   has_many :activities, through: :events
   has_one_attached :photo
   acts_as_taggable_on :tags
-  TAGS = [ "Indoor", "Outdoor", "Sports", "Sightseeing", "Food and Drink" ]
+  TAGS = [ "Indoor", "Outdoor", "Sports", "Sightseeing", "Food&Drink" ]
 
   validates :birthday, presence: true
   validates :first_name, presence: true
