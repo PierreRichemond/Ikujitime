@@ -4,7 +4,7 @@
       <div class="container width-children-cards">
         <h1 class='text-center index-h1'>Your children list</h1>
         <div class="d-flex justify-content-center">
-          <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add a member to your family</span></a>
+          <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
         <% @children.each do |child| %>
           <div class="card-product my-4 ">
@@ -16,7 +16,7 @@
             <div class="card-product-infos child-absolute">
               <h2><%= child.full_name %></h2>
               <div class="d-flex justify-content-between">
-                <div class =''>
+                <div class ='seemore'>
                   <p>Parents: <%= child.parent %> </p>
                   <% if child.hobby.present? %>
                     <p class='mb-4'>Hobby: <%= child.hobby %></p>
@@ -57,7 +57,7 @@
             <div class="container calendar-events">
               <h4 class="mb-4" style="text-align:center">Upcoming Events</h4>
               <% @all_events.sort_by(&:start_date).each do |event|%>
-                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %></p>
               <% end %>
             </div>
             <div class="container calendar-events">

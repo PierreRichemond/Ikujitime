@@ -1,5 +1,5 @@
 <p class="search-result-text">There are <span class="count-result"><%= activities.count %></span> results</p>
-<% if activities.count > 0 %>
+<% if activities.count.positive? %>
   <div class="activity-container">
     <div class="row">
       <div class="col-12 col-md-4 col-lg-4" data-controller="activity-marker">

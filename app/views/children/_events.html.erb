@@ -21,14 +21,23 @@
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
         <%= render partial: "calendar", locals: {events: @events} %>
       </div>
-      <div class="mb-4" style="padding-top: 50px">
-        <p style="padding-bottom: 20px;"><strong>Create An Event</strong></p>
-        <%= simple_form_for [@child, @event_new] do |f| %>
-          <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
-          <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
-          <%= f.input :occasion, as: :text %>
-          <%= f.submit 'Create now!', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
-        <% end %>
+      <div style="padding-top: 20px">
+
+        <script type="text/javascript">
+            function showForm() {
+                document.getElementById('formElement').style.display = 'block';
+            }
+        </script>
+
+        <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()"><h4><strong>Create an Event</strong></h4></button>
+        <div id="formElement" style="display: none; padding-top: 50px">
+          <%= simple_form_for [@child, @event_new] do |f| %>
+            <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
+            <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
+            <%= f.input :occasion, as: :text %>
+            <%= f.submit 'Schedule the event', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-9 col-lg-9">
