@@ -34,6 +34,24 @@
 }
 
 .container-home{
-  padding-top: 30px;
-  text-align: center;
+  margin-left: 8em;
+  margin-top: 4em;
+  width: 95%;
+}
+
+#couch-image{
+  object-fit: cover;
+  width: 70%;
+  height: 65vh;
+  border-top-left-radius: 40%;
+}
+
+.homepage-description-text li{
+  font-size: 24px;
+  text-align: left;
+  line-height: 1.3em;
+  list-style: none;
+  .fa-li {
+    padding: 0px;
+  }
 }

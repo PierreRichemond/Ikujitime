@@ -3,3 +3,40 @@
   margin-left:30px;
   width:95%;
 }
+// For activity tab
+.activity-tag {
+  margin: 2em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag-btn {
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  &:hover {
+    background-color: $success;
+    border: 1px solid $success;
+  }
+}
+
+.active-btn {
+  background-color: $success;
+  border: 1px solid $success;
+}
+// For gift tab
+.gift-search {
+margin: 2em;
+}
+
+.search-bar {
+  width: 200px;
+  border-radius: 20px;
+  height: 35px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.checkbox-style {
+  margin: 1em;
+}

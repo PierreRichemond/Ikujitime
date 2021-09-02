@@ -6,6 +6,11 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css'
 
 export default class extends Controller {
 
+  connect() {
+    if (this.element.dataset.build) {
+      this.buildMap()
+    }
+  }
   buildMap() {
     setTimeout(() => {
       if(this.mapbuilt !== true){
