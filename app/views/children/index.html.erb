@@ -1,34 +1,39 @@
-<div class="index-child-container">
+<div class="index-child-container width-index">
   <div class="row">
     <div class="col-12 col-md-8 col-lg-8">
-      <div class="container mb-5">
-        <h1 class='text-center index-h1' style="font-weight: 700;">Your Family Members</h1>
+      <div class="container width-children-cards">
+        <h1 class='text-center index-h1'>Your children list</h1>
         <div class="d-flex justify-content-center">
           <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
         <% @children.each do |child| %>
-          <div class="card-product my-3 mt-5 ">
+          <div class="card-product my-4 ">
             <% if child.photo.attached? %>
               <%= cl_image_tag child.photo.key%>
             <% else %>
-              <%= image_tag "upload-photo.jpg" %>
+              <%= cl_image_tag "upload-photo.jpg" %>
             <% end %>
             <div class="card-product-infos child-absolute">
-              <h2><%= child.full_name(child) %></h2>
+              <h2><%= child.full_name %></h2>
               <div class="d-flex justify-content-between">
                 <div class ='seemore'>
                   <p>Parents: <%= child.parent %> </p>
-                  <p class='mb-4'>Hobby: <%= child.hobby %></p>
+                  <% if child.hobby.present? %>
+                    <p class='mb-4'>Hobby: <%= child.hobby %></p>
+                  <% else %>
+                    <p class='mb-4'>Hobby: None yet.</p>
+                  <% end %>
                   <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
                 </div>
                 <div>
-                  <p> 🎂:<%= child.birthday %></p>
-                  <p class="text-right"><%= pluralize( child.age(child), 'year' )%> old</p>
+                  <p> 🎂 <%= child.birthday %></p>
+                  <p><%= child.age %></p>
                   <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
-                  <%= link_to  '❌',
-                  child_path(child),
+                  <%= link_to child_path(child),
                   method: :delete, class: 'delete-child',
-                  data: { confirm: "delete #{child.first_name} #{child.last_name}?"}%>
+                  data: { confirm: "delete #{child.first_name.capitalize} #{child.last_name.capitalize}?"} do %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -50,9 +55,15 @@
           </div>
           <div class="mt-5 mb-5" style="text-align:left">
             <div class="container calendar-events">
-              <p class="mb-4" style="text-align:center">Upcoming Events</p>
+              <h4 class="mb-4" style="text-align:center">Upcoming Events</h4>
               <% @all_events.sort_by(&:start_date).each do |event|%>
                 <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %></p>
+              <% end %>
+            </div>
+            <div class="container calendar-events">
+              <h4 class="mb-4" style="text-align:center">Past event without photos</h4>
+              <% @all_past_events.sort_by(&:start_date).each do |event|%>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
               <% end %>
             </div>
           </div>

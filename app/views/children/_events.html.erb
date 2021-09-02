@@ -11,8 +11,8 @@
         <%end %>
       </div>
       <div style="padding-top: 30px;">
-        <h3 style="padding-bottom: 20px;"><strong><%= @child.first_name %></strong></h3>
-        <p><%= pluralize( @child.age(@child), 'year' )%> old</p>
+        <h3 style="padding-bottom: 20px;"><strong><%= @child.first_name.capitalize %></strong></h3>
+        <p><%=@child.age%> </p>
         <p>Born on <%= @child.birthday.strftime("%B %d, %Y") %></p>
         <% if @child.hobby.present? %>
           <p>Hobby: <%= @child.hobby %></p>

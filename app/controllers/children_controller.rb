@@ -7,11 +7,20 @@ class ChildrenController < ApplicationController
     @events = Event.where(child: @child)
     @user = current_user
     @all_events = []
+    @all_past_events = []
 
     @children.each do |child|
       child.events.each do |event|
-        if event.start_date >  Time.now
+        if event.start_date > Time.now
           @all_events << event
+        end
+      end
+    end
+
+    @children.each do |child|
+      child.events.each do |event|
+        if event.start_date < Time.now && event.photos.blank?
+          @all_past_events << event
         end
       end
     end
@@ -60,10 +69,12 @@ class ChildrenController < ApplicationController
   end
 
   def edit
+    authorize @child
   end
 
   def update
     @child.update(child_params)
+    authorize @child
     if @child.valid?
       redirect_to child_path(@child)
     else
