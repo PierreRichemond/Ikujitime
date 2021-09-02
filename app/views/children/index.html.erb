@@ -57,13 +57,13 @@
             <div class="container calendar-events">
               <h4 class="mb-4" style="text-align:center">Upcoming Events</h4>
               <% @all_events.sort_by(&:start_date).each do |event|%>
-                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %></p>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion.capitalize %></p>
               <% end %>
             </div>
             <div class="container calendar-events">
               <h4 class="mb-4" style="text-align:center">Past event without photos</h4>
               <% @all_past_events.sort_by(&:start_date).each do |event|%>
-                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion.capitalize %></p>
               <% end %>
             </div>
           </div>

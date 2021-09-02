@@ -15,7 +15,7 @@
         <p><%=@child.age%> </p>
         <p>Born on <%= @child.birthday.strftime("%B %d, %Y") %></p>
         <% if @child.hobby.present? %>
-          <p>Hobby: <%= @child.hobby %></p>
+          <p>Hobby: <%= @child.hobby.capitalize %></p>
         <% end %>
       </div>
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
@@ -24,7 +24,7 @@
       <div style="padding-top: 20px">
         <script type="text/javascript">
           function showForm() {
-              document.getElementById('formElement').style.display = 'block';
+              var element = document.getElementById('formElement').style.display = 'block';
           }
         </script>
         <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()">
