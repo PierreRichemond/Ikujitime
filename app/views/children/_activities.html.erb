@@ -3,7 +3,6 @@
 <% end %>
   <div class="activity-tag">
     <div>
-      <span class="child-tag"><%= @child.tag_list %></span>
       <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-primary tag-btn all-tag-btn" %>
       <% ActsAsTaggableOn::Tag.all.each do |tag| %>
         <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-primary tag-btn" %>

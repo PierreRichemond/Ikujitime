@@ -4,8 +4,8 @@
     <%= f.input :middle_name, label: 'Middle name (Optional)' %>
     <%= f.input :last_name %>
     <%= f.input :parent, label: 'Parents' %>
-    <%= f.input :birthday, label: "Date of Birth", start_year: Time.now.year - 15, end_year: Time.now.year, order:[ :year, :month, :day]%>
-    <%= f.input :tag_list, as: :check_boxes, label: 'Activity Preference (Select One)', collection: Child::TAGS, input_html: { class: "tag-selector"}, item_wrapper_class: 'tag-item' %>
+    <%= f.input :birthday, html5: true, as: :date, label: "Date of Birth", start_year: Time.now.year - 15, end_year: Time.now.year, order:[ :year, :month, :day]%>
+    <%= f.input :tag_list, as: :radio_buttons, label: 'Activity Preference', collection: Child::TAGS, input_html: { class: "tag-selector"}, item_wrapper_class: 'tag-item' %>
     <%= f.input :photo, as: :file, input_html: { class: 'd-none' },
   label_html: { class: 'upload-photo'}, label: '📷 Upload a profile photo for this child'  %>
     <%= f.submit 'Register this child', class: 'btn btn-warning my-3 px-5', style: "border-radius: 20px;" %>

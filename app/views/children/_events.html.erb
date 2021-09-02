@@ -21,40 +21,50 @@
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
         <%= render partial: "calendar", locals: {events: @events} %>
       </div>
-      <div style="padding-top: 20px">
-        <script type="text/javascript">
-          function showForm() {
-              var element = document.getElementById('formElement').style.display = 'block';
-          }
-        </script>
-        <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()">
-          <h4><strong>Create an Event</strong></h4>
-        </button>
-        <div id="formElement" style="display: none; padding-top: 50px">
-          <%= simple_form_for [@child, @event_new] do |f| %>
-            <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
-            <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
-            <%= f.input :occasion, as: :text %>
-            <%= f.submit 'Schedule the event', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
-          <% end %>
+      <% if @events.count > 0 %>
+        <div style="padding-top: 20px">
+          <script type="text/javascript">
+              function showForm() {
+                  document.getElementById('formElement').style.display = 'block';
+              }
+          </script>
+          <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()"><h4><strong>Create an Event</strong></h4></button>
+          <div id="formElement" style="display: none; padding-top: 50px">
+            <%= simple_form_for [@child, @event_new] do |f| %>
+              <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
+              <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
+              <%= f.input :occasion, as: :text %>
+              <%= f.submit 'Schedule the event', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
     <div class="col-12 col-md-9 col-lg-9">
-      <ul class="nav tabs-underlined" id="myTab" role="tablist">
-        <% @years.each_with_index do |year, index|  %>
-          <li class="nav-item border-right" role="presentation">
-            <a class="tab-underlined <%= "active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="tab-<%= year %>" data-toggle="tab" href="#content-<%= year %>" role="tab" aria-controls="home" aria-selected="true"><%= year %></a>
-          </li>
-        <% end %>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <% @years.each_with_index do |year, index|  %>
-          <div class="tab-pane fade py-3 <%= "show active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="content-<%= year %>" role="tabpanel" aria-labelledby="tab-<%= year %>">
-            <%= render "children/tabs", year: year %>
+      <% if @events.count > 0 %>
+        <ul class="nav tabs-underlined" id="myTab" role="tablist">
+          <% @years.each_with_index do |year, index|  %>
+            <li class="nav-item border-right" role="presentation">
+              <a class="tab-underlined <%= "active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="tab-<%= year %>" data-toggle="tab" href="#content-<%= year %>" role="tab" aria-controls="home" aria-selected="true"><%= year %></a>
+            </li>
+          <% end %>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <% @years.each_with_index do |year, index|  %>
+            <div class="tab-pane fade py-3 <%= "show active" if params[:sub_tab].blank? && index.zero? || params[:sub_tab] == year.to_s %>" id="content-<%= year %>" role="tabpanel" aria-labelledby="tab-<%= year %>">
+              <%= render "children/tabs", year: year %>
+            </div>
+          <% end %>
+        </div>
+
+      <% else %>
+        <div class="history-card">
+          <div class="event w-100">
+            <%= render './events_component/no_event', child: @child %>
           </div>
-        <% end %>
-      </div>
+        </div>
+
+      <% end %>
     </div>
   </div>
 </div>
