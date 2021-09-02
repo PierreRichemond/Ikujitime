@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-12 col-md-8 col-lg-8">
       <div class="container mb-5">
-        <h1 class='text-center index-h1'>Your family members</h1>
+        <h1 class='text-center index-h1' style="font-weight: 700;">Your Family Members</h1>
         <div class="d-flex justify-content-center">
-          <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add a member to your family</span></a>
+          <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
         <% @children.each do |child| %>
           <div class="card-product my-3 mt-5 ">
@@ -16,14 +16,14 @@
             <div class="card-product-infos child-absolute">
               <h2><%= child.full_name(child) %></h2>
               <div class="d-flex justify-content-between">
-                <div class =''>
+                <div class ='seemore'>
                   <p>Parents: <%= child.parent %> </p>
                   <p class='mb-4'>Hobby: <%= child.hobby %></p>
                   <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
                 </div>
                 <div>
-                  <p> 🎂 : <%= child.birthday %></p>
-                  <p><%= pluralize( child.age(child), 'year' )%> old</p>
+                  <p> 🎂:<%= child.birthday %></p>
+                  <p class="text-right"><%= pluralize( child.age(child), 'year' )%> old</p>
                   <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
                   <%= link_to  '❌',
                   child_path(child),
@@ -52,7 +52,7 @@
             <div class="container calendar-events">
               <p class="mb-4" style="text-align:center">Upcoming Events</p>
               <% @all_events.sort_by(&:start_date).each do |event|%>
-                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %> event</p>
+                <p><strong><%= event.start_date.strftime("%b #{event.start_date.day.ordinalize}")%></strong>: <%= event.child.first_name.capitalize %> | <%= event.occasion %></p>
               <% end %>
             </div>
           </div>
