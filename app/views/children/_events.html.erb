@@ -15,7 +15,7 @@
         <p><%=@child.age%> </p>
         <p>Born on <%= @child.birthday.strftime("%B %d, %Y") %></p>
         <% if @child.hobby.present? %>
-          <p>Hobby: <%= @child.hobby.capitalize %></p>
+          <p>Activity Preference: <%= @child.tag_list.capitalize %></p>
         <% end %>
       </div>
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
@@ -33,7 +33,7 @@
             <%= simple_form_for [@child, @event_new] do |f| %>
               <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
               <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
-              <%= f.input :occasion, as: :text %>
+              <%= f.input :occasion, label: "Event Title", placeholder: "Birthday Party, Graduation....." %>
               <%= f.submit 'Schedule the event', class: 'btn btn-secondary my-3 px-5', style: "border-radius: 20px;" %>
             <% end %>
           </div>

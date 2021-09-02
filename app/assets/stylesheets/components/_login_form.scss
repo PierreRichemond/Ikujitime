@@ -16,3 +16,11 @@
     margin-bottom: 20px;
   }
 }
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100px;
+  }
+}

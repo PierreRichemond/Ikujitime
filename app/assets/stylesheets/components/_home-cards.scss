@@ -1,35 +1,25 @@
 .instructions {
   border-bottom:1px solid rgba(0, 0, 0, 0.1);
-  height: 80vh;
-  position: relative;
 }
 
-.instruction-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 2em;
-  padding: 24px 12px;
-  margin-top: 3em;
-  height: 50%;
-  p {
+.instruction-container p {
     font-size: 24px;
     padding: 0px 12px;
-  }
-  img {
-    height: 200px;
-    margin-bottom: 24px;
-    margin-top: 24px;
-  }
 }
 
 .instruction-container-text {
-  text-align: center;
-  line-height: 1.6;
+  display: flex;
+  align-items: center;
   border:1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  border-radius: 70px;
   background-color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6)
 }
 
+.instruction-text {
+  font-size: 40px;
+  font-weight: 900;
+}
 .offer-container {
   height: 100vh;
   margin-top: 1em;
@@ -46,4 +36,18 @@
 
 .child-tag {
   display: none;
+}
+
+.color-container {
+    background-color: rgba(250, 228, 226, 0.8);
+}
+
+#happy-child {
+  margin-top: 3em;
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+  border-bottom-left-radius: 30%;
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
 }

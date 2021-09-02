@@ -29,30 +29,36 @@
     </div>
   </div>
   <div class="color-container">
-    <div class="container mt-5">
-      <div class="container instructions">
-        <h2 style="instruction-text">Ready, Set, Go
-        <br> in few easy steps</h2>
-        <div class="instruction-container">
-          <div class="instruction-container-text">
-            <%= image_tag "sign-up.png" %>
-            <p>Step 1.</p>
-            <p>Create an Account</p>
+    <div class="container instructions color-container">
+      <div class="row">
+        <div class="instruction-container col-12 col-sm-6">
+          <h2 class="instruction-text">Ready, Set, Go
+          <br> in few easy steps</h2>
+          <div class="d-flex justify-content-left">
+            <div class="instruction-container-text">
+              <%= image_tag 'profile', class:"avatar-md" %>
+              <p style="font-style:italic;">1. Sign Up</p>
+            </div>
           </div>
-          <div class="instruction-container-text">
-            <%= image_tag "form-image.png" %>
-            <p>Step 2.</p>
-            <p>Save the child's info</p>
+          <div class="d-flex justify-content-center mt-3">
+            <div class="instruction-container-text">
+              <%= image_tag 'child-photo', class:"avatar-md" %>
+              <p style="font-style:italic;">2. Plan Events</p>
+            </div>
           </div>
-          <div class="instruction-container-text">
-            <%= image_tag "autumn-season-5580628_1920.png", style: "width: 200px;" %>
-            <p>Step 3.</p>
-            <p>Spend an awesome time with the kid!</p>
+          <div class="d-flex justify-content-end mt-3">
+            <div class="instruction-container-text">
+              <%= image_tag 'ferris-wheel', class: "avatar-md" %>
+              <p style="font-style:italic;">3. Have Fun</p>
+            </div>
           </div>
         </div>
-        <div class="d-flex justify-content-center mt-5">
-          <%= link_to "Start now!", "/children", class: 'cta-btn btn btn-success'%>
+        <div class="col-12 col-sm-6">
+          <%= image_tag 'happy-child', id:"happy-child" %>
         </div>
+      </div>
+      <div class="d-flex justify-content-center mt-3 mb-3">
+        <%= link_to "Start now!", "/children", class: 'cta-btn btn btn-success'%>
       </div>
     </div>
   </div>

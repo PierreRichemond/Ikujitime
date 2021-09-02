@@ -50,40 +50,40 @@ require 'csv'
 
 # seeding gift, use below db
 # ===========================================================
-# Gift.destroy_all
-# puts "gifts db reset"
+Gift.destroy_all
+puts "gifts db reset"
 
-# ages = ['0-2', '2-3', '3-5', '5-7', '8-10']
-# ages.each do |age|
-#   url_product = "https://www.toysrus.com/shop-by-age/2-years/?cgid=#{age}-years"
+ages = ['0---24-months', '2-years', '3---4-years', '5---7-years', '8---10-years', '0---24-months?start=16&sz=14', '2-years?start=16&sz=14', '3---4-years?start=16&sz=14', '5---7-years?start=16&sz=14', '8---10-years?start=16&sz=14']
+ages.each do |age|
+  url_product = "https://www.toysrus.com/#{age}/"
 
-#   html_file = URI.open(url_product).read
-#   html_doc = Nokogiri::HTML(html_file)
+  html_file = URI.open(url_product).read
+  html_doc = Nokogiri::HTML(html_file)
 
-#   html_doc.search('.tile-body').each do |card_element|
-#     name = card_element.search('.pdp-link').text.strip
-#     price = card_element.search('.price .sales').text.strip
-#     link = card_element.search('.pdp-link a').first.attribute('href').value
+  html_doc.search('.tile-body').each do |card_element|
+    name = card_element.search('.pdp-link').text.strip
+    price = card_element.search('.price .sales').text.strip
+    link = card_element.search('.pdp-link a').first.attribute('href').value
 
-#     product_html = URI.open(link).read
-#     product_doc = Nokogiri::HTML(product_html)
-#     description = product_doc.search('.details-description').text.strip
-#     image = product_doc.search('.primary-images img').attribute('src').value
+    product_html = URI.open(link).read
+    product_doc = Nokogiri::HTML(product_html)
+    description = product_doc.search('.details-description').text.strip
+    image = product_doc.search('.primary-images img').attribute('src').value
 
-#     gift_image = URI.open(image)
+    gift_image = URI.open(image)
 
-#     gift = Gift.create!(
-  #     name: name,
-  #     price: price,
-  #     description: description,
-  #     website_link: link,
-  #     start_age: age.split('-')[0],
-  #     end_age: age.split('-')[1]
-  #   )
-  #   gift.photo.attach(io: gift_image, filename: 'gift.png', content_type: 'image/png')
-  # end
+    gift = Gift.create!(
+      name: name,
+      price: price,
+      description: description,
+      website_link: link,
+      start_age: age.split('-')[0],
+      end_age: age.split('-')[1]
+    )
+    gift.photo.attach(io: gift_image, filename: 'gift.png', content_type: 'image/png')
+  end
 
-  # end
+  end
 
 # arrays = ['2-4/-/N-aapp9', '5-7/-/N-ts1nr', '8-10/-/N-wn8i6']
 # arrays.each do |array|
