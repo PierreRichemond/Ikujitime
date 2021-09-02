@@ -45,9 +45,11 @@
               </div>
             </div>
           <% else %>
-            <div class="photo-box">
-              <h4>📷    📸    🤳</h4>
-              <h5>Don't forget to take pictures while meeting with <%= @child.first_name %>, and upload those afterwards.</h5>
+            <div class='d-flex align-self-center justify-content-around w-100'>
+              <div class="photo-box">
+                <h4>📷    📸    🤳</h4>
+                <h5>Don't forget to take pictures while meeting with <%= @child.first_name %>, and upload those afterwards.</h5>
+              </div>
             </div>
           <% end %>
         <% end %>

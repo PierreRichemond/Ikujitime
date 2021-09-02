@@ -6,8 +6,9 @@
   // margin-right: 2em;
 }
 .childcard{
-  width: 180px;
+  width: 200px;
   display: flex;
+
   align-items: center;
   border: 0.7px solid rgba(0, 0, 0, 0.2);
   border-top-left-radius: 57px;
@@ -18,4 +19,8 @@
   p {
     padding-top: 1em;
   }
+}
+
+.child-card-text{
+  padding-left: 10px;
 }

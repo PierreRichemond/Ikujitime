@@ -1,22 +1,26 @@
-  <ul class="nav tabs-underlined" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="home-tab" data-toggle="tab" href="#event" role="tab" aria-controls="home" aria-selected="true">Events</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false" data-controller="build-map" data-action='click->build-map#buildMap'>Activities</a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="tab-underlined <%= "active" if params[:tab] ==  "gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="converstion" aria-selected="false">Gifts</a>
-    </li>
-  </ul>
-  <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="event" role="tabpanel" aria-labelledby="home-tab">
-      <%= render "children/events" %>
-    </div>
-    <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
-      <%= render "children/activities" %>
-    </div>
-    <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
-      <%= render "children/gifts" %>
-    </div>
+  <!-- app/views/offers/show.html.erb -->
+<% content_for :meta_title, "#{@child.first_name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @child.age(@child) %>
+<% content_for :meta_image, cl_image_path(@child.photo.key) %>
+<ul class="nav tabs-underlined" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="home-tab" data-toggle="tab" href="#event" role="tab" aria-controls="home" aria-selected="true">Events</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false" data-controller="build-map" data-action='click->build-map#buildMap'>Activities</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="tab-underlined <%= "active" if params[:tab] ==  "gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="converstion" aria-selected="false">Gifts</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade py-3 <%= "show active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="event" role="tabpanel" aria-labelledby="home-tab">
+    <%= render "children/events" %>
   </div>
+  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "activities"%>" id="activities" role="tabpanel" aria-labelledby="profile-tab">
+    <%= render "children/activities" %>
+  </div>
+  <div class="tab-pane fade py-3 <%= "show active" if params[:tab] ==  "gifts"%>" id="gifts" role="tabpanel" aria-labelledby="converstion-tab">
+    <%= render "children/gifts" %>
+  </div>
+</div>

@@ -5,10 +5,10 @@
     <% else %>
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
     <% end %>
-    <div>
+    <div class='child-card-text'>
       <p><%= child.first_name.capitalize %>
         <br>
-        Age: <%= child.age(child) %></p>
+        <%= pluralize( @child.age(@child), 'year' )%> old</p>
     </div>
   </div>
 </div>
