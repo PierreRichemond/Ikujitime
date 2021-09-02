@@ -1,0 +1,19 @@
+<div class="paragraph-style" style="text-align: center;">
+<p>Welcome to <span class="input-text" ><%= @child.first_name %></span>'s event page! Let's get started by creating <span class="input-text" ><%= @child.first_name %></span>'s first event of the year!
+    <script type="text/javascript">
+        function showForm() {
+          document.getElementById('formElement').style.display = 'block';
+        }
+    </script>
+  <br>Create your first event now!
+  <div id="formElement"style="padding: 40px 200px;">
+    <%= simple_form_for [@child, @event_new] do |f| %>
+      <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
+      <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
+      <%= f.input :occasion, label: "Event Title", placeholder: "Birthday Party, Graduation, Christmas....." %>
+      <%= f.submit 'Schedule the event', class: 'btn btn-primary w-100', style: "border-radius: 20px;" %>
+    <% end %>
+  </div>
+  <br>After you have fun be sure to upload 📸 with <span class="input-text" ><%= child.first_name %></span>!
+</p>
+</div>
