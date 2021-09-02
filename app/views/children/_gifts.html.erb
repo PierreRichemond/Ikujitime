@@ -7,9 +7,9 @@
         placeholder: "  Search a gift"
       %>
       <%= submit_tag "Search", class: "btn btn-primary btn-child-show"%>
-      <div class="checkbox-style">
+      <%# <div class="checkbox-style">
         <%= check_box_tag :age, input_html: { class: "tag-selector"}, item_wrapper_class: 'tag-item'  %>
-      </div>
+      <%# </div> %>
     <% end %>
   </div>
 <%= render 'search', gifts: @gifts, child: @child%>
