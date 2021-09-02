@@ -3,13 +3,8 @@ class Activity < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_address?
   has_many :events
   has_one_attached :photo
+  acts_as_taggable_on :tags
 
-  # include PgSearch::Model
-  # pg_search_scope :search_activities,
-  #   against: [ :name, :address ],
-  #   using: {
-  #     tsearch: { prefix: true } # <-- now `superman batm` will return something!
-  #   }
   # method to define a marker for each location
   # def marker
   #   {
