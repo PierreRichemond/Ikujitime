@@ -6,39 +6,36 @@
         <div class="d-flex justify-content-center">
           <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
-        <% @children.each do |child| %>
-          <div class="card-product my-4 ">
-            <% if child.photo.attached? %>
-              <%= cl_image_tag child.photo.key%>
-            <% else %>
-              <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q" %>
-            <% end %>
-            <div class="card-product-infos child-absolute">
-              <h2 class='pl-4'><%= child.full_name %></h2>
-              <div class="d-flex justify-content-between">
-                <div class ='seemore'>
-                  <p>Parents: <%= child.parent %> </p>
-                  <% if child.hobby.present? %>
-                    <p class='mb-4'>Hobby: <%= child.hobby %></p>
-                  <% else %>
-                    <p class='mb-4'>Hobby: None yet.</p>
-                  <% end %>
-                  <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
+        <div class="row" style='justify-content:center;'>
+          <% @children.each do |child| %>
+            <div class="card-product my-4 col-6 col-md-5 col-lg-5">
+              <% if child.photo.attached? %>
+                <%= cl_image_tag child.photo.key%>
+              <% else %>
+                <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q" %>
+              <% end %>
+              <div class="card-product-infos child-absolute">
+                <h2 class='pl-4'><%= child.full_name %></h2>
+                <div class="d-flex justify-content-between">
+                  <div class ='seemore'>
+                    <p>Parents: <%= child.parent %> </p>
+                    <% if child.hobby.present? %>
+                      <p class='mb-4'>Hobby: <%= child.hobby %></p>
+                    <% else %>
+                      <p class='mb-4'>Hobby: None yet.</p>
+                    <% end %>
+                    <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
+                  </div>
+                  <div class='align-right'>
+                    <p> 🎂 <%= child.birthday %></p>
+                    <p><%= child.age %></p>
+                  </div>
+                  <%= link_to '🖋', edit_child_path(child), child: child, class: 'edit-child'%>
                 </div>
-                <div class='align-right'>
-                  <p> 🎂 <%= child.birthday %></p>
-                  <p><%= child.age %></p>
-                </div>
-                <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
-                <%= link_to child_path(child),
-                  method: :delete, class: 'delete-child',
-                  data: { confirm: "delete #{child.first_name.capitalize} #{child.last_name.capitalize}?"} do %>
-                  <i class="fas fa-times"></i>
-                <% end %>
               </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-12 col-md-4 col-lg-4 sidenav mx-auto calendar-height" style="overflow:auto">

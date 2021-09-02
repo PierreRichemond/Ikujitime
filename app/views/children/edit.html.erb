@@ -1,3 +1,7 @@
+<%= link_to 'Remove from the Children list',child_path(@child),
+  method: :delete, class: 'delete-child',
+  class: 'btn btn-secondary btn-replacement',
+  data: { confirm: "delete #{@child.first_name.capitalize} #{@child.last_name.capitalize}?"}%>
 <div class="container my-5">
   <%= simple_form_for [@user, @child] do |f| %>
     <%= f.input :first_name, class: 'mt-5' %>
