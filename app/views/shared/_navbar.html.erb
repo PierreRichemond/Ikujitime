@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "/children" do %>
+          <%= link_to "/children" ,"data-turbolinks":"false" do %>
           <p><i class="fas fa-child"></i> My List</p>
           <% end %>
         </li>
