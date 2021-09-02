@@ -6,7 +6,7 @@
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge m-3"%>
         <% else %>
           <span class="m-3">
-            <%= image_tag 'clock-image.png', class: "avatar-xlarge m-3" %>
+            <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q.jpg", class: "avatar-xlarge m-3" %>
           </span>
         <%end %>
       </div>
@@ -22,14 +22,14 @@
         <%= render partial: "calendar", locals: {events: @events} %>
       </div>
       <div style="padding-top: 20px">
-
         <script type="text/javascript">
-            function showForm() {
-                document.getElementById('formElement').style.display = 'block';
-            }
+          function showForm() {
+              document.getElementById('formElement').style.display = 'block';
+          }
         </script>
-
-        <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()"><h4><strong>Create an Event</strong></h4></button>
+        <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()">
+          <h4><strong>Create an Event</strong></h4>
+        </button>
         <div id="formElement" style="display: none; padding-top: 50px">
           <%= simple_form_for [@child, @event_new] do |f| %>
             <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>

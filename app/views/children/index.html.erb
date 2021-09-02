@@ -11,10 +11,10 @@
             <% if child.photo.attached? %>
               <%= cl_image_tag child.photo.key%>
             <% else %>
-              <%= cl_image_tag "upload-photo.jpg" %>
+              <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q" %>
             <% end %>
             <div class="card-product-infos child-absolute">
-              <h2><%= child.full_name %></h2>
+              <h2 class='pl-4'><%= child.full_name %></h2>
               <div class="d-flex justify-content-between">
                 <div class ='seemore'>
                   <p>Parents: <%= child.parent %> </p>
@@ -25,16 +25,16 @@
                   <% end %>
                   <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
                 </div>
-                <div>
+                <div class='align-right'>
                   <p> 🎂 <%= child.birthday %></p>
                   <p><%= child.age %></p>
-                  <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
-                  <%= link_to child_path(child),
+                </div>
+                <%= link_to '🖋', edit_child_path(child), class: 'edit-child'%>
+                <%= link_to child_path(child),
                   method: :delete, class: 'delete-child',
                   data: { confirm: "delete #{child.first_name.capitalize} #{child.last_name.capitalize}?"} do %>
-                    <i class="fas fa-times"></i>
-                  <% end %>
-                </div>
+                  <i class="fas fa-times"></i>
+                <% end %>
               </div>
             </div>
           </div>
