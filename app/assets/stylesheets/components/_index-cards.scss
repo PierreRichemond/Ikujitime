@@ -22,8 +22,8 @@
 }
 
 .card-product p {
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 20px;
+  line-height: 1.2;
   opacity: .7;
   margin-bottom: 5px;
   margin-top: 8px;
@@ -49,18 +49,13 @@
   position: relative;
 }
 
-.delete-child{
-position: absolute;
-top: 15px;
-right: 15px;
-font-size: 18px;
-color: grey;
-}
 
 .edit-child{
+color:grey;
 position: absolute;
-bottom: 10px;
+top: 10px;
 right: 10px;
+font-size:20px;
 }
 .width-index{
   width: 92%;
@@ -72,4 +67,15 @@ right: 10px;
 
 .align-right{
   text-align: right;
+}
+
+.event-box{
+  padding: 10px;
+  margin:10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.image-tag-index{
+  width:30px !important;
+  height:30px !important;
 }
