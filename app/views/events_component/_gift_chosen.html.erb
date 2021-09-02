@@ -1,0 +1,25 @@
+  <div class="upload-location">
+    <%= render 'add_photos_form', event: event%>
+  </div>
+  <p class="paragraph-style">Great Job, You are almost there! Fill the rest of the <span class="dashed-box"></span><br> On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span> you have an event, <span class="input-text"><%= event.occasion%></span> planned out!
+    <br>For <%= child.first_name %> you will buy a
+    <span class="input-text"><%= event.gift.name %></span>.
+    <br>Then you will plan an activity to go to
+    <%= link_to child_path(child, tab: 'activities'), class: "dashed-box" do %>
+    🎢
+    <% end %>.
+    <br>But most importantly, don't forget to set the event in your Google
+    <%= link_to "https://calendar.google.com/calendar/u/0/r/eventedit?+event&sprop=name:#{child.first_name}+#{event.occasion}&sprop=website:https://www.ikujitime.me&details=#{event.occasion}&text=#{child.first_name}+#{event.occasion}&dates=#{event.start_date.strftime("%Y")}#{event.start_date.strftime("%m")}#{event.start_date.strftime("%d")}T#{event.start_date.strftime("%H%M%S")}GMT/#{event.end_date.strftime("%Y")}#{event.end_date.strftime("%m")}#{event.end_date.strftime("%d")}T#{event.end_date.strftime("%H%M%S")}GMT&pli=1&sf=true", target: '_blank', class: "dashed-box" do %>
+        <%= image_tag "google-calendar.png", style: "width: 35px; padding-bottom: 5px; padding-left: 5px;" %>
+    <% end %>!
+    <br><span>Make sure to take a lot of 📸 and have fun with <%= child.first_name %>! We would love to see those pictures ⬇️ here.</span>
+  </p>
+<% if event.photos.any? %>
+  <div class='w-100 overflow-hidden'>
+    <div class="owl-carousel owl-theme align-self-center">
+      <% event.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, width: '250', height: '250', object_fit: "cover"%>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -7,7 +7,7 @@
     <a class="tab-underlined <%= "active" if params[:tab].nil? || params[:tab] ==  "event" %>" id="home-tab" data-toggle="tab" href="#event" role="tab" aria-controls="home" aria-selected="true">Events</a>
   </li>
   <li class="nav-item" role="presentation">
-    <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" data-toggle="tab" href="#activities" role="tab" aria-controls="profile" aria-selected="false" data-controller="build-map" data-action='click->build-map#buildMap'>Activities</a>
+    <a class="tab-underlined <%= "active" if params[:tab] ==  "activities" %>" id="profile-tab" href="?tab=activities&tag=<%= @child.tag_list.first %>" role="tab" aria-controls="profile" aria-selected="false" data-controller="build-map" data-action='click->build-map#buildMap'>Activities</a>
   </li>
   <li class="nav-item" role="presentation">
     <a class="tab-underlined <%= "active" if params[:tab] ==  "gifts" %>" id="converstion-tab" data-toggle="tab" href="#gifts" role="tab" aria-controls="converstion" aria-selected="false">Gifts</a>

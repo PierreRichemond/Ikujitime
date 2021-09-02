@@ -1,5 +1,5 @@
 <%= simple_form_for event, namespace: "event-#{event.id}" do |f| %>
   <%= f.input :photos, as: :file, input_html: { multiple: true, class: 'd-none',
   onChange: 'this.form.submit()' },
-  label_html: { class: 'upload-photo'}, label: '📷 Upload'  %>
+  label_html: { class: 'dashed-box'}, label: '📷 Upload'  %>
 <% end %>

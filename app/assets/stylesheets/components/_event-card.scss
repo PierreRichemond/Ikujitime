@@ -6,6 +6,7 @@
   // border: solid 2px rgba(0, 0, 0, 0.4);
   border-radius: 8px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0 ,0.4);
+  position: relative;
   h2 {
     font-weight: 700;
     color: rgba(0, 0, 0, 0.4);
@@ -31,4 +32,61 @@ h4{
   h5{
   font-size: 24px;
   }
+}
+
+.dashed-box {
+  border: 1px dashed rgba(145,206,156, 1);
+  border-width: 3px;
+  padding: 8px 24px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+  margin: auto 8px;
+  color: #c9aca9;
+  font-weight: 700;
+   &:hover {
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+      cursor: pointer;
+    }
+}
+
+.passed-dashed-box {
+  border: 1px dashed grey;
+  border-width: 3px;
+  padding: 8px 24px;
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+  margin: auto 8px;
+  color: grey;
+  font-weight: 700;
+}
+.input-text {
+  font-weight: 800;
+  font-size: 26px;
+  text-decoration: underline;
+  color: #c9aca9;
+  font-style: italic;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+}
+
+.paragraph-style {
+  line-height: 2em;
+  font-family: $story-font;
+  font-weight: 700;
+  font-size: 24px;
+  padding-left: 2em;
+  a {
+    color: #c9aca9;
+    text-decoration: none;
+  }
+}
+
+.upload-location {
+  position: absolute;
+  right: 10px;
+  top: -45px;
 }
