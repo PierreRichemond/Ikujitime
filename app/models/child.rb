@@ -16,12 +16,15 @@ class Child < ApplicationRecord
     days = (Date.today - birthday).to_i
     if (days - 365).negative?
       months = days / 30
-      "#{pluralize(months, 'month')} old."
-    else
+      "#{pluralize(months, 'month')}"
+    elsif (days - 1095).negative? #less than 3years old
       years = days / 365
       remains = days % 365
       months = remains / 30
-      "#{pluralize(years, 'year')}, #{pluralize(months, 'month')} old."
+      "#{pluralize(years, 'year')}, #{pluralize(months, 'month')}"
+    else
+      years = days / 365
+      "#{pluralize(years, 'year')}"
     end
   end
 
