@@ -2,10 +2,10 @@
   overflow: hidden;
   height: 160px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 
 .card-product img {
@@ -39,6 +39,8 @@
 
 .index-h1{
   font-size: 60px;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 .child-absolute{
@@ -47,16 +49,23 @@
 
 .delete-child{
 position: absolute;
-top: 10px;
-right: 10px;
-font-size: 20px;
+top: 15px;
+right: 15px;
+font-size: 18px;
+color: grey;
 }
-
-
 
 .edit-child{
 position: absolute;
 bottom: 10px;
 right: 10px;
-font-size: 20px;
+font-size: 16px;
+}
+
+.width-index{
+  width: 95%;
+}
+.width-children-cards{
+  width: 95%;
+  margin-left: 0px;
 }

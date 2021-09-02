@@ -1,6 +1,6 @@
   <!-- app/views/offers/show.html.erb -->
 <% content_for :meta_title, "#{@child.first_name} is on #{DEFAULT_META["meta_product_name"]}" %>
-<% content_for :meta_description, @child.age(@child) %>
+<% content_for :meta_description, @child.age %>
 <% content_for :meta_image, cl_image_path(@child.photo.key) %>
 <ul class="nav tabs-underlined" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
