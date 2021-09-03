@@ -16,7 +16,6 @@ class ChildrenController < ApplicationController
         end
       end
     end
-
     @children.each do |child|
       child.events.each do |event|
         if event.start_date < Time.now && event.photos.blank?
