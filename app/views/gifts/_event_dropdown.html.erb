@@ -1,7 +1,7 @@
 <div class ='show-card d-flex align-items-center'>
   <%= simple_form_for event do |f| %>
     <%= f.input :gift_id, as: :hidden, input_html: { value: @gift.id, class: 'mr-2'}, wrapper_html: { class:'m-0' }  %>
-    <%= f.submit "Add", class: "btn btn-primary" %>
+    <%= f.submit "Add", class: "btn btn-primary br-10" %>
   <% end %>
   <p class='mb-0 ml-2'><%= event.occasion.capitalize %>
     <br>

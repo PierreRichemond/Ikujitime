@@ -14,8 +14,8 @@
         <h3 style="padding-bottom: 20px;"><strong><%= @child.first_name.capitalize %></strong></h3>
         <p><%=@child.age%> </p>
         <p>Born on <%= @child.birthday.strftime("%B %d, %Y") %></p>
-        <% if @child.hobby.present? %>
-          <p>Activity Preference: <%= @child.tag_list.capitalize %></p>
+        <% if @child.hobby.present? || @child.tag_list.present? %>
+          <p>Activity Preference: <%= @child.tag_list.to_s.capitalize %></p>
         <% end %>
       </div>
       <div class="mb-5" id="events_calendar" style="padding-top: 30px" >
@@ -24,11 +24,13 @@
       <% if @events.count > 0 %>
         <div style="padding-top: 20px">
           <script type="text/javascript">
-              function showForm() {
-                  document.getElementById('formElement').style.display = 'block';
-              }
+            function showForm() {
+                document.getElementById('formElement').style.display = 'block';
+            }
           </script>
-          <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()"><h4><strong>Create an Event</strong></h4></button>
+          <button class="btn btn-link" style="padding-bottom: 20px" onclick="showForm()">
+            <h4><strong>Create an Event</strong></h4>
+          </button>
           <div id="formElement" style="display: none; padding-top: 50px">
             <%= simple_form_for [@child, @event_new] do |f| %>
               <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
@@ -56,7 +58,6 @@
             </div>
           <% end %>
         </div>
-
       <% else %>
         <div class="event w-100 no-event-background">
           <%= render './events_component/no_event', child: @child %>

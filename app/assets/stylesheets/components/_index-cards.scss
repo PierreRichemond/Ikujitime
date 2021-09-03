@@ -1,41 +1,38 @@
-.card-product {
-  overflow: hidden;
-  height: 420px;
+.card-products {
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 0 0 15px #00000066;
   border-radius: 8px;
   margin: 20px;
-  padding: 0;
+  padding: 0px;
+  height:550px;
 }
 
-.card-product img {
+
+
+.card-products img {
   height: 60%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-products h2 {
   font-size: 24px;
   font-weight: bold;
   padding: -5px 0px;
-  margin: 0;
+  margin: 0px;
 }
 
-.card-product p {
-  font-size: 20px;
-  line-height: 1.2;
+.card-products p {
+  font-size: 18px;
+  line-height: 1.6;
   opacity: .7;
-  margin-bottom: 5px;
-  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px 16px 0px 16px;
+.card-products-info {
+  padding: 16px 16px 16px 16px;
   padding-top: 16px;
-}
-.card-product-infos{
-  width: 100%;
-
+  height: 40%;
 }
 
 .index-h1{
@@ -45,7 +42,7 @@
   font-family: $title-font;
 }
 
-.child-absolute{
+.child-relative{
   position: relative;
 }
 
@@ -53,9 +50,19 @@
 .edit-child{
 color:grey;
 position: absolute;
-top: 10px;
-right: 10px;
+top: 20px;
+right: 20px;
 font-size:20px;
+}
+
+.position-absolute{
+  position: absolute !important;
+  bottom: 20px;
+  left: 20px;
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+
 }
 .width-index{
   width: 92%;
@@ -69,13 +76,27 @@ font-size:20px;
   text-align: right;
 }
 
+.seemore a{
+  text-decoration: none;
+}
+
 .event-box{
   padding: 10px;
   margin:10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  border-radius: 5px;
 }
 
 .image-tag-index{
   width:30px !important;
   height:30px !important;
+}
+
+.line-height{
+  line-height: 1.2;
+  margin-bottom: 0%;
+}
+
+.width-event{
+ width: 40%;
 }

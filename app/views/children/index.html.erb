@@ -6,36 +6,36 @@
         <div class="d-flex justify-content-center">
           <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
-        <div class="row" style='justify-content:center;'>
+        <div class="row" >
           <% @children.each do |child| %>
-            <div class="card-product my-4 col-6 col-md-5 col-lg-5">
+            <div class="card-products my-4 col-6 col-md-5 col-lg-5">
               <% if child.photo.attached? %>
                 <%= cl_image_tag child.photo.key%>
               <% else %>
                 <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q" %>
               <% end %>
-              <div class="card-product-infos child-absolute">
+              <div class="card-products-info child-relative">
                 <h2 class=''><%= child.full_name %></h2>
-                <div class="d-flex justify-content-between">
-                  <div class ='seemore pl-2'>
-                    <div class="d-flex">
-                      <%= image_tag'family.png', class: 'image-tag-index mb-1'%>
-                      <p><%= child.parent %> </p>
+                <div class="d-flex justify-content-between mt-2">
+                  <div class ='pl-2'>
+                    <div class="d-flex ">
+                      <%= image_tag'family.png', class: 'image-tag-index p-1'%>
+                      <p class=''><%= child.parent.capitalize %> </p>
                     </div>
-                    <div class="d-flex">
-                      <%= image_tag'jigsaw.png', class: 'image-tag-index'%>
-                      <% if child.hobby.present? %>
-                        <p class='mb-4'><%= child.hobby %></p>
+                    <div class="d-flex pt-2">
+                      <%= image_tag'jigsaw.png', class: 'image-tag-index mb-1 mr-1'%>
+                      <% if child.tag_list.present? %>
+                        <p class='mb-4'><%= child.tag_list.to_s.capitalize %></p>
                       <% else %>
                         <p class='mb-4'>None yet.</p>
                       <% end %>
                     </div>
-                    <%= link_to "See more", child_path(child), class: "btn-child-show btn-small btn-primary p-2" %>
                   </div>
                   <div class='align-right pr-2'>
                     <p> 🎂 <%= child.birthday %></p>
                     <p><%= child.age %></p>
                   </div>
+                  <%= link_to "See more", child_path(child), class: "btn-small btn-primary p-2 position-absolute" %>
                   <%= link_to edit_child_path(child), child: child, class: 'edit-child' do%>
                     <i class="fas fa-user-edit"></i>
                   <% end %>
@@ -63,11 +63,17 @@
               <h4 class="mb-4" style="text-align:center">Upcoming Events</h4>
               <div class="row " style='justify-content:center;'>
                 <% @all_events.sort_by(&:start_date).each do |event|%>
-                  <p class='col-5 col-md-5 col-lg-5 event-box text-center'>
+                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event'>
                     <%= cl_image_tag event.child.photo.key, class: 'avatar' %>
-                    <%= event.start_date.strftime("%B %d")%>
-                    for <%= event.occasion %>, plan a <i class="fas fa-gift"></i> ?
-                  </p>
+                    <div class=''>
+                      <p class='line-height text-center'><%= event.start_date.strftime("%B %d")%>,</p>
+                      <p class='line-height text-center'><%= event.occasion.capitalize %>,</p>
+                      <% unless event.gift.present? %>
+                        Plan a 🎁 ?
+                      <% end %>
+                      <p class='line-height text-center'>Have fun!</p>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>
@@ -75,11 +81,15 @@
               <h4 class="mb-4" style="text-align:center">Past event without photos</h4>
               <div class="row " style='justify-content:center;'>
                 <% @all_past_events.sort_by(&:start_date).each do |event|%>
-                  <p class='col-5 col-md-5 col-lg-5 event-box text-center'>
+                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event'>
                     <%= cl_image_tag event.child.photo.key, class: 'avatar' %>
-                    <%= event.start_date.strftime("%B %d")%>
-                    for <%= event.occasion %>, Have you uploaded 📸 ?
-                  </p>
+                    <div>
+                      <p class='line-height'>⚠️</p>
+                      <p class='line-height'><%= event.start_date.strftime("%B %d")%></p>
+                      <p class='line-height'><%= event.child.first_name.capitalize %>'s <%= event.occasion.capitalize %></p>
+                      <p class='line-height'>upload 📸 ?</p>
+                    </div>
+                  </div>
                 <% end %>
               </div>
             </div>

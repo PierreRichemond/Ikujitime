@@ -4,6 +4,7 @@ require 'csv'
 
 # Creating One user with child and event to it
 User.destroy_all
+Event.destroy_all
 puts 'cleaning the DB...'
 
 1.times do
@@ -45,10 +46,13 @@ puts 'cleaning the DB...'
           event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
 end
 
+
 puts "#{User.last.name} added to db"
+
 
 # seeding gift, use below db
 # ===========================================================
+
 Gift.destroy_all
 puts "gifts db reset"
 
@@ -83,52 +87,29 @@ ages.each do |age|
   end
 end
 
-# arrays = ['2-4/-/N-aapp9', '5-7/-/N-ts1nr', '8-10/-/N-wn8i6']
-# arrays.each do |array|
-# target_url = "https://www.target.com/c/toys-for-ages-#{array}"
-
-# fischer_url = "https://www.fisher-price.com/en-us/shop/age/2-plus-years"
-
-# html_file_fischer = URI.open(fischer_url).read
-# html_doc_fischer = Nokogiri::HTML(html_file_fischer)
-# html_doc_fischer.search('.grid-title-wrapper').each do |tag|
-#   p tag
-# end
-
-  # html_doc_fischer.search(".scroll-loaded").each do |card|
-  #   p card
-  #   name = card.search(".grid-title").text.strip
-  #   puts name
-  # end
-  #   price = target_card.search('.current-price').text.strip
-  #   puts price
-  # end
-# end
-
-
-# puts "#{Gift.count} gifts were created"
+puts "#{Gift.count} gifts were created"
 
 # User below for seeding activity
 # ============================================
-#   Event.destroy_all
-#   Activity.destroy_all
-#   puts "All activities and events deleted from db"
 
-# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
-# filepath = 'db/activity.csv'
+  Activity.destroy_all
+  puts "All activities and events deleted from db"
 
-# CSV.foreach(filepath, csv_options) do |row|
-#   activity_image = URI.open(row[5])
-#   activity = Activity.create!(
-#     name: row[0],
-#     description: row[1],
-#     price: row[2],
-#     address: row[3],
-#     website_link: row[4],
-#     tag_list: row[6].split(' ')
-#     )
-#     activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
-# end
+csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+filepath = 'db/activity.csv'
+
+CSV.foreach(filepath, csv_options) do |row|
+  activity_image = URI.open(row[5])
+  activity = Activity.create!(
+    name: row[0],
+    description: row[1],
+    price: row[2],
+    address: row[3],
+    website_link: row[4],
+    tag_list: row[6].split(' ')
+    )
+    activity.photo.attach(io: activity_image, filename: 'activity.png', content_type: 'image/png')
+end
 
 # puts "Part 1. #{Activity.count} activities were created"
 
