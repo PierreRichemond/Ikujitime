@@ -5,7 +5,7 @@
         <%= simple_form_for [@user, @child] do |f| %>
           <div class="d-flex justify-content-center align-items-center p-2">
             <div class="rounded-size">
-              <%= image_tag "profile-photo1", class:"profile-image rounded-circle", id: "photo-preview"%>
+              <%= image_tag "profile-photo1.jpeg", class:"profile-image rounded-circle", id: "photo-preview"%>
             </div>
           </div>
           <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' },
