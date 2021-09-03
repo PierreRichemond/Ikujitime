@@ -3,9 +3,10 @@
     <%= cl_image_tag activity.photo.key, class: "main-image"%>
   <% else %>
     <%= image_tag 'camera-photo.png', class: 'main-image' %>
-  <% end %>  <div class="card-product-infos">
-  <h2><%= activity.name %></h2>
-  <p>Address: <%= activity.address %></p>
-  <p>Price: <%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
-</div>
+  <% end %>
+  <div class="card-product-infos">
+    <h2><%= activity.name %></h2>
+    <p>Address: <%= activity.address %></p>
+    <p>Price: <%= number_with_delimiter(activity.price, delimiter: ',') %>¥</p>
+  </div>
 </div>

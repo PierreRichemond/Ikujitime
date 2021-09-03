@@ -1,4 +1,4 @@
-.card-product {
+.card-products {
   background: white;
   box-shadow: 0 0 15px #00000066;
   border-radius: 8px;
@@ -7,27 +7,29 @@
   height:550px;
 }
 
-.card-product img {
+
+
+.card-products img {
   height: 60%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-product h2 {
+.card-products h2 {
   font-size: 24px;
   font-weight: bold;
   padding: -5px 0px;
   margin: 0px;
 }
 
-.card-product p {
+.card-products p {
   font-size: 18px;
   line-height: 1.6;
   opacity: .7;
   margin-bottom: 10px;
 }
 
-.card-product-infos {
+.card-products-info {
   padding: 16px 16px 16px 16px;
   padding-top: 16px;
   height: 40%;
