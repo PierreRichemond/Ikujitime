@@ -1,15 +1,16 @@
 <div class="upload-location">
     <%= render 'add_photos_form', event: event%>
 </div>
-<p class="paragraph-style">Great Job, You were able to complete all the <span class="dashed-box"></span><br> On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span> you have an event, <span class="input-text"><%= event.occasion%></span> planned out!
+<p class="paragraph-style">On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span>,
+  <br><span class="event-title"><span class="input-text-title"><%= event.occasion%></span> planned for <%= child.first_name %>!</span>
   <br>For <%= child.first_name %> you will buy a
   <span class="input-text"><%= event.gift.name %></span>.
   <br>Then you will plan an activity to go to
   <span class="input-text"><%= event.activity.name %></span>.
-  <br>But most importantly, don't forget to set the event in your Google
-  <%= link_to "https://calendar.google.com/calendar/u/0/r/eventedit?+event&sprop=name:#{child.first_name}+#{event.occasion}&sprop=website:https://www.ikujitime.me&details=#{event.occasion}&text=#{child.first_name}+#{event.occasion}&dates=#{event.start_date.strftime("%Y")}#{event.start_date.strftime("%m")}#{event.start_date.strftime("%d")}T#{event.start_date.strftime("%H%M%S")}GMT/#{event.end_date.strftime("%Y")}#{event.end_date.strftime("%m")}#{event.end_date.strftime("%d")}T#{event.end_date.strftime("%H%M%S")}GMT&pli=1&sf=true", target: '_blank', class: "dashed-box" do %>
-      <%= image_tag "google-calendar.png", style: "width: 35px; padding-bottom: 5px; padding-left: 5px;" %>
-  <% end %>!
+  <br>If you haven't yet,
+  <%= link_to "https://calendar.google.com/calendar/u/0/r/eventedit?+event&sprop=name:#{child.first_name}+#{event.occasion}&sprop=website:https://www.ikujitime.me&details=#{event.occasion}&text=#{child.first_name}+#{event.occasion}&dates=#{event.start_date.strftime("%Y")}#{event.start_date.strftime("%m")}#{event.start_date.strftime("%d")}T#{event.start_date.strftime("%H%M%S")}GMT/#{event.end_date.strftime("%Y")}#{event.end_date.strftime("%m")}#{event.end_date.strftime("%d")}T#{event.end_date.strftime("%H%M%S")}GMT&pli=1&sf=true", target: '_blank', class:"input-text", style:"margin-top: 5px;" do %>
+    <i class="fas fa-plus"></i>
+  <% end %> it to your Google Calendar!
   <br>Make sure to take a lot of 📸 and have fun with <%= child.first_name %>! We would love to see those pictures ⬇️ here.
 </p>
 <% if event.photos.any? %>
