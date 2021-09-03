@@ -3,87 +3,88 @@ require 'nokogiri';
 require 'csv'
 
 # Creating One user with child and event to it
-# User.destroy_all
-# puts 'cleaning the DB...'
+User.destroy_all
+puts 'cleaning the DB...'
 
-# 1.times do
-#   # file0 = File.open('app/assets/images/IMG_8728.JPG')
-#     user = User.create!(
-#           email: "dankr59@gmail.com",
-#           password: '123123',
-#           name: 'Daniel Rabottini',
-#         )
-#         # user.photo.attach(io: file0, filename: 'user.png', content_type: 'image/png')
+1.times do
+  # file0 = File.open('app/assets/images/IMG_8728.JPG')
+    user = User.create!(
+          email: "dankr59@gmail.com",
+          password: '123123',
+          name: 'Daniel Rabottini',
+        )
+        # user.photo.attach(io: file0, filename: 'user.png', content_type: 'image/png')
 
-#           file = URI.open('https://images.unsplash.com/photo-1471938537155-7de0bd123d0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           child = Child.create!(
-#             first_name: "Kenta",
-#             last_name: "Nomura",
-#             middle_name: "James",
-#             parent: "Justin Nomura",
-#             gender: "male",
-#             hobby: "playing with Tomica cars",
-#             birthday: '2019-09-03',
-#             user: user
-#         )
+          file = URI.open('https://images.unsplash.com/photo-1471938537155-7de0bd123d0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+          child = Child.create!(
+            first_name: "Kenta",
+            last_name: "Nomura",
+            middle_name: "James",
+            parent: "Justin Nomura",
+            tag_list: "Outdoor",
+            birthday: '2019-09-03',
+            user: user
+        )
 
-#         child.photo.attach(io: file, filename: 'child.png', content_type: 'image/png')
+        child.photo.attach(io: file, filename: 'child.png', content_type: 'image/png')
 
-#           event0 = Event.create!(
-#             start_date: '2020-09-03 10:00',
-#             end_date: '2020-09-03 17:00',
-#             occasion: 'Birthday Party',
-#             child: child,
-#             # gift_id: rand(Gift.last.id-79..Gift.last.id),
-#           )
-#           file1 = URI.open('https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
-#           event0.photos.attach(io: file1, filename: 'event1.png', content_type: 'image/png')
-#           file2 = URI.open('https://images.unsplash.com/photo-1496637721836-f46d116e6d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
-#           event0.photos.attach(io: file2, filename: 'event2.png', content_type: 'image/png')
-#           file3 = URI.open('https://images.unsplash.com/photo-1471938537155-7de0bd123d0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           event0.photos.attach(io: file3, filename: 'event3.png', content_type: 'image/png')
-#           file4 = URI.open('https://images.unsplash.com/photo-1544829832-c8047d6b9d89?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
-#           event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
-# end
+          event0 = Event.create!(
+            start_date: '2020-09-03 10:00',
+            end_date: '2020-09-03 17:00',
+            occasion: 'Birthday Party',
+            child: child,
+            # gift_id: rand(Gift.last.id-79..Gift.last.id),
+          )
+          file1 = URI.open('https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+          event0.photos.attach(io: file1, filename: 'event1.png', content_type: 'image/png')
+          file2 = URI.open('https://images.unsplash.com/photo-1496637721836-f46d116e6d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
+          event0.photos.attach(io: file2, filename: 'event2.png', content_type: 'image/png')
+          file3 = URI.open('https://images.unsplash.com/photo-1471938537155-7de0bd123d0c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+          event0.photos.attach(io: file3, filename: 'event3.png', content_type: 'image/png')
+          file4 = URI.open('https://images.unsplash.com/photo-1544829832-c8047d6b9d89?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80')
+          event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
+end
 
-# puts "#{User.last.name} added to db"
+puts "#{User.last.name} added to db"
 
 # seeding gift, use below db
 # ===========================================================
 Gift.destroy_all
 puts "gifts db reset"
 
-ages = ['0---24-months', '2-years', '3---4-years', '5---7-years', '8---10-years', '0---24-months?start=16&sz=14', '2-years?start=16&sz=14', '3---4-years?start=16&sz=14', '5---7-years?start=16&sz=14', '8---10-years?start=16&sz=14']
+ages = ['0---24-months', '2-years?start=16&sz=14', '2-years/?start=32&sz=14', '3---4-years/?start=16&sz=14', '5---7-years/?start=32&sz=14', '8---10-years/?start=32&sz=14']
+age_groups = ['0-2', '2-3', '3-4', '5-7', '8-+' ]
 ages.each do |age|
   url_product = "https://www.toysrus.com/#{age}/"
 
   html_file = URI.open(url_product).read
   html_doc = Nokogiri::HTML(html_file)
+  age_groups.each do |age_group|
 
-  html_doc.search('.tile-body').each do |card_element|
-    name = card_element.search('.pdp-link').text.strip
-    price = card_element.search('.price .sales').text.strip
-    link = card_element.search('.pdp-link a').first.attribute('href').value
+    html_doc.search('.tile-body').each do |card_element|
+      name = card_element.search('.pdp-link').text.strip
+      price = card_element.search('.price .sales').text.strip
+      link = card_element.search('.pdp-link a').first.attribute('href').value
 
-    product_html = URI.open(link).read
-    product_doc = Nokogiri::HTML(product_html)
-    description = product_doc.search('.details-description').text.strip
-    image = product_doc.search('.primary-images img').attribute('src').value
+      product_html = URI.open(link).read
+      product_doc = Nokogiri::HTML(product_html)
+      description = product_doc.search('.details-description').text.strip
+      image = product_doc.search('.primary-images img').attribute('src').value
 
-    gift_image = URI.open(image)
+      gift_image = URI.open(image)
 
-    gift = Gift.create!(
-      name: name,
-      price: price,
-      description: description,
-      website_link: link,
-      start_age: age.split('-')[0],
-      end_age: age.split('-')[1]
-    )
-    gift.photo.attach(io: gift_image, filename: 'gift.png', content_type: 'image/png')
+        gift = Gift.create!(
+          name: name,
+          price: price,
+          description: description,
+          website_link: link,
+          start_age: age_group.split('-')[0],
+          end_age: age_group.split('-')[1]
+        )
+        gift.photo.attach(io: gift_image, filename: 'gift.png', content_type: 'image/png')
+    end
   end
-
-  end
+end
 
 # arrays = ['2-4/-/N-aapp9', '5-7/-/N-ts1nr', '8-10/-/N-wn8i6']
 # arrays.each do |array|

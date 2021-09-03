@@ -3,19 +3,19 @@
 </div>
 <p class="paragraph-style">On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span>
   <br><span class="event-title">You had an event, <span class="input-text-title"><%= event.occasion%></span>!</span>
-  <br>You bought <%= @child.first_name %> a
+  <br>You bought <%= @child.first_name.capitalize %> a
   <% if event.gift.present? %>
-    <span class="input-text"><%= event.gift.name %></span>.
+    <span class="input-text"><%= event.gift.name.capitalize %></span>.
   <% else %>
     <span class= "passed-dashed-box"> 🎁 </span>.
   <% end %>
   Then you went to
   <% if event.activity.present? %>
-    <span class="input-text"><%= event.activity.name %></span> for the activity.
+    <span class="input-text"><%= event.activity.name.capitalize %></span> for the activity.
   <% else %>
     <span class= "passed-dashed-box">🎢</span>.
   <% end %>
-    <br>If you haven't done so, there is no better way to store those memories with <%= child.first_name %> by uploading 📸 here!
+    <br>If you haven't done so, there is no better way to store those memories with <%= child.first_name.capitalize %> by uploading 📸 here!
 </p>
 <% if event.photos.any? %>
   <div class='w-100 overflow-hidden'>
