@@ -104,3 +104,9 @@ h4{
   font-size: 32px;
   line-height: 0;
 }
+
+.no-event-background {
+  background-image: asset-url('background-paint.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}

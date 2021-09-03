@@ -22,8 +22,7 @@ puts 'cleaning the DB...'
             last_name: "Nomura",
             middle_name: "James",
             parent: "Justin Nomura",
-            gender: "male",
-            hobby: "playing with Tomica cars",
+            tag_list: "Outdoor",
             birthday: '2019-09-03',
             user: user
         )
@@ -47,7 +46,9 @@ puts 'cleaning the DB...'
           event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
 end
 
-# puts "#{User.last.name} added to db"
+
+puts "#{User.last.name} added to db"
+
 
 # seeding gift, use below db
 # ===========================================================
@@ -55,7 +56,7 @@ end
 Gift.destroy_all
 puts "gifts db reset"
 
-ages = ['0---24-months', '2-years', '3---4-years', '5---7-years', '8---10-years', '0---24-months?start=16&sz=14', '2-years?start=16&sz=14', '3---4-years?start=16&sz=14', '5---7-years?start=16&sz=14', '8---10-years?start=16&sz=14']
+ages = ['0---24-months', '5---7-years', '8---10-years', '2-years?start=16&sz=14', '3---4-years?start=16&sz=14', '5---7-years?start=16&sz=14', '8---10-years?start=16&sz=14']
 ages.each do |age|
   url_product = "https://www.toysrus.com/#{age}/"
 
@@ -80,12 +81,11 @@ ages.each do |age|
       description: description,
       website_link: link,
       start_age: age.split('-')[0],
-      end_age: age.split('-')[1]
+      end_age: '+'
     )
     gift.photo.attach(io: gift_image, filename: 'gift.png', content_type: 'image/png')
   end
-
-  end
+end
 
 puts "#{Gift.count} gifts were created"
 
