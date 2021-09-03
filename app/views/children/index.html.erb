@@ -8,13 +8,13 @@
         </div>
         <div class="row" >
           <% @children.each do |child| %>
-            <div class="card-product my-4 col-6 col-md-5 col-lg-5">
+            <div class="card-products my-4 col-6 col-md-5 col-lg-5">
               <% if child.photo.attached? %>
                 <%= cl_image_tag child.photo.key%>
               <% else %>
                 <%= cl_image_tag "mm6cyjjx011lc0s281clou5yb45q" %>
               <% end %>
-              <div class="card-product-infos child-relative">
+              <div class="card-products-info child-relative">
                 <h2 class=''><%= child.full_name %></h2>
                 <div class="d-flex justify-content-between mt-2">
                   <div class ='pl-2'>
