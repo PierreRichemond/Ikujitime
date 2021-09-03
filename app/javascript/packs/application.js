@@ -28,6 +28,7 @@ import "bootstrap";
 // Internal imports, e.g:
 import { activeBtn } from "../channels/active_class";
 import { previewImageOnFileSelect } from "../components/photo_preview";
+import { previewUpdateImageOnFile } from "../components/edit_photo_preview";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -53,6 +54,7 @@ document.addEventListener('turbolinks:load', () => {
   })
   activeBtn();
   previewImageOnFileSelect();
+  previewUpdateImageOnFile();
 });
 
 import "controllers";
