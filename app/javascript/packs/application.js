@@ -27,6 +27,8 @@ import "bootstrap";
 
 // Internal imports, e.g:
 import { activeBtn } from "../channels/active_class";
+import { previewImageOnFileSelect } from "../components/photo_preview";
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -50,6 +52,7 @@ document.addEventListener('turbolinks:load', () => {
     navText: ["<i class='fa fa-chevron-left'></i>", "<i class='fa fa-chevron-right'></i>"]
   })
   activeBtn();
+  previewImageOnFileSelect();
 });
 
 import "controllers";

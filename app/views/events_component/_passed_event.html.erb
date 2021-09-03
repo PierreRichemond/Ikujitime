@@ -1,25 +1,21 @@
 <div class="upload-location">
     <%= render 'add_photos_form', event: event%>
 </div>
-<p class="paragraph-style">I Hope you and <span class="input-text" ><%= child.first_name %></span> had an amazing time!
-  <br>On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span> you had an event, <span class="input-text"><%= event.occasion%></span>!
-  <br>For <span class="input-text" ><%= child.first_name %></span> you bought a
+<p class="paragraph-style">On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span>
+  <br><span class="event-title">You had an event, <span class="input-text-title"><%= event.occasion%></span>!</span>
+  <br>You bought <%= @child.first_name %> a
   <% if event.gift.present? %>
     <span class="input-text"><%= event.gift.name %></span>.
   <% else %>
-    <%= link_to child_path(child, tab: 'gifts'), class: "passed-dashed-box" do %>
-    🎁
-    <% end %>.
+    <span class= "passed-dashed-box"> 🎁 </span>.
   <% end %>
   Then you went to
   <% if event.activity.present? %>
     <span class="input-text"><%= event.activity.name %></span> for the activity.
   <% else %>
-    <%= link_to child_path(child, tab: 'activities'), class: "passed-dashed-box" do %>
-    🎢
-    <% end %>.
+    <span class= "passed-dashed-box">🎢</span>.
   <% end %>
-    <br>If you haven't done so, there is no better way to store those memories with <span class="input-text" ><%= child.first_name %></span> by uploading 📸 them here!
+    <br>If you haven't done so, there is no better way to store those memories with <%= child.first_name %> by uploading 📸 here!
 </p>
 <% if event.photos.any? %>
   <div class='w-100 overflow-hidden'>

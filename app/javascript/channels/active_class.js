@@ -10,7 +10,7 @@ const activeBtn = () => {
     }
   });
   const activeBtn = document.querySelectorAll(".active-btn")
-  if (!activeBtn.length) {
+  if (!activeBtn.length && allButton) {
     allButton.classList.add('active-btn')
   }
 };

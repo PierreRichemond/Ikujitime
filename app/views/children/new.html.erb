@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-4 mx-auto">
+    <div class="col-xs-12 col-sm-5 col-sm-offset-4 mx-auto">
       <div class="form-login">
         <%= simple_form_for [@user, @child] do |f| %>
-        <%= image_tag "profile-photo1", class:"profile-image"%>
-          <%= f.input :photo, as: :file, input_html: { class: 'd-none' },
+          <div class="d-flex justify-content-center align-items-center p-2">
+            <div class="rounded-size">
+              <%= image_tag "profile-photo1", class:"profile-image rounded-circle", id: "photo-preview"%>
+            </div>
+          </div>
+          <%= f.input :photo, as: :file, input_html: { class: 'd-none', id: 'photo-input' },
             label_html: {class: "upload-photo" }, label: 'Upload Profile 📷 '  %>
           <%= f.input :first_name, class: 'mt-5' %>
           <%= f.input :middle_name, label: 'Middle name', placeholder: "optional" %>
