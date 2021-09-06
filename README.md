@@ -1,7 +1,7 @@
+
 # 📚 Memo-me
 
-Project description goes here
-
+<img width="1792" alt="Screen Shot 2021-09-06 at 18 19 35" src="https://user-images.githubusercontent.com/85116141/132194826-aeb2b975-1e1d-41e4-8317-0e3abb1511d8.png">
 <img width="1792" alt="Screen Shot 2021-09-06 at 18 19 45" src="https://user-images.githubusercontent.com/85116141/132193601-80c9ee02-41b5-47d1-80f7-248e5140eaea.png">
 <img width="1792" alt="Screen Shot 2021-09-06 at 18 20 08" src="https://user-images.githubusercontent.com/85116141/132193609-89c56364-e89a-4e9a-86fa-0b5e8f6389f8.png">
 <img width="1792" alt="Screen Shot 2021-09-06 at 18 20 42" src="https://user-images.githubusercontent.com/85116141/132193621-5fae0d62-b0d9-4956-b33a-dfb99bb6a5c8.png">
