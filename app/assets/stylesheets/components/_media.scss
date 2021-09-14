@@ -8,8 +8,17 @@
  height: fit-content;
   }
   .gone{
-  display: none;
-}
+    display: none;
+  }
+  .width-index{
+    width: 100%;
+  }
+  .sidenav{
+    width: 90vw;
+  }
+  .calendar-height{
+    margin-top: 30px;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
