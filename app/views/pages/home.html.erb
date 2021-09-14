@@ -1,12 +1,17 @@
 <div class="banner">
   <%= render 'shared/navbar_landingpage' %>
   <div class="text-container">
-    <div>
-      <div class="brand-container"><%= image_tag 'Memo-Me.png', class: "landingpage-logo" %><span class="brand-name">Memo-Me</span></div>
-      <h1>Plan events. Create memories.
-        <br>
-        <span class="landingpage-subheader">Stay connected with those precious little ones.</span>
-        <%= link_to "Start now!", "/children", class: 'cta-btn btn btn-success'%>
+    <div class='row'>
+      <div class="brand-container col col-12"><%= image_tag 'Memo-Me.png', class: "landingpage-logo" %></div>
+      <div class="brand-container col col-12 col-sm-12"><span class="brand-name">Memo-Me</span></div>
+      <div class="brand-container col col-12 col-sm-12">
+        <h1 class='pt-3'>Plan events. Create memories.
+          <br>
+          <span class="landingpage-subheader">Stay connected with those precious little ones.</span>
+          <div class='brand-container col col-12'>
+            <%= link_to "Start now!", "/children", class: 'cta-btn btn-lg btn-success mt-3 banner-button'%>
+          </div>
+        </div>
       </div>
     </div>
   </div>
