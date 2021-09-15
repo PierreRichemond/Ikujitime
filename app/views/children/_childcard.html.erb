@@ -1,12 +1,14 @@
 <div class="childcard-container">
   <div class="childcard">
-    <% if child.photo.attached?%>
-      <%= cl_image_tag child.photo.key, class: "avatar-bordered"%>
-    <% else %>
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg">
-    <% end %>
+    <div class='avatar-bordered'>
+      <% if child.photo.attached?%>
+        <%= cl_image_tag child.photo.key%>
+      <% else %>
+        <%= image_tag "profile-photo1.png", class:'avatar-bordered'%>
+      <% end %>
+    </div>
     <div class='child-card-text'>
-      <p><%= child.first_name.capitalize %>
+      <p><%= @child.first_name.capitalize %>
         <br>
         <%=@child.age%></p>
     </div>
