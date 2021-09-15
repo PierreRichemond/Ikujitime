@@ -20,7 +20,17 @@
     margin-top: 30px;
   }
   .paragraph-style{
-    display: grid;
+    display:grid;
+    padding-left: 0px;
+  }
+  .container-fluid{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+  }
+    .event{
+margin-left: 0px;
+padding: 0px;
   }
 }
 
@@ -40,6 +50,18 @@
   }
   .gone{
     display: none;
+  }
+   .container-fluid{
+    margin-left: 2em;
+    margin-right: 2em;
+    width: 95%;
+  }
+  .event{
+margin-left: 1em;
+padding: 15px;
+  }
+    .paragraph-style{
+    padding-left: 1em;
   }
 }
 
