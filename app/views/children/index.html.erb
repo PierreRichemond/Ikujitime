@@ -1,14 +1,14 @@
 <div class="index-child-container width-index">
   <div class="row">
     <div class="col-12 col-md-8 col-lg-8">
-      <div class="container width-children-cards pt-3 mb-5">
+      <div class="container width-children-cards">
         <h1 class='text-center index-h1'>Your children list</h1>
         <div class="d-flex justify-content-center">
           <a class="btn-child-show btn btn-primary my-1" href="/children/new"><span>Add Member <i class="fas fa-user-plus"></i></span></a>
         </div>
         <div class="row" >
           <% @children.each do |child| %>
-            <div class="card-products my-4 col-12 col-md-5 col-lg-5">
+            <div class="card-products my-4 col-6 col-md-5 col-lg-5">
               <% if child.photo.attached? %>
                 <%= cl_image_tag child.photo.key%>
               <% else %>
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="col-10 col-md-4 col-lg-4 sidenav mx-auto calendar-height mb-5">
+    <div class="col-12 col-md-4 col-lg-4 sidenav mx-auto calendar-height" style="overflow:auto">
       <h4 class="mt-4 mb-3">Event Calendar</h4>
       <div class="mb-5" id="events_calendar_index" style="padding-top: 30px" >
         <%# <% @children.each do |child| %>
@@ -63,7 +63,7 @@
               <h4 class="mb-4" style="text-align:center">Upcoming Events</h4>
               <div class="row " style='justify-content:center;'>
                 <% @all_events.sort_by(&:start_date).each do |event|%>
-                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event col col-12 col-lg-5'>
+                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event'>
                     <%= cl_image_tag event.child.photo.key, class: 'avatar' %>
                     <div class=''>
                       <p class='line-height text-center'><%= event.start_date.strftime("%B %d")%>,</p>
@@ -81,7 +81,7 @@
               <h4 class="mb-4" style="text-align:center">Past event without photos</h4>
               <div class="row " style='justify-content:center;'>
                 <% @all_past_events.sort_by(&:start_date).each do |event|%>
-                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event col col-12 col-lg-5'>
+                  <div class='d-flex justify-content-around align-items-center event-box text-center width-event'>
                     <%= cl_image_tag event.child.photo.key, class: 'avatar' %>
                     <div>
                       <p class='line-height'>⚠️</p>

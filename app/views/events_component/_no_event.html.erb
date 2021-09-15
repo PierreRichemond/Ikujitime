@@ -1,23 +1,23 @@
 <div class="paragraph-style" style="text-align: center; ">
-  <%# <script type="text/javascript">
+      <%# <script type="text/javascript">
           function showForm() {
             document.getElementById('formElement').style.display = 'block';
           }
       </script> %>
-  <div class="container ">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-sm-offset-4 mx-auto gap-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-4 mx-auto">
         <div class="form-login" style="box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5)">
           <div id="formElement">
             <p><span style="font-size: 32px;">Get started by creating <span class="input-text-title" ><%= @child.first_name.capitalize %></span> 's first event 📅 of the year!</span>
-              <%= simple_form_for [@child, @event_new] do |f| %>
-                <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
-                <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
-                <%= f.input :occasion, label: "Event Title", placeholder: "Birthday Party, Graduation, Christmas....." %>
-                <%= f.submit 'Schedule the event', class: 'btn btn-primary w-100', style: "border-radius: 20px; font-size: 24px;" %>
-              <% end %>
-            </div>
+            <%= simple_form_for [@child, @event_new] do |f| %>
+              <%= f.input :start_date,:label => "Start date", as: :string, required: true, input_html: {class: "datepicker"}%>
+              <%= f.input :end_date,:label => "End date", as: :string, required: true, input_html: {class: "datepicker"}%>
+              <%= f.input :occasion, label: "Event Title", placeholder: "Birthday Party, Graduation, Christmas....." %>
+              <%= f.submit 'Schedule the event', class: 'btn btn-primary w-100', style: "border-radius: 20px; font-size: 24px;" %>
+            <% end %>
           </div>
+        </div>
         </div>
       </div>
     </div>
