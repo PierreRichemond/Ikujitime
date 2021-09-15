@@ -1,17 +1,19 @@
 <div class="history-card">
   <% @events.where('extract(year from start_date) = ?', year).order(:start_date).reverse.each do |event| %>
-    <% if event.start_date > Time.now %>
-      <% if event.gift.present? && event.activity.present? %>
-        <%= render './events_component/activity_gift_chosen', event: event, child: @child %>
-      <% elsif event.activity.present? %>
-        <%= render './events_component/activity_chosen', event: event, child: @child %>
-      <% elsif event.gift.present? %>
-        <%= render './events_component/gift_chosen', event: event, child: @child %>
-      <% elsif event.present? %>
-        <%= render './events_component/event_created', event: event, child: @child %>
+    <div class="event w-100">
+      <% if event.start_date > Time.now %>
+        <% if event.gift.present? && event.activity.present? %>
+          <%= render './events_component/activity_gift_chosen', event: event, child: @child %>
+        <% elsif event.activity.present? %>
+          <%= render './events_component/activity_chosen', event: event, child: @child %>
+        <% elsif event.gift.present? %>
+          <%= render './events_component/gift_chosen', event: event, child: @child %>
+        <% elsif event.present? %>
+          <%= render './events_component/event_created', event: event, child: @child %>
+        <% end %>
+      <% else %>
+        <%= render './events_component/passed_event', event: event, child: @child%>
       <% end %>
-    <% else %>
-      <%= render './events_component/passed_event', event: event, child: @child%>
-    <% end %>
+</div>
   <% end %>
 </div>
