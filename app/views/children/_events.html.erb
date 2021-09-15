@@ -1,6 +1,6 @@
 <div class="container-fluid" style="height=100%">
   <div class="row">
-    <div class="col-12 col-md-3 col-lg-3 sidenav" style="overflow:auto">
+    <div class="col-12 col-md-3 col-lg-3 sidenav mb-5">
       <div class="mt-5">
         <% if @child.photo.attached? %>
           <%= cl_image_tag @child.photo.key, class: "avatar-xlarge m-3"%>
@@ -59,7 +59,7 @@
           <% end %>
         </div>
       <% else %>
-        <div class="event w-100 no-event-background">
+        <div class="event no-event-background">
           <%= render './events_component/no_event', child: @child %>
         </div>
       <% end %>

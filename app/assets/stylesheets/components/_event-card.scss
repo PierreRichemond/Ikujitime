@@ -1,6 +1,6 @@
 .event{
-  margin-bottom: 4em;
-  margin-left: 3em;
+  margin-bottom: 3em;
+  margin-left: 1em;
   padding: 15px;
   background-color: rgba(255, 255, 255, 0.6);
   // border: solid 2px rgba(0, 0, 0, 0.4);
@@ -86,7 +86,7 @@ h4{
   font-family: $story-font;
   font-weight: 700;
   font-size: 20px;
-  padding-left: 2em;
+  padding-left: 1em;
   a {
     color: #c9aca9;
     text-decoration: none;
@@ -100,8 +100,7 @@ h4{
 }
 
 .event-title {
-  margin-left: 9em;
-  font-size: 32px;
+  font-size: 28px;
   line-height: 0;
 }
 
@@ -109,4 +108,9 @@ h4{
   background-image: asset-url('background-paint.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.flex{
+  display:flex;
+  justify-content: space-between;
 }
