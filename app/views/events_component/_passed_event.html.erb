@@ -1,36 +1,28 @@
-<div class="event">
-  <div class='flex'>
-    <p class="paragraph-style">On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span></p>
-    <div class="upload-location">
-      <%= render 'add_photos_form', event: event%>
-    </div>
-  </div>
-  <div class='d-flex justify-content-center'>
-    <p class="paragraph-style"><span class="event-title">You had an event,</span>
-      <span class="input-text-title"><%= event.occasion%>!</span>
-    </p>
-  </div>
+<div class="upload-location">
+    <%= render 'add_photos_form', event: event%>
+</div>
+<p class="paragraph-style">On <span class="input-text" ><%= event.start_date.strftime("%B %d, %Y") %></span>
+  <br><span class="event-title">You had an event, <span class="input-text-title"><%= event.occasion%></span>!</span>
+  <br>You bought <%= @child.first_name.capitalize %> a
   <% if event.gift.present? %>
-    <p class="paragraph-style">You bought <%= @child.first_name.capitalize %> a</p>
     <span class="input-text"><%= event.gift.name.capitalize %></span>.
   <% else %>
-    <p class="paragraph-style">No gift for <%= @child.first_name.capitalize %>.😢 Don't forget to get one next time!</p>
+    <span class= "passed-dashed-box"> 🎁 </span>.
   <% end %>
+  Then you went to
   <% if event.activity.present? %>
-    <p class="paragraph-style">Then you went to</p>
-    <span class="input-text"><%= event.activity.name.capitalize %></span>.
+    <span class="input-text"><%= event.activity.name.capitalize %></span> for the activity.
   <% else %>
-    <p class="paragraph-style">No activity with <%= @child.first_name.capitalize %>.😢 Don't forget to get one next time!</p>
+    <span class= "passed-dashed-box">🎢</span>.
   <% end %>
-  <br>
-  <p class="paragraph-style">If you haven't done so, there is no better way to store those memories with <%= child.first_name.capitalize %> than uploading 📸 here!
-  </p>
-  <% if event.photos.any? %>
-    <div class='w-100 overflow-hidden'>
-      <div class="owl-carousel owl-theme align-self-center">
-        <% event.photos.each do |photo| %>
-          <%= cl_image_tag photo.key, width: '250', height: '250', object_fit: "cover"%>
-        <% end %>
-      </div>
+    <br>If you haven't done so, there is no better way to store those memories with <%= child.first_name.capitalize %> by uploading 📸 here!
+</p>
+<% if event.photos.any? %>
+  <div class='w-100 overflow-hidden'>
+    <div class="owl-carousel owl-theme align-self-center">
+      <% event.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, width: '250', height: '250', object_fit: "cover"%>
+      <% end %>
     </div>
-  <% end %>
+  </div>
+<% end %>
