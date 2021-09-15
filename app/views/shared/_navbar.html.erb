@@ -8,26 +8,31 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item">
+        <li class="nav-item github-add">
           <%= link_to "/children" ,"data-turbolinks":"false" do %>
-          <p><i class="fas fa-child"></i> My List</p>
+            <p><i class="fas fa-child"></i> My List</p>
           <% end %>
         </li>
-        <% if current_user.name %>
-        <li class="nav-item dropdown">
-          <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> <%= current_user.name %></p>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-            <p><i class="fas fa-sign-out-alt"></i>Log Out</p>
-          <% end %>
-          </div>
-        </li>
+        <% if current_user%>
+          <li class="nav-item dropdown">
+            <p class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i> <%= current_user.name %></p>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <p><i class="fas fa-sign-out-alt"></i>Log Out</p>
+              <% end %>
+            </div>
+          </li>
         <% end %>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
-    </ul>
-  </div>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 </div>
