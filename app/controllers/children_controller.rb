@@ -94,7 +94,8 @@ class ChildrenController < ApplicationController
   end
 
   def child_params
-    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday, :hobby, :parent, :photo, :gender, tag_list: [])
+    params.require(:child).permit(:first_name, :middle_name, :last_name, :birthday,
+                                  :hobby, :parent, :photo, :tab, :gender, tag_list: [])
   end
 
   def map_geocode
