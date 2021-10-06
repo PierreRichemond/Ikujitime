@@ -1,7 +1,7 @@
 <% if params[:tab] == 'activities' %>
   <div data-controller="build-map" data-build='true' ></div>
 <% end %>
-<div class="activity-tag">
+<div class = "activity-tag">
   <div>
     <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-primary tag-btn all-tag-btn" %>
     <% ActsAsTaggableOn::Tag.all.each do |tag| %>

@@ -12,7 +12,7 @@ puts 'cleaning the DB...'
     user = User.create!(
           email: "dankr59@gmail.com",
           password: '123123',
-          name: 'Daniel Rabottini',
+          name: 'Daniel Rabottini'
         )
         # user.photo.attach(io: file0, filename: 'user.png', content_type: 'image/png')
 
@@ -33,7 +33,7 @@ puts 'cleaning the DB...'
             start_date: '2020-09-03 10:00',
             end_date: '2020-09-03 17:00',
             occasion: 'Birthday Party',
-            child: child,
+            child: child
             # gift_id: rand(Gift.last.id-79..Gift.last.id),
           )
           file1 = URI.open('https://images.unsplash.com/photo-1583875762487-5f8f7c718d14?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')
@@ -46,9 +46,7 @@ puts 'cleaning the DB...'
           event0.photos.attach(io: file4, filename: 'event4.png', content_type: 'image/png')
 end
 
-
 puts "#{User.last.name} added to db"
-
 
 # seeding gift, use below db
 # ===========================================================
