@@ -24,10 +24,6 @@ class ChildrenController < ApplicationController
       end
     end
 
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show
@@ -40,14 +36,18 @@ class ChildrenController < ApplicationController
       @event = Event.find(params[:event_id])
     end
     @years = @child.events.map { |event| event.start_date.year }.uniq.sort.reverse
+    activity_tagged
     map_geocode
+
     respond_to do |format|
-      if params[:query].present?
+        format.json do
+          render json: { activities: @activities,
+                        json_markers: @markers,
+                        tag: @tag }
+                      end
+                      break
         format.js { render partial: 'search_result.js.erb' }
-      else
         format.html
-        format.js
-      end
     end
   end
 
@@ -119,6 +119,7 @@ class ChildrenController < ApplicationController
 
   def activity_tagged
     if params[:tag].present?
+      @tag = params[:tag]
       @activities = Activity.tagged_with(params[:tag])
     else
       @activities = Activity.all
