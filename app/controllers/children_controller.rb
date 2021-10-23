@@ -2,6 +2,8 @@ class ChildrenController < ApplicationController
   before_action :set_children, only: [:show, :edit, :update, :destroy]
   before_action :activity_tagged, only: [:show]
 
+  respond_to :html, :json, :js
+
   def index
     @children = policy_scope(Child).where(user: current_user)
     @events = Event.where(child: @child)
@@ -40,15 +42,18 @@ class ChildrenController < ApplicationController
     map_geocode
 
     respond_to do |format|
+      if params[:tag] || params[:query]
         format.json do
           render json: { activities: @activities,
                         json_markers: @markers,
                         tag: @tag }
                       end
-                      break
         format.js { render partial: 'search_result.js.erb' }
+      else
         format.html
+      end
     end
+
   end
 
   def new
