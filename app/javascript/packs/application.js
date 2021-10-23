@@ -10,6 +10,7 @@ import "channels"
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel';
 import { initFlatpickr } from "../plugins/flatpickr";
+import "controllers";
 
 initFlatpickr();
 Rails.start()
@@ -55,6 +56,39 @@ document.addEventListener('turbolinks:load', () => {
   activeBtn();
   previewImageOnFileSelect();
   previewUpdateImageOnFile();
-});
 
-import "controllers";
+  const anchors = document.querySelector(".activity-tag").querySelectorAll("a")
+  console.log(anchors)
+
+  function getUrl(event) {
+    const url = event.target.href
+    console.log(url)
+    console.log(event)
+    fetch(url, {
+      method: 'GET',
+      headers: { 'Accept': "application/json", 'Content-Type': 'application/json' }
+    })
+      .then(response => JSON.stringify(response))
+      .then((data) => {
+        // data = JSON.parse(data)
+        console.log(data)
+
+
+        // const activeTag = document.querySelector('.active-btn')
+        // activeTag.classList.remove("active-btn")
+        // const tag = document.getElementById(`tag-${data.tag}`)
+        // tag.classList.add("active-btn")
+        // // debugger
+        // document.getElementById('image').setAttribute('src', data.image)
+        // console.log(document.getElementById('image'))
+
+        // document.getElementById('map').setAttribute('data-markers', JSON.stringify(data.json_markers))
+        // initMapbox();
+      });
+  }
+
+  anchors.forEach(link => {
+    link.addEventListener('click', getUrl);
+  })
+
+});

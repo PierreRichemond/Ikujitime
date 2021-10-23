@@ -1,11 +1,14 @@
 <% if params[:tab] == 'activities' %>
   <div data-controller="build-map" data-build='true' ></div>
 <% end %>
-<div class = "activity-tag">
+<div class = "activity-tag" data-controller="actualize-tag">
   <div>
     <%= link_to 'All', child_path(@child, tab: 'activities'), class: "btn btn-primary tag-btn all-tag-btn" %>
     <% ActsAsTaggableOn::Tag.all.each do |tag| %>
-      <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-primary tag-btn" %>
+      <%= link_to tag, child_path(@child, tab: 'activities', tag: tag.name), class: "btn btn-primary tag-btn", id:"tag-#{tag}",
+                      data: {
+                      action: 'click->actualize-tag#send'
+                    } %>
     <% end %>
   </div>
   <%= render 'childcard', child: @child %>
